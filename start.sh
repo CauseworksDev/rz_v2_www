@@ -13,7 +13,7 @@ function restartContainers() {
 
 function rebuildDocker() {
     echo "Stop and Remove current ${DOCKER_CONTAINER_NAME} docker container..."
-#    docker rm -f $(docker ps -aqf name="${DOCKER_CONTAINER_NAME}")
+    docker rm -f $(docker ps -aqf name="${DOCKER_CONTAINER_NAME}")
 
     if [[ "$(docker images -q ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} 2> /dev/null)" != "" ]]; then
         echo "Remove ${DOCKER_CONTAINER_NAME} docker IMAGE!!.."
