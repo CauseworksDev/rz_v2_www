@@ -70,12 +70,7 @@ app.use('/api/recycle/v1.0', popupRecycle);
 app.use('/api/logs/v1.0', logs);
 
 
-
-//어드민 페이지 라우팅
-const officeRouter = require('./config/app.setting/office.setting')
-officeRouter.set(app)
-
-//유저 페이지 라우팅
+//프론트 페이지 라우팅
 const pageRouter = require('./config/app.setting/page.setting')
 pageRouter.set(app)
 

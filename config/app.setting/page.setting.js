@@ -1,10 +1,10 @@
-const officePage = require("../../src/router/user/gpjw.page");
+const officePage = require("../../src/router/user/rz.page");
 
 
 
 exports.set = app =>{
     /**
-     * admin office url설정*/
+     * userPage url설정*/
     app.use('/', officePage);
 
 
