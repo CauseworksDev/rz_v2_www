@@ -23,11 +23,11 @@ exports.set = () => {
             urlConfig.token_access= '444D5714495683BA865BBA180C48B3E0'
             urlConfig.SERVER = "local"
             break;
-        case "prod":
+        case "live":
             urlConfig.API_URL = ""
             urlConfig.WEB_URL = ""
             urlConfig.token_access= '60A77AED4AE74DD67CFF13D5E2C934F0'
-            urlConfig.SERVER = "prod"
+            urlConfig.SERVER = "live"
             break;
         default:
             urlConfig.API_URL = ""
