@@ -51,55 +51,34 @@ router.get('/main/:language', async function(req, res, next) {
         personnel : 0 ,
         dateLast : '*2023년 8월 기준' ,
     }
-    await request({
-        url: 'http://127.0.0.1:5225/api/recycle/v1.0/pet',
-        method: 'GET',
-        qs: {}
-    }, await function (err, res1, body) {
+    if (userSession.language){
+        res.render(`user/main/main${userSession.language}`, {userSession:userSession,recycleInfo:recycleInfo});
+    }else{
+        res.render(`user/main/mainKr`, {userSession:userSession,recycleInfo:recycleInfo});
+    }
 
-        if(err){
-
-        }else{
-
-            if(body){
-                // console.log(body)
-                let apiResult = JSON.parse(body)
-                recycleInfo.weightPet = parseInt(apiResult.data.items[0].weightPet)
-                let updateDate = new Date(apiResult.data.items[0].dateLast);
-               recycleInfo.dateLast = "*"+leadingZeros(updateDate.getFullYear(), 4) + '년 ' + leadingZeros(updateDate.getMonth() + 1, 2)+ '월 기준';
-            }
-            request({
-                url: 'http://127.0.0.1:5225/api/recycle/v1.0/total',
-                method: 'GET',
-                qs: {}
-            }, function (err, res1, body) {
-
-                if(err){
-
-                }else{
-
-                    if(body){
-                        // console.log(body)
-                        let apiResult = JSON.parse(body)
-                        recycleInfo.activeCount = apiResult.data.items[0].activeCount
-                        recycleInfo.weightCoast = parseInt(apiResult.data.items[0].weightCoast)
-                        recycleInfo.personnel = apiResult.data.items[0].personnel
-
-
-                    }
-                    // console.log(recycleInfo)
-                    if (userSession.language){
-                        res.render(`user/main/main${userSession.language}`, {userSession:userSession,recycleInfo:recycleInfo});
-                    }else{
-                        res.render(`user/main/mainKr`, {userSession:userSession,recycleInfo:recycleInfo});
-                    }
-
-                }
-
-            });
-        }
-
-    });
+    // 백단에서 api 요청 하는 법
+    // await request({
+    //     url: 'http://127.0.0.1:5225/api/recycle/v1.0/pet',
+    //     method: 'GET',
+    //     qs: {}
+    // }, await function (err, res1, body) {
+    //
+    //     if(err){
+    //
+    //     }else{
+    //
+    //         if(body){
+    //             // console.log(body)
+    //             let apiResult = JSON.parse(body)
+    //             recycleInfo.weightPet = parseInt(apiResult.data.items[0].weightPet)
+    //             let updateDate = new Date(apiResult.data.items[0].dateLast);
+    //            recycleInfo.dateLast = "*"+leadingZeros(updateDate.getFullYear(), 4) + '년 ' + leadingZeros(updateDate.getMonth() + 1, 2)+ '월 기준';
+    //         }
+    //
+    //     }
+    //
+    // });
 
 
     // console.log(req.query)
