@@ -61,12 +61,14 @@ const contentRouter = require('./src/router/api/content.router');
 const bannerRouter = require('./src/router/api/banner.router');
 const popupRouter = require('./src/router/api/popup.router');
 const popupRecycle = require('./src/router/api/recycle.router');
+const donationRouter = require('./src/router/api/donation.router');
 const logs = require('./src/router/api/logs.router');
 
 app.use('/api/content/v1.0', contentRouter);
 app.use('/api/banner/v1.0', bannerRouter);
 app.use('/api/popup/v1.0', popupRouter);
 app.use('/api/recycle/v1.0', popupRecycle);
+app.use('/api/donation/v1.0', donationRouter);
 app.use('/api/logs/v1.0', logs);
 
 
