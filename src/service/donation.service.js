@@ -18,7 +18,7 @@ addLgChemDonation = async (campaignId,rzPoint) => {
         let [rows] = []
 
         sqlQuery = queryService.addLgChemDonation(campaignId,rzPoint);
-
+        console.log(moment('YYYY-MM-DD HH:mm:ss'));
         [rows] = await connection.query(sqlQuery);
         console.log(sqlQuery)
         await connection.commit();
