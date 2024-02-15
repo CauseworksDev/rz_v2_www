@@ -18,7 +18,7 @@ addLgChemDonation = async (campaignId,rzPoint) => {
         let [rows] = []
 
         sqlQuery = queryService.addLgChemDonation(campaignId,rzPoint);
-        console.log(moment('YYYY-MM-DD HH:mm:ss'));
+        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
         [rows] = await connection.query(sqlQuery);
         console.log(sqlQuery)
         await connection.commit();
