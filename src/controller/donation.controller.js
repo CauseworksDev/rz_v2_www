@@ -96,10 +96,42 @@ donation = async (req, res, next) => {
     }
 
 }
+donationTest = async (req, res, next) => {
+    let result = {}
+    let data = {}
+    let campaignId = (!req.body.campaignId) ? "" : parseInt(req.body.campaignId);
+    let memberId = (!req.body.memberId) ? "" : parseInt(req.body.memberId);
+    let rzPoint = (!req.body.rz) ? "" : (req.body.rz);
+
+    try {
+        //도네이션 테스트
+        const resData = await donationService.donationTest(campaignId,memberId,rzPoint)
+
+        result = {
+            resultCode : responseCommon.RESULT.SUCCESS.code,
+            resultMsg : responseCommon.RESULT.SUCCESS.string
+        };
+        data = resData;
+        responseCommon.sendResponseResult(result, data, res);
+
+    } catch (err) {
+        console.log('donation:: ', err);
+        responseCommon.sendResponseFail(err.code, res);
+        result = {
+            resultCode : err.code,
+            resultMsg : err.message
+        };
+    }
+
+}
 module.exports = {
     missionDonation,
     messageDonation,
     donation,
+
+
+    
+    donationTest,
 
 
 

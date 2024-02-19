@@ -398,11 +398,53 @@ checkAdditionalPoints = async (campaignId,memberId,missionId,rzPoint) => {
         throw err
     }
 }
+
+
+donationTest = async (campaignId,memberId,rzPoint) => {
+
+    const connection = await dbApp.getConnection(async conn => conn);
+    try {
+        await connection.beginTransaction();
+        let sqlQuery = ``;
+        let [rows] = []
+        let [campaign] = []
+        let [subCampaign] = []
+        let [member] = []
+        let failReason = ''
+        sqlQuery = donationQuery.selectDonationCampaign(campaignId);
+        [campaign] = await connection.query(sqlQuery);
+        let apiStatus = false;
+
+
+        await connection.commit();
+        connection.release();
+        let returnDetail = {
+            result : 'success',
+            failReason : campaign
+        }
+        if(apiStatus){
+            return returnDetail;
+        }else{
+            returnDetail.result = 'false'
+            return returnDetail;
+        }
+
+
+    } catch (err) {
+        await connection.rollback();
+        connection.release();
+        throw err
+    }
+}
 module.exports = {
     missionDonation ,
     messageDonation ,
     donation ,
+
     setTotalAmount,
     checkAdditionalPoints,
+
+
+    donationTest ,
 
 }

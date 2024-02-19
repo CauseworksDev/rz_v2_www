@@ -9,4 +9,9 @@ router.post('/', Controller.donation); // 도네이션
 
 
 
+router.post('/test', Controller.donationTest); // 도네이션
+
+
+
+
 module.exports = router;
