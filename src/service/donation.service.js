@@ -37,6 +37,7 @@ activityDonation = async (campaignId,memberId,rzPoint) => {
                     apiStatus = true;
                     // 잔액만큼만 기부
                     remainRzPoint = remainRzPoint / 2;
+                    nowRzPoint =remainRzPoint
                 }
             }else{
                 apiStatus = true;
@@ -54,7 +55,7 @@ activityDonation = async (campaignId,memberId,rzPoint) => {
                     } else {
                         donorEmail = member[0].snsEmailAddress;
                     }
-                    let reason = "미션 참여로 " + remainRzPoint + "원이 기부되었습니다!";
+                    let reason = "미션 참여로 " + nowRzPoint + "원이 기부되었습니다!";
                     if(reason.length > 300) {
                         reason = reason.substring(0, 300);
                     }
@@ -68,12 +69,12 @@ activityDonation = async (campaignId,memberId,rzPoint) => {
                         articleId : campaignId,
                         donorName : donorName,
                         donorEmail : donorEmail,
-                        rzPoint : remainRzPoint,
+                        rzPoint : nowRzPoint,
                     }
                     sqlQuery = donationQuery.insertDonatedPoint(donated);
                     [rows] = await connection.query(sqlQuery);
                     if(campaign[0].lgChemDonationYN == 0){
-                        sqlQuery = donationQuery.addLgChemDonation(campaignId,remainRzPoint);
+                        sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
                         console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
                         [rows] = await connection.query(sqlQuery);
                     }
