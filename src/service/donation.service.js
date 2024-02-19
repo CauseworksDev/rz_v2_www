@@ -2,6 +2,7 @@ const db = require('../middleware/db.pool');
 const dbApp = db.appPool();
 const donationQuery = require('../query/donation.query');
 const memberQuery = require('../query/member.query');
+const missionService = require('../service/mission.service');
 const fs = require('fs');
 const request = require('request');;
 const AWS = require('aws-sdk');
@@ -9,22 +10,94 @@ const awsModule = require('../module/Aws.module');
 const moment = require("moment");
 const utilCreateId = require('../middleware/createId');
 
-addLgChemDonation = async (campaignId,rzPoint) => {
+activityDonation = async (campaignId,memberId,rzPoint) => {
 
     const connection = await dbApp.getConnection(async conn => conn);
     try {
         await connection.beginTransaction();
         let sqlQuery = ``;
         let [rows] = []
+        let [campaign] = []
 
-        sqlQuery = donationQuery.addLgChemDonation(campaignId,rzPoint);
-        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
-        [rows] = await connection.query(sqlQuery);
-        console.log(sqlQuery)
+        sqlQuery = donationQuery.selectDonationCampaign(campaignId);
+        [campaign] = await connection.query(sqlQuery);
+        let apiStatus = false;
+        let failReason = ''
+        let remainRzPoint = 0
+        if(campaign.length == 1){
+            let targetAmount = campaign[0].maxTargetAmount;
+            let totalAmount = await setTotalAmount(campaign[0])
+            let nowRzPoint = rzPoint
+
+            if(targetAmount*1 < totalAmount + (2 * nowRzPoint)) {
+                remainRzPoint = (targetAmount*1 - totalAmount*1);
+                if(remainRzPoint <= 0) {
+                    failReason = "There are no donation spaces left for the campaign."
+                }else{
+                    apiStatus = true;
+                    // 잔액만큼만 기부
+                    remainRzPoint = remainRzPoint / 2;
+                }
+            }else{
+                apiStatus = true;
+            }
+
+            if(apiStatus){
+                sqlQuery = memberQuery.selectMember(memberId);
+                [member] = await connection.query(sqlQuery);
+                if(member.length == 1) {
+                    let donorName = "";
+                    let donorEmail = "";
+                    donorName = member[0].nickName;
+                    if(member[0].joinChannel == 1) {
+                        donorEmail = member[0].accountName;
+                    } else {
+                        donorEmail = member[0].snsEmailAddress;
+                    }
+                    let reason = "미션 참여로 " + remainRzPoint + "원이 기부되었습니다!";
+                    if(reason.length > 300) {
+                        reason = reason.substring(0, 300);
+                    }
+
+                    let donated = {
+                        campaignId : campaignId,
+                        memberId : memberId,
+                        donationType : 1,
+                        donationReason : reason,
+                        articleType : 2,
+                        articleId : campaignId,
+                        donorName : donorName,
+                        donorEmail : donorEmail,
+                        rzPoint : remainRzPoint,
+                    }
+                    sqlQuery = donationQuery.insertDonatedPoint(donated);
+                    [rows] = await connection.query(sqlQuery);
+                    if(campaign[0].lgChemDonationYN == 0){
+                        sqlQuery = donationQuery.addLgChemDonation(campaignId,remainRzPoint);
+                        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                        [rows] = await connection.query(sqlQuery);
+                    }
+
+                }else{
+                    apiStatus = false;
+                }
+
+            }
+        }
+
         await connection.commit();
         connection.release();
 
-        return true;
+        let returnDetail = {
+            result : 'success',
+            failReason : failReason
+        }
+        if(apiStatus){
+            return returnDetail;
+        }else{
+            returnDetail.result = 'false'
+            return returnDetail;
+        }
 
     } catch (err) {
         await connection.rollback();
@@ -39,9 +112,9 @@ setTotalAmount = function (campaign) {
     let totalDonatedByMember1 = parseInt(campaign.totalDonatedAmountBymember1);		// 개인 기부(활동 기부)
     let totalDonatedByMember3 = parseInt(campaign.totalDonatedAmountBymember3);		// 개인 기부(포인트 기부)
 
-    let totalAmount = 0
+    let totalAmount = lgChemDonation+lgChemDonationAddition+totalDonatedByCompany+totalDonatedByMember1+totalDonatedByMember3
 
-    return totalAmount = lgChemDonation+lgChemDonationAddition+totalDonatedByCompany+totalDonatedByMember1+totalDonatedByMember3
+    return totalAmount
 }
 
 donation = async (campaignId,memberId,rzPoint) => {
@@ -57,7 +130,6 @@ donation = async (campaignId,memberId,rzPoint) => {
         let failReason = ''
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
         [campaign] = await connection.query(sqlQuery);
-        console.log(campaign)
         let apiStatus = false;
         if(campaign.length == 1){
             let nowDate = moment().unix()
@@ -66,7 +138,7 @@ donation = async (campaignId,memberId,rzPoint) => {
 
             console.log(nowDate , startDate , endDate)
             if(startDate <= nowDate && nowDate < endDate){
-                let targetAmount = campaign.maxTargetAmount;
+                let targetAmount = campaign[0].maxTargetAmount;
                 let totalAmount = await setTotalAmount(campaign[0])
                 let nowRzPoint = rzPoint
                 let remainRzPoint = 0
@@ -83,12 +155,12 @@ donation = async (campaignId,memberId,rzPoint) => {
                     nowRzPoint -= remainRzPoint
 
 
-                    failReason = "Doesn't fit within campaign period"
+                    failReason = "기부 캠페인 목표금액 도달"
                 }else {
 
                     sqlQuery = memberQuery.selectMember(memberId);
                     [member] = await connection.query(sqlQuery);
-                    console.log(member)
+
                     let donorName = "";
                     let donorEmail = "";
                     if(member.length == 1) {
@@ -181,9 +253,54 @@ donation = async (campaignId,memberId,rzPoint) => {
         throw err
     }
 }
+checkAdditionalPoints = async (campaignId,memberId,missionId,rzPoint) => {
+
+    const connection = await dbApp.getConnection(async conn => conn);
+    try {
+        await connection.beginTransaction();
+        let sqlQuery = ``;
+        let [rows] = []
+        let [campaign] = []
+        let [mission] = []
+        let [member] = []
+        let joinCount = 0
+        let failReason = ''
+        sqlQuery = missionService.selectMission(campaignId);
+        [mission] = await connection.query(sqlQuery);
+
+        joinCount = await missionService.selectMissionParticipationMemberCount(missionId, memberId, 0)
+        let rzPoint = mission[0].rzPointPer
+        let donationPer = mission[0].donationPointPer
+        let extraRzPeriod = mission[0].extraRzPeriod;
+        let extraRzPoint = mission[0].extraRzPoint;
+        let maxParticipationNum = mission[0].maxParticipationNum;
+        if(joinCount > 0 && extraRzPeriod > 0 && extraRzPoint > 0 && joinCount % extraRzPeriod == 0) {
+            // 추가 지급 시기
+            rzPoint += extraRzPoint;
+        }
+        if (maxParticipationNum == joinCount){
+            // 맥스 참여 카운트와 유저 참여 카운트가 같을때 완료 포인트 지급 할게 있으면 추가
+            let retrievalCount = await missionService.selectMissionRetrievalCount(missionId, memberId);
+            if(retrievalCount == 0){
+                rzPoint += mission[0].totalRzPoint;
+            }
+
+        }
+        await connection.commit();
+        connection.release();
+
+        return rzPoint
+
+    } catch (err) {
+        await connection.rollback();
+        connection.release();
+        throw err
+    }
+}
 module.exports = {
-    addLgChemDonation ,
+    activityDonation ,
     donation ,
     setTotalAmount,
+    checkAdditionalPoints,
 
 }
