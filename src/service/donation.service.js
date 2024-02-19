@@ -10,7 +10,7 @@ const awsModule = require('../module/Aws.module');
 const moment = require("moment");
 const utilCreateId = require('../middleware/createId');
 
-activityDonation = async (campaignId,memberId,rzPoint) => {
+missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
 
     const connection = await dbApp.getConnection(async conn => conn);
     try {
@@ -55,7 +55,9 @@ activityDonation = async (campaignId,memberId,rzPoint) => {
                     } else {
                         donorEmail = member[0].snsEmailAddress;
                     }
-                    let reason = "미션 참여로 " + nowRzPoint + "원이 기부되었습니다!";
+
+
+                    let reason = '미션 참여로 ' + nowRzPoint + "원이 기부되었습니다!";
                     if(reason.length > 300) {
                         reason = reason.substring(0, 300);
                     }
@@ -66,7 +68,105 @@ activityDonation = async (campaignId,memberId,rzPoint) => {
                         donationType : 1,
                         donationReason : reason,
                         articleType : 2,
-                        articleId : campaignId,
+                        articleId : missionId,
+                        donorName : donorName,
+                        donorEmail : donorEmail,
+                        rzPoint : nowRzPoint,
+                    }
+                    sqlQuery = donationQuery.insertDonatedPoint(donated);
+                    [rows] = await connection.query(sqlQuery);
+                    if(campaign[0].lgChemDonationYN == 0){
+                        sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
+                        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                        [rows] = await connection.query(sqlQuery);
+                    }
+
+                }else{
+                    apiStatus = false;
+                }
+
+            }
+        }
+
+        await connection.commit();
+        connection.release();
+
+        let returnDetail = {
+            result : 'success',
+            failReason : failReason
+        }
+        if(apiStatus){
+            return returnDetail;
+        }else{
+            returnDetail.result = 'false'
+            return returnDetail;
+        }
+
+    } catch (err) {
+        await connection.rollback();
+        connection.release();
+        throw err
+    }
+}
+messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
+
+    const connection = await dbApp.getConnection(async conn => conn);
+    try {
+        await connection.beginTransaction();
+        let sqlQuery = ``;
+        let [rows] = []
+        let [campaign] = []
+
+        sqlQuery = donationQuery.selectDonationCampaign(campaignId);
+        [campaign] = await connection.query(sqlQuery);
+        let apiStatus = false;
+        let failReason = ''
+        let remainRzPoint = 0
+        if(campaign.length == 1){
+            let targetAmount = campaign[0].maxTargetAmount;
+            let totalAmount = await setTotalAmount(campaign[0])
+            let nowRzPoint = rzPoint
+
+            if(targetAmount*1 < totalAmount + (2 * nowRzPoint)) {
+                remainRzPoint = (targetAmount*1 - totalAmount*1);
+                if(remainRzPoint <= 0) {
+                    failReason = "There are no donation spaces left for the campaign."
+                }else{
+                    apiStatus = true;
+                    // 잔액만큼만 기부
+                    remainRzPoint = remainRzPoint / 2;
+                    nowRzPoint =remainRzPoint
+                }
+            }else{
+                apiStatus = true;
+            }
+
+            if(apiStatus){
+                sqlQuery = memberQuery.selectMember(memberId);
+                [member] = await connection.query(sqlQuery);
+                if(member.length == 1) {
+                    let donorName = "";
+                    let donorEmail = "";
+                    donorName = member[0].nickName;
+                    if(member[0].joinChannel == 1) {
+                        donorEmail = member[0].accountName;
+                    } else {
+                        donorEmail = member[0].snsEmailAddress;
+                    }
+
+
+                    let reason = '메시지 확인으로 ' + nowRzPoint + "원이 기부되었습니다!";
+                    if(reason.length > 300) {
+                        reason = reason.substring(0, 300);
+                    }
+
+                    let donated = {
+                        campaignId : campaignId,
+                        memberId : memberId,
+                        donationType : 1,
+                        donationReason : reason,
+                        articleType : 1,
+                        articleId : messageId,
                         donorName : donorName,
                         donorEmail : donorEmail,
                         rzPoint : nowRzPoint,
@@ -299,7 +399,8 @@ checkAdditionalPoints = async (campaignId,memberId,missionId,rzPoint) => {
     }
 }
 module.exports = {
-    activityDonation ,
+    missionDonation ,
+    messageDonation ,
     donation ,
     setTotalAmount,
     checkAdditionalPoints,
