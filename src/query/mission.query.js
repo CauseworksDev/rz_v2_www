@@ -13,8 +13,8 @@ selectMission = (bTotalCount, missionId, memberId, myMission, categoryId, keywor
 
     if (memberId) {
         missionParticipation = `
-        (SELECT COUNT(*) FROM MISSION_PARTICIPATION MP
-				WHERE MISSION_ID = A.MISSION_ID AND MEMBER_ID = #{memberId} AND DATE_FORMAT(MP.REG_DTIME, '%Y%m%d') = DATE_FORMAT(now(), '%Y%m%d') ) todayApplyCnt`;
+        , (SELECT COUNT(*) FROM MISSION_PARTICIPATION MP
+				WHERE MISSION_ID = A.MISSION_ID AND MEMBER_ID = ${memberId} AND DATE_FORMAT(MP.REG_DTIME, '%Y%m%d') = DATE_FORMAT(now(), '%Y%m%d') ) as todayApplyCnt`;
 
         if (exceptPart == 1) {
             whereExists = `AND NOT EXISTS (
@@ -45,15 +45,15 @@ selectMission = (bTotalCount, missionId, memberId, myMission, categoryId, keywor
 				)`
     }
     if (sort == 1) {
-        whereSort = `ORDER BY SORT_DTIME DESC, A.MISSION_ID DESC`
+        whereSort = `ORDER BY sortDtime DESC, A.MISSION_ID DESC`
     } else if (sort == 2) {
-        whereSort = `ORDER BY (SELECT COUNT(*) FROM \`MISSION_PARTICIPATION\` WHERE MISSION_ID = A.MISSION_ID) DESC, SORT_DTIME DESC, A.MISSION_ID DESC`
+        whereSort = `ORDER BY (SELECT COUNT(*) FROM \`MISSION_PARTICIPATION\` WHERE MISSION_ID = A.MISSION_ID) DESC, sortDtime DESC, A.MISSION_ID DESC`
     } else if (sort == 3) {
-        whereSort = `ORDER BY (SELECT COUNT(*) FROM \`MEMBER_LIKE\` WHERE LIKE_TYPE = 2 AND ARTICLE_ID = A.MISSION_ID) DESC, SORT_DTIME DESC, A.MISSION_ID DESC`
+        whereSort = `ORDER BY (SELECT COUNT(*) FROM \`MEMBER_LIKE\` WHERE LIKE_TYPE = 2 AND ARTICLE_ID = A.MISSION_ID) DESC, sortDtime DESC, A.MISSION_ID DESC`
     } else if (sort == 4) {
         whereSort = `ORDER BY IFNULL(ORDER_BY, 999999), SORT_DTIME DESC, A.MISSION_ID DESC`
     } else {
-        whereSort = `ORDER BY SORT_DTIME DESC, A.MISSION_ID DESC`
+        whereSort = `ORDER BY sortDtime DESC, A.MISSION_ID DESC`
     }
     if (bTotalCount === true) {
         select = `COUNT(*) AS totalCount`;
@@ -101,7 +101,7 @@ selectMission = (bTotalCount, missionId, memberId, myMission, categoryId, keywor
         SELECT ${select}
         FROM MISSION A
                  LEFT JOIN CATEGORY B ON (B.CATEGORY_TYPE = 2 AND A.CATEGORY = B.CATEGORY_ID)
-        WHERE A.REGST_YN = 1
+        WHERE 1=1
             ${whereMyMission} 
             ${whereMissionId} 
             ${whereCategory} 

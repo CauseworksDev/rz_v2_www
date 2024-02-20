@@ -106,7 +106,7 @@ insertDonatedPoint = (donated
                 '${donated.donationType}',
                 '${donated.donorName}',
                 '${donated.donorEmail}',
-                '${donated.donationReason}',
+                "${donated.donationReason}",
                 '${donated.articleType}',
                 '${donated.articleId}',
                 '${donated.rzPoint}',

@@ -2,6 +2,7 @@ const db = require('../middleware/db.pool');
 const dbApp = db.appPool();
 const donationQuery = require('../query/donation.query');
 const memberQuery = require('../query/member.query');
+const messageQuery = require('../query/message.query');
 const missionService = require('../service/mission.service');
 const fs = require('fs');
 const request = require('request');;
@@ -9,6 +10,7 @@ const AWS = require('aws-sdk');
 const awsModule = require('../module/Aws.module');
 const moment = require("moment");
 const utilCreateId = require('../middleware/createId');
+const missionQuery = require("../query/mission.query");
 
 missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
 
@@ -18,6 +20,9 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         let sqlQuery = ``;
         let [rows] = []
         let [campaign] = []
+        let [mission] = []
+        sqlQuery = missionQuery.selectMission(false,missionId,memberId,"","","","","","",0,1);
+        [mission] = await connection.query(sqlQuery);
 
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
         [campaign] = await connection.query(sqlQuery);
@@ -57,7 +62,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
                     }
 
 
-                    let reason = '미션 참여로 ' + nowRzPoint + "원이 기부되었습니다!";
+                    let reason = mission[0].title+' 미션 참여로 ' + nowRzPoint + "원이 기부되었습니다!";
                     if(reason.length > 300) {
                         reason = reason.substring(0, 300);
                     }
@@ -116,7 +121,11 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
         let sqlQuery = ``;
         let [rows] = []
         let [campaign] = []
-
+        let [message] = []
+        sqlQuery = messageQuery.selectMessage(false,messageId,memberId,"","","","","",0,1);
+        [message] = await connection.query(sqlQuery);
+        console.log(sqlQuery);
+        console.log(message);
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
         [campaign] = await connection.query(sqlQuery);
         let apiStatus = false;
@@ -155,7 +164,7 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
                     }
 
 
-                    let reason = '메시지 확인으로 ' + nowRzPoint + "원이 기부되었습니다!";
+                    let reason = message[0].title+' 메시지 확인으로 ' + nowRzPoint + "원이 기부되었습니다!";
                     if(reason.length > 300) {
                         reason = reason.substring(0, 300);
                     }
