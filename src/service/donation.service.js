@@ -322,10 +322,9 @@ donation = async (campaignId,memberId,rzPoint) => {
                         //     sqlQuery = donationQuery.insertDonatedPoint(donated);
                         //     [rows] = await connection.query(sqlQuery);
                         //
-                        //     sqlQuery = donationQuery.addLgChemDonation(subCampaign[0].campaignId,nowRzPoint);
-                        //     console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
-                        //     [rows] = await connection.query(sqlQuery);
-                        //     console.log(sqlQuery)
+                            sqlQuery = donationQuery.addLgChemDonation(subCampaign[0].campaignId,nowRzPoint);
+                            console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                            [rows] = await connection.query(sqlQuery);
                         // }
 
                     }else{
