@@ -1,6 +1,6 @@
 const DB = {
     APP_DB: {
-        connectionLimit: 500,
+        connectionLimit: 5000,
         //live
         host: 'database-1.crzwuyw6c5fz.ap-northeast-2.rds.amazonaws.com',
         user: 'admin',
