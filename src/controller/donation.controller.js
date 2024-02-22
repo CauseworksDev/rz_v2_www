@@ -29,17 +29,7 @@ missionDonation = async (req, res, next) => {
     } catch (err) {
         // console.log('missionDonation:: ', err);
         console.log('missionDonation:: ', err.code);
-        console.log("function 재실행")
-        if(err.code == 'ER_CON_COUNT_ERROR'||err.code == 'ER_LOCK_DEADLOCK'){
-            missionDonation(req, res)
-        }else{
-            responseCommon.sendResponseFail(err.code, res);
-            result = {
-                resultCode : err.code,
-                resultMsg : err.message
-            };
-        }
-
+        responseCommon.sendResponseFail(err.code, res);
     }
 
 }// 메세지 참여로 인한 기부금 증가
@@ -68,10 +58,6 @@ messageDonation = async (req, res, next) => {
     } catch (err) {
         console.log('messageDonation:: ', err);
         responseCommon.sendResponseFail(err.code, res);
-        result = {
-            resultCode : err.code,
-            resultMsg : err.message
-        };
     }
 
 }
@@ -96,10 +82,6 @@ donation = async (req, res, next) => {
     } catch (err) {
         console.log('donation:: ', err);
         responseCommon.sendResponseFail(err.code, res);
-        result = {
-            resultCode : err.code,
-            resultMsg : err.message
-        };
     }
 
 }
@@ -124,10 +106,6 @@ donationTest = async (req, res, next) => {
     } catch (err) {
         console.log('donation:: ', err);
         responseCommon.sendResponseFail(err.code, res);
-        result = {
-            resultCode : err.code,
-            resultMsg : err.message
-        };
     }
 
 }
