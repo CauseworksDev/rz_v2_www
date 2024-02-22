@@ -18,7 +18,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
             throw err;
         }else{
             try {
-                await connection.beginTransaction();
+
                 let sqlQuery = ``;
                 let [rows] = []
                 let [campaign] = []
@@ -80,6 +80,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
                                 donorEmail : donorEmail,
                                 rzPoint : nowRzPoint,
                             }
+                            await connection.beginTransaction();
                             sqlQuery = donationQuery.insertDonatedPoint(donated);
                             [rows] = await connection.query(sqlQuery);
                             //엘지기부포인트증가부분은 스케쥴러 처리로 변경함으로써 진행안해도됨
