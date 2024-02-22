@@ -11,7 +11,7 @@ missionDonation = async (req, res, next) => {
     let memberId = (!req.body.memberId) ? "" : parseInt(req.body.memberId);
     let missionId = (!req.body.missionId) ? "" : parseInt(req.body.missionId);
     let rzPoint = (!req.body.rz) ? 0 : (req.body.rz);
-
+    console.log(req.body)
     try {
         //미션참여시 추가 지급 체크 후 포인트 지급
         // let nowDonationPoint = await donationService.checkAdditionalPoints(campaignId,memberId,missionId,rzPoint)
@@ -27,12 +27,19 @@ missionDonation = async (req, res, next) => {
         responseCommon.sendResponseResult(result, data, res);
 
     } catch (err) {
-        console.log('missionDonation:: ', err);
-        responseCommon.sendResponseFail(err.code, res);
-        result = {
-            resultCode : err.code,
-            resultMsg : err.message
-        };
+        // console.log('missionDonation:: ', err);
+        console.log('missionDonation:: ', err.code);
+        console.log("function 재실행")
+        if(err.code == 'ER_CON_COUNT_ERROR'||err.code == 'ER_LOCK_DEADLOCK'){
+            missionDonation(req, res)
+        }else{
+            responseCommon.sendResponseFail(err.code, res);
+            result = {
+                resultCode : err.code,
+                resultMsg : err.message
+            };
+        }
+
     }
 
 }// 메세지 참여로 인한 기부금 증가
