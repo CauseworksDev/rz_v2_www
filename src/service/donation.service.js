@@ -25,6 +25,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         [mission] = await connection.query(sqlQuery);
 
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
+        console.log(sqlQuery);
         [campaign] = await connection.query(sqlQuery);
         let apiStatus = false;
         let failReason = ''
@@ -360,8 +361,10 @@ donation = async (campaignId,memberId,rzPoint) => {
 
 
     } catch (err) {
+
         await connection.rollback();
-        connection.release();
+        await connection.release();
+        console.log("커넥션 릴리즈");
         throw err
     }
 }
