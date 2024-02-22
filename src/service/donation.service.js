@@ -14,7 +14,7 @@ const missionQuery = require("../query/mission.query");
 
 missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
 
-    const connection = await dbApp.getConnection(async conn => conn);
+    let connection = await dbApp.getConnection(async conn => conn);
     try {
         await connection.beginTransaction();
         let sqlQuery = ``;
@@ -25,7 +25,6 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         [mission] = await connection.query(sqlQuery);
 
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
-        console.log(sqlQuery);
         [campaign] = await connection.query(sqlQuery);
         let apiStatus = false;
         let failReason = ''
@@ -97,6 +96,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         await connection.commit();
         await connection.release();
 
+
         let returnDetail = {
             result : 'success',
             failReason : failReason
@@ -117,7 +117,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
 }
 messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
 
-    const connection = await dbApp.getConnection(async conn => conn);
+    let connection = await dbApp.getConnection(async conn => conn);
     try {
         await connection.beginTransaction();
         let sqlQuery = ``;
@@ -232,7 +232,7 @@ setTotalAmount = function (campaign) {
 
 donation = async (campaignId,memberId,rzPoint) => {
 
-    const connection = await dbApp.getConnection(async conn => conn);
+    let connection = await dbApp.getConnection(async conn => conn);
     try {
         await connection.beginTransaction();
         let sqlQuery = ``;
@@ -372,7 +372,7 @@ donation = async (campaignId,memberId,rzPoint) => {
 }
 checkAdditionalPoints = async (campaignId,memberId,missionId,rzPoint) => {
 
-    const connection = await dbApp.getConnection(async conn => conn);
+    let connection = await dbApp.getConnection(async conn => conn);
     try {
         await connection.beginTransaction();
         let sqlQuery = ``;
