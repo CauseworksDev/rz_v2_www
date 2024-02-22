@@ -112,7 +112,6 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
     } catch (err) {
         await connection.rollback();
         await connection.release();
-        await connection.end();
         throw err
     }
 }
