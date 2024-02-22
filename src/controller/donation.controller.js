@@ -147,7 +147,7 @@ handleJobStatistics = async () => {
         console.debug('date: ', new Date());
         let dateFrom = moment().subtract(1, "minute").format("YYYY-MM-DD HH:mm:00")
         let dateTo = moment().format("YYYY-MM-DD HH:mm:00")
-        console.log()
+
         await updateLgPoint(dateFrom,dateTo);
 
         return true;

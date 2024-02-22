@@ -113,7 +113,6 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         await connection.rollback();
         await connection.release();
         await connection.end();
-        console.log("커넥션 릴리즈");
         throw err
     }
 }
@@ -217,7 +216,6 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
     } catch (err) {
         await connection.rollback();
         await connection.release();
-        console.log("커넥션 릴리즈");
         throw err
     }
 }
@@ -475,7 +473,7 @@ updateLgPoint = async (dateFrom,dateTo) => {
 
                 if (donateInfo[i].rzPoint){
                     sqlQuery = donationQuery.addLgChemDonation(donateInfo[i].campaignId,donateInfo[i].rzPoint);
-                    console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                    console.log("엘지기부포인트증가");
                     [rows] = await connection.query(sqlQuery);
                 }
             }
