@@ -95,7 +95,7 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
         }
 
         await connection.commit();
-        connection.release();
+        await connection.release();
 
         let returnDetail = {
             result : 'success',
@@ -110,7 +110,8 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
 
     } catch (err) {
         await connection.rollback();
-        connection.release();
+        await connection.release();
+        console.log("커넥션 릴리즈");
         throw err
     }
 }
@@ -212,7 +213,8 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
 
     } catch (err) {
         await connection.rollback();
-        connection.release();
+        await connection.release();
+        console.log("커넥션 릴리즈");
         throw err
     }
 }
