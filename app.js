@@ -63,6 +63,7 @@ const popupRouter = require('./src/router/api/popup.router');
 const popupRecycle = require('./src/router/api/recycle.router');
 const donationRouter = require('./src/router/api/donation.router');
 const logs = require('./src/router/api/logs.router');
+let scheduler = require('./src/controller/job');
 
 app.use('/api/content/v1.0', contentRouter);
 app.use('/api/banner/v1.0', bannerRouter);
@@ -92,5 +93,5 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-
+scheduler.jobStaticsStatus();
 module.exports = app;

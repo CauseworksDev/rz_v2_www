@@ -80,11 +80,12 @@ missionDonation = async (campaignId,memberId,missionId,rzPoint) => {
                     }
                     sqlQuery = donationQuery.insertDonatedPoint(donated);
                     [rows] = await connection.query(sqlQuery);
-                    if(campaign[0].lgChemDonationYN == 0){
-                        sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
-                        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
-                        [rows] = await connection.query(sqlQuery);
-                    }
+                    //엘지기부포인트증가부분은 스케쥴러 처리로 변경함으로써 진행안해도됨
+                    // if(campaign[0].lgChemDonationYN == 0){
+                    //     sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
+                    //     console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                    //     [rows] = await connection.query(sqlQuery);
+                    // }
 
                 }else{
                     apiStatus = false;
@@ -185,11 +186,12 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
                     }
                     sqlQuery = donationQuery.insertDonatedPoint(donated);
                     [rows] = await connection.query(sqlQuery);
-                    if(campaign[0].lgChemDonationYN == 0){
-                        sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
-                        console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
-                        [rows] = await connection.query(sqlQuery);
-                    }
+                    //     엘지기부포인트증가부분은 스케쥴러 처리로 변경함으로써 진행안해도됨
+                    // if(campaign[0].lgChemDonationYN == 0){
+                    //     sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
+                    //     console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                    //     [rows] = await connection.query(sqlQuery);
+                    // }
 
                 }else{
                     apiStatus = false;
@@ -326,12 +328,13 @@ donation = async (campaignId,memberId,rzPoint) => {
                         //     sqlQuery = donationQuery.insertDonatedPoint(donated);
                         //     [rows] = await connection.query(sqlQuery);
                         //
+                        //     엘지기부포인트증가부분은 스케쥴러 처리로 변경함으로써 진행안해도됨
                         //     sqlQuery = donationQuery.addLgChemDonation(subCampaign[0].campaignId,nowRzPoint);
                         //     console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
                         //     [rows] = await connection.query(sqlQuery);
-                            sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
-                            console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
-                            [rows] = await connection.query(sqlQuery);
+                        //     sqlQuery = donationQuery.addLgChemDonation(campaignId,nowRzPoint);
+                        //     console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                        //     [rows] = await connection.query(sqlQuery);
                         // }
 
                     }else{
@@ -367,7 +370,6 @@ donation = async (campaignId,memberId,rzPoint) => {
 
         await connection.rollback();
         await connection.release();
-        console.log("커넥션 릴리즈");
         throw err
     }
 }
@@ -453,6 +455,43 @@ donationTest = async (campaignId,memberId,rzPoint) => {
         throw err
     }
 }
+
+updateLgPoint = async (dateFrom,dateTo) => {
+
+    const connection = await dbApp.getConnection(async conn => conn);
+    try {
+        await connection.beginTransaction();
+        let sqlQuery = ``;
+        let [rows] = []
+        let [donateInfo] = []
+        let [member] = []
+        let failReason = ''
+        //현재 시간으로 부터 1분전에 도네이션 된 값들의 합
+        sqlQuery = donationQuery.selectDonatedPoint1min(dateFrom,dateTo);
+        [donateInfo] = await connection.query(sqlQuery);
+
+        if (donateInfo.length !== 0){
+            for (let i = 0; i < donateInfo.length ; i++) {
+
+                if (donateInfo[i].rzPoint){
+                    sqlQuery = donationQuery.addLgChemDonation(donateInfo[i].campaignId,donateInfo[i].rzPoint);
+                    console.log("엘지기부포인트증가", moment().format("YYYY-MM-DD HH:mm:ss"));
+                    [rows] = await connection.query(sqlQuery);
+                }
+            }
+        }
+
+
+        await connection.commit();
+        connection.release();
+
+
+    } catch (err) {
+        await connection.rollback();
+        connection.release();
+        throw err
+    }
+}
 module.exports = {
     missionDonation ,
     messageDonation ,
@@ -461,7 +500,7 @@ module.exports = {
     setTotalAmount,
     checkAdditionalPoints,
 
-
+    updateLgPoint,
     donationTest ,
 
 }

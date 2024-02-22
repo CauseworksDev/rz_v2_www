@@ -131,12 +131,37 @@ donationTest = async (req, res, next) => {
     }
 
 }
+updateLgPoint = async (dateFrom,dateTo) =>{
+    try {
+        //유저 기부금액 엘지 포인트에 합산
+        const resData = await donationService.updateLgPoint(dateFrom,dateTo)
+
+
+    } catch (err) {
+        console.log('updateLgPoint:: ', err);
+
+    }
+}
+handleJobStatistics = async () => {
+    try {
+        console.debug('date: ', new Date());
+        let dateFrom = moment().subtract(1, "minute").format("YYYY-MM-DD HH:mm:00")
+        let dateTo = moment().format("YYYY-MM-DD HH:mm:00")
+        console.log()
+        await updateLgPoint(dateFrom,dateTo);
+
+        return true;
+    } catch (err) {
+        console.log('Error: ', err);
+        return false;
+    }
+};
 module.exports = {
     missionDonation,
     messageDonation,
     donation,
 
-
+    handleJobStatistics,
 
     donationTest,
 

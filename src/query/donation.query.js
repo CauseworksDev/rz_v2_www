@@ -114,11 +114,24 @@ insertDonatedPoint = (donated
             )
     ;`;
 };
+selectDonatedPoint1min =(dateFrom,dateTo)=>{
+
+    return `
+        SELECT CAMPAIGN_ID as campaignId
+             , SUM(RZ_POINT) AS rzPoint
+        FROM DONATED_POINT
+        WHERE 1 = 1
+          AND reg_dtime >= '${dateFrom}'
+          AND REG_DTIME < '${dateTo}'
+        GROUP BY CAMPAIGN_ID ;
+    `
+}
 module.exports = {
 
     addLgChemDonation ,
     selectDonationCampaign,
     selectDonationSubCampaign,
     insertDonatedPoint,
+    selectDonatedPoint1min,
 
 };
