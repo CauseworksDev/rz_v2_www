@@ -1,11 +1,12 @@
 const DB = {
     APP_DB: {
-        connectionLimit: 5000,
+        connectionLimit: 100,
         host: 'lgchemesg.crzwuyw6c5fz.ap-northeast-2.rds.amazonaws.com',
         user: 'admin',
         password: 'lgredtie1015',
         database: 'lgchemesg',
-        port: '3306'
+        port: '3306',
+        connectionTimeoutMillis : 10000,
     },
 };
 

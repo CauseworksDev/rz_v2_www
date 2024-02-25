@@ -466,7 +466,7 @@ updateLgPoint = async (dateFrom,dateTo) => {
         //현재 시간으로 부터 1분전에 도네이션 된 값들의 합
         sqlQuery = donationQuery.selectDonatedPoint1min(dateFrom,dateTo);
         [donateInfo] = await connection.query(sqlQuery);
-
+        console.log("기부정보", donateInfo);
         if (donateInfo.length !== 0){
             for (let i = 0; i < donateInfo.length ; i++) {
 
