@@ -126,8 +126,8 @@ messageDonation = async (campaignId,memberId,messageId,rzPoint) => {
         let [message] = []
         sqlQuery = messageQuery.selectMessage(false,messageId,memberId,"","","","","",0,1);
         [message] = await connection.query(sqlQuery);
-        console.log(sqlQuery);
-        console.log(message);
+        // console.log(sqlQuery);
+        // console.log(message);
         sqlQuery = donationQuery.selectDonationCampaign(campaignId);
         [campaign] = await connection.query(sqlQuery);
         let apiStatus = false;
