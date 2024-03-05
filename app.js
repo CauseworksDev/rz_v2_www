@@ -93,5 +93,5 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-scheduler.jobStaticsStatus();
+// scheduler.jobStaticsStatus();
 module.exports = app;
