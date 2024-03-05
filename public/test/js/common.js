@@ -1,82 +1,77 @@
+//-----사파리 높이값 버그 수정-----
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+//resize
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
 
-  //레이어 오픈 
-	var layer_OPEN = function (obj_selector){
-		var obj = $(obj_selector);
-		obj.css({'display':'table','opacity':0});
-		obj.stop().animate({'opacity':1},500);
-	};
+$(function () {
+    //-----본문 바로가기 버튼----- 
+    $('.skip a').on('focus', function(){
+        $(this).parent().addClass("on")
+    });
+    $('.skip a').on('click', function(){
+        $(this).parent().removeClass("on")
+    });
+    $('.skip a').on('focusout', function(){
+        $(this).parent().removeClass("on")
+    });
 
-	//레이어 클로즈
-	var layer_CLOSE = function (obj_selector){
-		var obj = $(obj_selector);	
-		obj.stop().animate({'opacity':0},500,function (){
-			$(this).css({'display':'none'});	
-		});
-	};
-
-
-$(function(){
- // 헤더
- $(".btn_menu").on('click',function(){	
-	$('html').toggleClass('fixed');   
-	$('#header .nav_mo').toggleClass('on');
-		$('#header').toggleClass('active_mo');
-		$(this).toggleClass('switch'); 
-})
-
-// 헤더 스크롤시 변경
-// $(window).scroll(function () {
-// 	var st = $(this).scrollTop();
-// 	var navbarHeight = $('header').outerHeight();
-// 	//var winw = $(window).width()
-// 	//if( winw > 1024){
-// 		if( st > navbarHeight){
-// 			$("#header").addClass('active')
-// 		}else{      
-// 			$("#header").removeClass('active')
-// 		}
-// 	//} 
-// })
-
-
-	// 최상단 버튼
-	$('#btn_top').on('click',function(){
-		$('html,body').stop().animate({'scrollTop':0},500, 'easeInOutExpo');
-	})
-
-	$(window).scroll(function(){
-		var btnTop = $('#btn_top');
-		var $window = $(window), anchor = $window.scrollTop() + $window.height();
-    var fot = $('#footer').offset().top;
-      if (anchor > fot) btnTop.removeClass('fixed');
-      else btnTop.addClass('fixed');
-	})
-
-	// $(window).scroll(function(){
-	// 	var ftTop = $('#footer').offset().top;
-	// 	var btTop = $('#btn_top').offset().top;	
-	// 	// var w = $(window).scrollTop();	
-  //   //if (winW >= 1200) {
-	// 		if (ftTop < btTop){
-	// 			$('#btn_top').stop().animate({'bottom': '20rem'},200, 'easeInOutExpo')
-	// 		}
-	// 		if (ftTop >= btTop){
-	// 			$('#btn_top').stop().animate({'bottom': '3rem'},200, 'easeInOutExpo')
-	// 		}
-	// 	//}
-	// })
-	// $(window).resize(function(){		
-	// 	var ftTop = $('#footer').offset().top;
-	// 	var btTop = $('#btn_top').offset().top;	
-	// 		if (ftTop < btTop){
-	// 			$('#btn_top').stop().animate({'bottom': '20rem'},200, 'easeInOutExpo')
-	// 		}
-	// 		if (ftTop >= btTop){
-	// 			$('#btn_top').stop().animate({'bottom': '3rem'},200, 'easeInOutExpo')
-	// 		}
-	// })
-})
-  
-
-
-
+    //-----공통 팝업----- 
+    let _focus;
+    //tab 막기
+    function preventTab() {
+        $(".popup").each(function(){
+            var focusList = $(this).find("button, input:not([type='hidden']), select, iframe, textarea, [href], [tabindex]:not([tabindex='-1'])");
+            var firstFocus = focusList.eq(0);
+            var lastFocus = focusList.eq(focusList.length - 1);
+            //첫번째 요소 focus
+            firstFocus.focus();
+            firstFocus.on({
+                'keydown': function (e) {
+                    if (e.shiftKey && e.keyCode == 9) {
+                        e.preventDefault();
+                        $(lastFocus).focus();
+                    }
+                }
+            });
+            lastFocus.on({
+                'keydown': function (e) {
+                    if (!e.shiftKey && e.keyCode == 9) {
+                        e.preventDefault();
+                        $(firstFocus).focus();
+                    }
+                }
+            });
+        })
+    };
+    //팝업 버튼 클릭시
+    $(".btn_popup").each(function () {
+        var popupName = $(this).attr("data-popup")
+        $(this).click(function () {
+            _focus = $(this);
+            $("html").addClass("ofy_hidden")
+            $("#popup_all #" + popupName).addClass("active").attr("tabindex", 0).focus();
+            preventTab();
+            // Esc키 : 레이어 닫기
+            window.onkeyup = function (e) {
+                var key = e.keyCode ? e.keyCode : e.which;
+                if (key == 27) {
+                    $("html").removeClass("ofy_hidden")
+                    $(".popup").removeClass("active").removeAttr("tabindex");
+                    jQuery(document).off("keydown", preventTab());
+                    _focus.focus()
+                }
+            }
+        })
+    });
+    //팝업 닫기버튼 클릭시
+    $(".btn_popup_close").click(function () {
+        $("html").removeClass("ofy_hidden")
+        $(".popup").removeClass("active").removeAttr("tabindex");
+        jQuery(document).off("keydown",preventTab());
+        _focus.focus()
+    });
+})//ready

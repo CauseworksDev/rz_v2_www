@@ -173,4 +173,12 @@ router.get('/board', function(req, res, next) {
     res.render('user/board/board', {userSession:userSession});
 });
 
+router.get('/newMain', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/main/newMain', {userSession:userSession});
+});
+
 module.exports = router;
