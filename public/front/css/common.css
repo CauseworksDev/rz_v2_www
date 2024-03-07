@@ -44,24 +44,39 @@ section {position: relative;}
 /* --------------------------------common end-------------------------------- */
 
 
+/* --------------------------------button-------------------------------- */
+.btn_type_01 {display: block; width: 100%; padding: 3.8vw 0; line-height: 100%; border-radius: 2.8vw; color: #fff; font-size: 3.2vw; text-align: center; font-weight: 600;}
+.btn_type_01::after {content: ""; display: inline-block; width: 3.6vw; height: 3.6vw; margin-left: 0.8vw; vertical-align: sub; background: url(/public/front/images/main/icon_right.svg) no-repeat center/cover;}
+.btn_type_01[data-color="red"] {background-color: #DD3636 }
+.btn_type_01[data-color="darkblue"] {background-color: #414658;}
+@media only screen and (max-width:500px){
+    .btn_type_01 {padding: 19px 0; border-radius: 14px; font-size: 16px;}
+    .btn_type_01::after {width: 18px; height: 18px; margin-left: 4px; vertical-align: text-top;}
+}
+/* --------------------------------button end-------------------------------- */
+
+
 /* --------------------------------header-------------------------------- */
 #header {position: fixed; left: 0; top: 0; width: 100%; height: 9.6vw; background-color: #fff; z-index: 998;}
-/* #header a {border: 1px solid red;} */
 #header .inner {display: flex; align-items: center; justify-content: space-between; height: 100%;}
 #header .logo {width: 9.6vw; height: 7.6vw;}
-#header .logo a {display: block; width: 100%; height: 100%; background: url(/public/test/images/common/logo.svg) no-repeat center/100% auto;}
+#header .logo a {display: block; width: 100%; height: 100%; background: url(/public/front/images/common/logo.svg) no-repeat center/100% auto;}
 #header .logo img {width: 100%;}
 #header .flex_wrap {display: flex; align-items: center; gap: 1.2vw;}
 #header .flex_wrap a {position: relative; display: block; width: 6vw; height: 7.6vw; background-size: 5.2vw auto; background-repeat: no-repeat; background-position: center;}
 #header .point {margin-right: 1.6vw;}
 #header .point a {display: flex; align-items: center; width: auto;}
 #header .point .flex_wrap {justify-content: center; gap: 0.8vw; padding: 1.2vw 2.4vw; border: 0.2vw solid #E1E6F5; border-radius: 40vw; background-color: #fafbfe;}
-#header .point figure {width: 2.8vw; height: 2.8vw; background: url(/public/test/images/common/ico_point.svg) no-repeat center/100% auto;}
+#header .point figure {width: 2.8vw; height: 2.8vw; background: url(/public/front/images/common/ico_point.svg) no-repeat center/100% auto;}
 #header .point span {display: block; line-height: 100%; font-weight: 600; font-size: 2.8vw; color: #414658;}
-#header .notice a {background-image: url(/public/test/images/common/ico_notify.svg);}
-#header .notice.on a {background-image: url(/public/test/images/common/ico_notify_on.svg);}
-#header .maypage a {background-image: url(/public/test/images/common/ico_mypage.svg);}
-#header .menu a {background-image: url(/public/test/images/common/ico_menu.svg);}
+#header .notice a {background-image: url(/public/front/images/common/ico_notify.svg);}
+#header .notice.on a {background-image: url(/public/front/images/common/ico_notify_on.svg);}
+#header .maypage a {background-image: url(/public/front/images/common/ico_mypage.svg);}
+#header .menu a {background-image: url(/public/front/images/common/ico_menu.svg);}
+/* 헤더 : 이전으로 */
+#header[data-type="prev"] {border-bottom: 0.2vw solid #EBEBEB;}
+#header[data-type="prev"] .btn_back {position: absolute; left: 0; top: 50%; width: 6vw; height: 7.6vw; background: url(/public/front/images/common/ico_prev.svg) no-repeat left center/1.8vw auto; transform: translateY(-50%); cursor: pointer;}
+#header[data-type="prev"] .page_title {width: 100%; text-align: center; font-size: 2.8vw; font-weight: 500; color: #000;}
 @media only screen and (max-width:500px){
     #header {height: 48px;}
     #header .logo {width: 48px; height: 38px;}
@@ -72,6 +87,10 @@ section {position: relative;}
     #header .point a {width: auto;}
     #header .point figure {width: 14px; height: 14px}
     #header .point span {font-size: 14px;}
+    /* 헤더 : 이전으로 */
+    #header[data-type="prev"] {border-bottom: 1px solid #EBEBEB;}
+    #header[data-type="prev"] .btn_back {width: 30px; height: 38px; background: url(/public/front/images/common/ico_prev.svg) no-repeat left center/9px auto;}
+    #header[data-type="prev"] .page_title {font-size: 14px;}
 }
 /* --------------------------------header end-------------------------------- */
 
@@ -115,17 +134,17 @@ section {position: relative;}
 #fnb li {flex: 1;}
 #fnb a {display: block; padding: 2vw 0 4.8vw 0; text-align: center;}
 #fnb figure {width: 2.8vw; height: 2.8vw; margin: 0 auto 4px; background-size: cover; background-repeat: no-repeat; background-position: center;}
-#fnb .home figure {background-image: url(/public/test/images/common/ico_home.svg);}
-#fnb .message figure {background-image: url(/public/test/images/common/ico_message.svg);}
-#fnb .mission figure {background-image: url(/public/test/images/common/ico_mission.svg);}
-#fnb .donation figure {background-image: url(/public/test/images/common/ico_donation.svg);}
-#fnb .exchange figure {background-image: url(/public/test/images/common/ico_exchange.svg);}
+#fnb .home figure {background-image: url(/public/front/images/common/ico_home.svg);}
+#fnb .message figure {background-image: url(/public/front/images/common/ico_message.svg);}
+#fnb .mission figure {background-image: url(/public/front/images/common/ico_mission.svg);}
+#fnb .donation figure {background-image: url(/public/front/images/common/ico_donation.svg);}
+#fnb .exchange figure {background-image: url(/public/front/images/common/ico_exchange.svg);}
 #fnb span {display: block; font-size: 2vw; line-height: 100%;}
-#fnb .on.home figure {background-image: url(/public/test/images/common/ico_home_on.svg);}
-#fnb .on.message figure {background-image: url(/public/test/images/common/ico_message_on.svg);}
-#fnb .on.mission figure {background-image: url(/public/test/images/common/ico_mission_on.svg);}
-#fnb .on.donation figure {background-image: url(/public/test/images/common/ico_donation_on.svg);}
-#fnb .on.exchange figure {background-image: url(/public/test/images/common/ico_exchange_on.svg);}
+#fnb .on.home figure {background-image: url(/public/front/images/common/ico_home_on.svg);}
+#fnb .on.message figure {background-image: url(/public/front/images/common/ico_message_on.svg);}
+#fnb .on.mission figure {background-image: url(/public/front/images/common/ico_mission_on.svg);}
+#fnb .on.donation figure {background-image: url(/public/front/images/common/ico_donation_on.svg);}
+#fnb .on.exchange figure {background-image: url(/public/front/images/common/ico_exchange_on.svg);}
 #fnb .on span {color: #DD3636; font-weight: 600;}
 @media only screen and (max-width:500px){
     #fnb {border-radius: 16px 16px 0 0; -webkit-box-shadow: 2px -8px 17px -5px rgba(0,0,0,0.1); box-shadow: 2px -8px 17px -5px rgba(0,0,0,0.1);}
@@ -142,7 +161,7 @@ section {position: relative;}
 #popup_all .popup.active {display: flex;}
 #popup_all .popup_inner {position: relative; width: 91%; height: auto; padding: 8vw 3.2vw; border-radius: 3vw; background: #fff;}
 #popup_all .popup_inner[data-layout="type_01"] {padding: 8vw 3.2vw 3.2vw;}
-#popup_all .btn_popup_close[data-layout="icon"] {position: absolute; right: 0; top: -5.6vw; width: 4.8vw; height: 4.8vw; background: url(/public/test/images/common/ico_close.svg) no-repeat center/4vw auto;}
+#popup_all .btn_popup_close[data-layout="icon"] {position: absolute; right: 0; top: -5.6vw; width: 4.8vw; height: 4.8vw; background: url(/public/front/images/common/ico_close.svg) no-repeat center/4vw auto;}
 #popup_all .title {font-size: 3.6vw; font-weight: 600; line-height: 144%; color: #222;}
 #popup_all .title img {display: inline-block; width: auto; height: 3.2vw; margin: 0 0.4vw; vertical-align: -0.2vw;} 
 #popup_all .sub_title {font-size: 3.2vw; font-weight: 500; line-height: 144%; color: #222;}
@@ -157,7 +176,7 @@ section {position: relative;}
 @media only screen and (max-width:500px){
     #popup_all .popup_inner {padding: 40px 16px; border-radius: 15px;}
     #popup_all .popup_inner[data-layout="type_01"] {padding: 40px 16px 16px;}
-    #popup_all .btn_popup_close[data-layout="icon"] {top: -28px; width: 24px; height: 24px; background: url(/public/test/images/common/ico_close.svg) no-repeat center/20px auto;}
+    #popup_all .btn_popup_close[data-layout="icon"] {top: -28px; width: 24px; height: 24px; background: url(/public/front/images/common/ico_close.svg) no-repeat center/20px auto;}
     #popup_all .title {font-size: 18px;}
     #popup_all .title img {height: 16px; vertical-align: -1px;}
     #popup_all .sub_title {font-size: 16px;}

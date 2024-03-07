@@ -34,4 +34,11 @@
     </ul>
 </nav><!-- //fnb -->
 
-
+<script>
+    $(function(){
+        let pathName = document.location.pathname;
+        if( pathName.startsWith("/newMain")) {
+            $("#fnb .home").addClass("on").siblings("li").removeClass("on");
+        }
+    });
+</script>

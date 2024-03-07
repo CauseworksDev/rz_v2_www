@@ -1,0 +1,18 @@
+<header id="header" data-type="prev">
+    <div class="inner">
+        <button class="btn_back" onclick="history.back()">
+            <span class="blind">이전 페이지로</span>
+        </button>
+        <h1 class="page_title"></h1>
+    </div>
+</header><!-- //header -->
+
+<script>
+    $(function(){
+        let pathName = document.location.pathname;
+        const titleName = $(".page_title");
+        if(pathName.startsWith("/notice")) {
+            titleName.text("공지사항")
+        }
+    });
+</script>

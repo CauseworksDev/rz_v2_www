@@ -181,4 +181,19 @@ router.get('/newMain', function(req, res, next) {
     res.render('user/main/newMain', {userSession:userSession});
 });
 
+router.get('/notice', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/news/notice', {userSession:userSession});
+});
+
+router.get('/notice/detail', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/news/noticeDetail', {userSession:userSession});
+});
 module.exports = router;
