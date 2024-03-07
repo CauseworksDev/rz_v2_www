@@ -196,4 +196,12 @@ router.get('/notice/detail', function(req, res, next) {
     // console.log(req.query)
     res.render('user/news/noticeDetail', {userSession:userSession});
 });
+
+router.get('/inquiry', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/inquiry', {userSession:userSession});
+});
 module.exports = router;

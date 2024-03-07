@@ -3,7 +3,7 @@
 section {overflow-x: hidden;}
 section:not(:last-of-type) {padding-bottom: 8vw;}
 .box {padding: 8vw 0; border-radius: 8vw; background-color: #fff; box-shadow: 0 -0.8vw 5.6vw 4vw rgba(94, 94, 94, 0.02);}
-.main_tit {margin-bottom: 4.8vw; font-size: 2.6vw; font-weight: 500; line-height: 100%;}
+.main_tit {margin-bottom: 4.8vw; font-size: 3.6vw; font-weight: 500; line-height: 100%;}
 .main_tit span {color: #DD3636; font-weight: 800;}
 .main_tit img {display: inline-block; width: auto; height: 3.6vw; margin: 0 .4vw; vertical-align: top;}
 .btn_wrap {margin-top: 4.8vw;}

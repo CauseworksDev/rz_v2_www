@@ -75,7 +75,7 @@ section {position: relative;}
 #header .menu a {background-image: url(/public/front/images/common/ico_menu.svg);}
 /* 헤더 : 이전으로 */
 #header[data-type="prev"] {border-bottom: 0.2vw solid #EBEBEB;}
-#header[data-type="prev"] .btn_back {position: absolute; left: 0; top: 50%; width: 6vw; height: 7.6vw; background: url(/public/front/images/common/ico_prev.svg) no-repeat left center/1.8vw auto; transform: translateY(-50%); cursor: pointer;}
+#header[data-type="prev"] .btn_back {position: absolute; left: -2vw; top: 50%; width: 6vw; height: 7.6vw; background: url(/public/front/images/common/ico_prev.svg) no-repeat center/1.8vw auto; transform: translateY(-50%); cursor: pointer;}
 #header[data-type="prev"] .page_title {width: 100%; text-align: center; font-size: 2.8vw; font-weight: 500; color: #000;}
 @media only screen and (max-width:500px){
     #header {height: 48px;}
@@ -89,7 +89,7 @@ section {position: relative;}
     #header .point span {font-size: 14px;}
     /* 헤더 : 이전으로 */
     #header[data-type="prev"] {border-bottom: 1px solid #EBEBEB;}
-    #header[data-type="prev"] .btn_back {width: 30px; height: 38px; background: url(/public/front/images/common/ico_prev.svg) no-repeat left center/9px auto;}
+    #header[data-type="prev"] .btn_back {left: -10px; width: 30px; height: 38px; background: url(/public/front/images/common/ico_prev.svg) no-repeat center/9px auto;}
     #header[data-type="prev"] .page_title {font-size: 14px;}
 }
 /* --------------------------------header end-------------------------------- */

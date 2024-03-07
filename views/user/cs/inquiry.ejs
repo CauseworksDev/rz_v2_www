@@ -1,0 +1,81 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/inquiry.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/headerPrev.ejs %>
+
+    <div id="container">
+        <section class="inquiry_sec" data-layout="main">
+            <div class="inner">
+                <h2 class="faq_title">자주 묻는 질문 <img src="/public/front/images/inquiry/title_pin.png" alt=""></h2>
+                <ul class="faq">
+                    <li>
+                        <button id="que1" class="que" aria-expanded="false" aria-controls="ans1">
+                            <span>rz 포인트</span>
+                            <h6>rz를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?z나요?</h6>
+                        </button>
+                        <div  id="ans1" class="ans" role="region"  aria-labelledby="que1" >
+                            리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
+                        </div>
+                    </li>
+                    <li>
+                        <button id="que1" class="que" aria-expanded="false" aria-controls="ans1">
+                            <span>rz 포인트</span>
+                            <h6>rz를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?</h6>
+                        </button>
+                        <div  id="ans1" class="ans" role="region"  aria-labelledby="que1" >
+                            리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
+                        </div>
+                    </li>
+                    <li>
+                        <button id="que2" class="que" aria-expanded="false" aria-controls="ans2">
+                            <span>기부</span>
+                            <h6>rz를 현금으로 바꿀 수 있나요?</h6>
+                        </button>
+                        <div  id="ans2" class="ans" role="region"  aria-labelledby="que2">
+                            리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
+                        </div>
+                    </li>
+                    <li>
+                        <button id="que3" class="que" aria-expanded="false" aria-controls="ans3">
+                            <span>rz 포인트</span>
+                            <h6>rz를 현금으로 바꿀 수 있나요?</h6>
+                        </button>
+                        <div  id="ans3" class="ans" role="region"  aria-labelledby="que3">
+                            리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+</div>
+
+<script>
+    $(function (){
+        let que = $('.faq .que');
+        que.on('click',function(){
+            if( $(this).parent().hasClass('on') ) {
+                $(this).parent().removeClass('on');
+                $(this).attr("aria-expanded","false");
+                $(this).siblings('.ans').slideUp(300);
+            } else {
+                $(this).parent().addClass('on');
+                $(this).attr("aria-expanded","true");
+                $(this).siblings('.ans').slideDown(300);
+            }
+        });
+    });
+</script>
+</body>
+</html>
