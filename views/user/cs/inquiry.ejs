@@ -12,16 +12,16 @@
     <% include ../inc/headerPrev.ejs %>
 
     <div id="container">
-        <section class="inquiry_sec" data-layout="main">
+        <section class="inquiry_sec_01" data-layout="main">
             <div class="inner">
                 <h2 class="faq_title">자주 묻는 질문 <img src="/public/front/images/inquiry/title_pin.png" alt=""></h2>
-                <ul class="faq">
+                <ul class="faq_list">
                     <li>
                         <button id="que1" class="que" aria-expanded="false" aria-controls="ans1">
                             <span>rz 포인트</span>
                             <h6>rz를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?z나요?</h6>
                         </button>
-                        <div  id="ans1" class="ans" role="region"  aria-labelledby="que1" >
+                        <div id="ans1" class="ans" role="region" aria-labelledby="que1">
                             리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
                         </div>
                     </li>
@@ -30,7 +30,7 @@
                             <span>rz 포인트</span>
                             <h6>rz를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?z를 현금으로 바꿀 수 있나요?</h6>
                         </button>
-                        <div  id="ans1" class="ans" role="region"  aria-labelledby="que1" >
+                        <div id="ans1" class="ans" role="region" aria-labelledby="que1">
                             리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
                         </div>
                     </li>
@@ -39,7 +39,7 @@
                             <span>기부</span>
                             <h6>rz를 현금으로 바꿀 수 있나요?</h6>
                         </button>
-                        <div  id="ans2" class="ans" role="region"  aria-labelledby="que2">
+                        <div id="ans2" class="ans" role="region" aria-labelledby="que2">
                             리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
                         </div>
                     </li>
@@ -48,11 +48,56 @@
                             <span>rz 포인트</span>
                             <h6>rz를 현금으로 바꿀 수 있나요?</h6>
                         </button>
-                        <div  id="ans3" class="ans" role="region"  aria-labelledby="que3">
+                        <div id="ans3" class="ans" role="region" aria-labelledby="que3">
                             리워드 교환은 매주 월요일마다 신청할 수 있습니다. 아래 주요 메뉴바에서 교환소를 터치해 보세요!
                         </div>
                     </li>
                 </ul>
+                <a href="" class="btn_type_02" data-color="darkblue">더보기</a>
+            </div>
+        </section>
+        <section class="inquiry_sec_02" data-layout="main">
+            <div class="inner">
+                <form action="">
+                    <div class="cont_wrap">
+                        <div class="title_wrap">
+                            <h2 class="title">문의 내용 입력</h2>
+                        </div>
+                        <div class="input_wrap" data-layout="select">
+                            <button class="btn_select" type="button" role="combobox" aria-label="문의 유형 선택" aria-haspopup="listbox" aria-expanded="true">문의 유형 선택</button>
+<!--                            <ul class="option_wrap" role="listbox">-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                            </ul>-->
+                        </div>
+                        <div class="input_wrap" data-layout="select">
+                            <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택" aria-haspopup="listbox" aria-expanded="true">세부 유형 선택</button>
+<!--                            <ul class="option_wrap" role="listbox">-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
+<!--                            </ul>-->
+                        </div>
+                        <div class="input_wrap" data-layout="text">
+                            <label class="blind">문의 제목</label>
+                            <input type="text" placeholder="문의 제목 입력" />
+                        </div>
+                        <div class="input_wrap" data-layout="textarea">
+                            <label class="blind">문의 내용</label>
+                            <textarea name="" id="" maxlength="500" placeholder="문의 내용 입력 - 최대 500자"></textarea>
+                        </div>
+
+
+                    </div>
+                    <div class="img_wrap">
+                        <div class="title_wrap">
+                            <h2 class="title">이미지 등록</h2>
+                            <p class="desc">문의 내용 연관 이미지, 캡처 첨부 시 답변에 도움이 됩니다.</p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn_type_01" data-color="red" data-ico="none">등록하기</button>
+                </form>
             </div>
         </section>
     </div><!-- //container -->
@@ -63,16 +108,16 @@
 
 <script>
     $(function (){
-        let que = $('.faq .que');
+        let que = $('.faq_list .que');
         que.on('click',function(){
             if( $(this).parent().hasClass('on') ) {
                 $(this).parent().removeClass('on');
                 $(this).attr("aria-expanded","false");
-                $(this).siblings('.ans').slideUp(300);
+                $(this).siblings('.ans').stop().slideUp(300);
             } else {
                 $(this).parent().addClass('on');
                 $(this).attr("aria-expanded","true");
-                $(this).siblings('.ans').slideDown(300);
+                $(this).siblings('.ans').stop().slideDown(300);
             }
         });
     });

@@ -45,15 +45,36 @@ section {position: relative;}
 
 
 /* --------------------------------button-------------------------------- */
-.btn_type_01 {display: block; width: 100%; padding: 3.8vw 0; line-height: 100%; border-radius: 2.8vw; color: #fff; font-size: 3.2vw; text-align: center; font-weight: 600;}
-.btn_type_01::after {content: ""; display: inline-block; width: 3.6vw; height: 3.6vw; margin-left: 0.8vw; vertical-align: sub; background: url(/public/front/images/main/icon_right.svg) no-repeat center/cover;}
-.btn_type_01[data-color="red"] {background-color: #DD3636 }
-.btn_type_01[data-color="darkblue"] {background-color: #414658;}
+[class*="btn_type_"] {display: block; width: 100%; color: #fff; text-align: center; font-weight: 600;}
+[class*="btn_type_"]::after {content: ""; display: inline-block; margin-left: 0.8vw; vertical-align: text-top; background: url(/public/front/images/main/icon_right.svg) no-repeat center/cover;}
+[class*="btn_type_"][data-color="red"] {background-color: #DD3636 }
+[class*="btn_type_"][data-color="darkblue"] {background-color: #414658;}
+[class*="btn_type_"][data-ico="none"]::after {display: none;}
+.btn_type_01 {height: 11.2vw; line-height: 11.2vw; border-radius: 2.8vw; font-size: 3.2vw;}
+.btn_type_01::after {width: 3.6vw; height: 3.6vw;}
+.btn_type_02 {height: 9.2vw; line-height: 9.2vw; border-radius: 2.4vw; font-size: 2.8vw;}
+.btn_type_02::after {width: 3.2vw; height: 3.2vw;}
 @media only screen and (max-width:500px){
-    .btn_type_01 {padding: 19px 0; border-radius: 14px; font-size: 16px;}
-    .btn_type_01::after {width: 18px; height: 18px; margin-left: 4px; vertical-align: text-top;}
+    [class*="btn_type_"]::after {margin-left: 4px;}
+    .btn_type_01 {height: 56px; line-height: 56px; border-radius: 14px; font-size: 16px;}
+    .btn_type_01::after {width: 18px; height: 18px;}
+    .btn_type_02 {height: 46px; line-height: 46px; border-radius: 12px; font-size: 14px;}
+    .btn_type_02::after {width: 16px; height: 16px;}
 }
 /* --------------------------------button end-------------------------------- */
+
+
+
+
+.input_wrap[data-layout="text"] input {width: 100%; height: 9.6vw; border: 0.2vw solid #E4E4E4;}
+.input_wrap[data-layout="select"] .btn_select {position: relative; display: block; width: 100%; text-align: left; height: 9.6vw; padding: 0 3.2vw; line-height: 9.6vw; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #414658;}
+.input_wrap[data-layout="select"] .btn_select::after {content: ""; position: absolute; right: 3.2vw; top: 50%; width: 3.2vw; height: 3.2vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_down_c222.svg) no-repeat center/100% auto;}
+.input_wrap[data-layout="select"] .btn_select.on::after {transform:  translateY(-50%) rotate(180deg);}
+
+
+@media only screen and (max-width:500px){
+    .input_wrap[data-layout="select"] .btn_select {height:48px; padding: 0 16px; line-height: 48px; border-radius: 10px; font-size: 14px; border: 1px solid #414658;}
+}
 
 
 /* --------------------------------header-------------------------------- */
