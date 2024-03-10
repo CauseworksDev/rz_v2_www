@@ -1,0 +1,47 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/inquiry.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/headerPrev.ejs %>
+
+    <div id="container">
+        <section class="inquiry_sec_01" data-layout="login">
+            <div class="inner">
+                <div class="top">
+                    <h2 class="title">현재 로그아웃 상태 입니다.</h2>
+                    <a class="btn_type_02" data-color="red" href="">로그인 하기</a>
+                </div>
+                <div class="bot">
+                    <h2 class="title">비회원 문의</h2>
+                    <p class="desc">
+                        아직 가입 이력이 없거나 계정을 분실한 경우 <br>
+                        비회원으로 문의하고 답변을 받을 수 있어요.
+                    </p>
+                    <form action="">
+                        <div class="input_wrap" data-layout="text">
+                            <label class="blind">이름</label>
+                            <input type="text" placeholder="이름 입력" />
+                        </div>
+                        <div class="input_wrap" data-layout="text">
+                            <label class="blind">비밀번호</label>
+                            <input type="password" placeholder="비회원 비밀번호 입력" />
+                        </div>
+                        <button class="btn_type_02" data-color="red">확인</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+</div>
+</body>
+</html>

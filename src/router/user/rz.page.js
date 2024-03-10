@@ -204,4 +204,20 @@ router.get('/inquiry', function(req, res, next) {
     // console.log(req.query)
     res.render('user/cs/inquiry', {userSession:userSession});
 });
+
+router.get('/inquiry/login', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/inquiryLogin', {userSession:userSession});
+});
+
+router.get('/faq', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/faq', {userSession:userSession});
+});
 module.exports = router;

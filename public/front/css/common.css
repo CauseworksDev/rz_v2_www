@@ -2,27 +2,30 @@
 @import url(../css/font.css);
 
 /* --------------------------------reset-------------------------------- */
-[lang="ko"]{word-break: keep-all}
-*{margin:0;padding:0;box-sizing:border-box;font:inherit;color:inherit;flex-shrink:0;}
+[lang="ko"]{word-break: keep-all;}
+*{margin:0; padding:0; box-sizing:border-box; font:inherit; color:inherit; flex-shrink:0;}
 html, body {font-size:16px; color: #444444;}
 html, body, button, input, select, table, textarea {font-family: 'Pretendard', 'Outfit', sans-serif;}
-h1, h2, h3, h4, h5, h6 {font-size:inherit;line-height:inherit}
-ul,ol,dl,menu,li {list-style:none}
-a, a:active, a:hover {text-decoration:none}
-button, input {-webkit-border-radius:0;border-radius:0;border:0}
-button {background-color:transparent}
+h1, h2, h3, h4, h5, h6 {font-size:inherit; line-height:inherit;}
+ul,ol,dl,menu,li {list-style:none;}
+a, a:active, a:hover {text-decoration:none;}
+button, input {-webkit-border-radius:0; border-radius:0; border:0;}
+button {background-color:transparent;}
 blockquote, q {quotes:none;}
-:after, :before {box-sizing:inherit}
-img, picture, video, canvas, svg {display:block;max-width:100%;}
-fieldset,img {border:0}
-iframe {overflow:hidden;margin:0;border:0;padding:0;vertical-align:top}
-address, em,i {font-style:normal}
-textarea {-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:transparent;border:0;word-break:keep-all;word-wrap:break-word}
-table {border-collapse:collapse;border-spacing:0}
-td, th {padding:0}
-input, select, textarea {vertical-align: middle;outline: none;box-sizing: border-box;border-radius: 0;appearance:none;-moz-appearance: none;-webkit-appearance: none;
-appearance: none;}
-input[type=text]::-ms-clear{display: none;} 
+:after, :before {box-sizing:inherit;}
+img, picture, video, canvas, svg {display:block; max-width:100%;}
+fieldset,img {border:0;}
+iframe {overflow:hidden; margin:0; border:0; padding:0; vertical-align:top;}
+address, em,i {font-style:normal;}
+textarea {-webkit-backface-visibility:hidden; backface-visibility:hidden; background-color:transparent; border:0; word-break:keep-all; word-wrap:break-word;}
+table {border-collapse:collapse; border-spacing:0;}
+td, th {padding:0;}
+input, select, textarea {vertical-align: middle; box-sizing: border-box;border-radius: 0;appearance:none;-moz-appearance: none;-webkit-appearance: none;}
+input[type=text]::-ms-clear{display: none;}
+:focus {outline: 0.4vw dashed;}
+@media only screen and (max-width:500px){
+    :focus {outline: 2px dashed #444;}
+}
 /* --------------------------------reset end--------------------------- */
 
 
@@ -64,17 +67,35 @@ section {position: relative;}
 /* --------------------------------button end-------------------------------- */
 
 
-
-
-.input_wrap[data-layout="text"] input {width: 100%; height: 9.6vw; border: 0.2vw solid #E4E4E4;}
-.input_wrap[data-layout="select"] .btn_select {position: relative; display: block; width: 100%; text-align: left; height: 9.6vw; padding: 0 3.2vw; line-height: 9.6vw; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #414658;}
+/* --------------------------------input-------------------------------- */
+input, textarea {font-size: 2.8vw;}
+input::placeholder {color: #757575;}
+.input_wrap {position: relative;}
+.input_wrap:not(:last-child) {margin-bottom: 1.6vw;}
+.input_wrap[data-layout="text"] input {width: 100%; height: 9.2vw; padding: 0 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4;}
+.input_wrap[data-layout="textarea"] textarea {width: 100%; height: 32vw; padding: 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; resize: none;}
+.input_wrap[data-layout="select"] .btn_select {position: relative; display: block; width: 100%; height: 9.6vw; padding: 0 3.2vw; line-height: 9.6vw; text-align: left; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #E4E4E4;}
 .input_wrap[data-layout="select"] .btn_select::after {content: ""; position: absolute; right: 3.2vw; top: 50%; width: 3.2vw; height: 3.2vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_down_c222.svg) no-repeat center/100% auto;}
 .input_wrap[data-layout="select"] .btn_select.on::after {transform:  translateY(-50%) rotate(180deg);}
-
-
+.input_wrap[data-layout="select"] .option_wrap {display: none; position: absolute; left: 0; top: 11.2vw; width: 100%; padding: 8px 0; background-color: #fff; z-index: 10; border-radius: 10px; border: 1px solid #E4E4E4; box-shadow: 0px 14px 45px 0px rgba(0, 0, 0, 0.12);}
+.input_wrap[data-layout="select"] .option_wrap li {width: 100%; }
+.input_wrap[data-layout="select"] .option_wrap button {display: block; width: 100%; height: 42px; padding: 0 16px; text-align: left; line-height: 42px; font-size: 14px;}
+.input_wrap[data-layout="select"] .option_wrap li.on button {font-weight: 600;}
+.input_wrap[data-layout="img"] {display: flex; gap: 1.6vw;}
+.input_wrap[data-layout="img"] li {position: relative; width: 18vw; height: 18vw;}
+.input_wrap[data-layout="img"] label {position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: 2vw; cursor: pointer; background-size: cover; background-repeat: no-repeat; background-position: center;}
+.input_wrap[data-layout="img"] input {width: 100%; height: 100%; padding: 10%; border-radius: 2vw;}
+.input_wrap[data-layout="img"] .btn_del {position: absolute; right: 0.8vw; top: 0.8vw; width: 4.8vw; height: 4.8vw; border-radius: 100%; background: url(/public/front/images/common/ico_close_black.svg) no-repeat center /2.8vw auto rgba(232, 235, 245, 0.60);}
 @media only screen and (max-width:500px){
-    .input_wrap[data-layout="select"] .btn_select {height:48px; padding: 0 16px; line-height: 48px; border-radius: 10px; font-size: 14px; border: 1px solid #414658;}
+    input, textarea {font-size: 14px;}
+    .input_wrap:not(:last-child) {margin-bottom: 8px;}
+    .input_wrap[data-layout="text"] input {height: 46px; padding: 0 16px; border-radius: 10px; border: 1px solid #E4E4E4;}
+    .input_wrap[data-layout="textarea"] textarea {height: 160px; padding: 16px; border-radius: 10px; border: 1px solid #E4E4E4;}
+    .input_wrap[data-layout="select"] .btn_select {height:48px; padding: 0 16px; line-height: 48px; border-radius: 10px; font-size: 14px; border: 1px solid #E4E4E4;}
+    .input_wrap[data-layout="img"] label {border-radius: 10px;}
+    .input_wrap[data-layout="img"] .btn_del {right: 4px; top: 4px; width: 24px; height: 24px;}
 }
+/* --------------------------------input end-------------------------------- */
 
 
 /* --------------------------------header-------------------------------- */
@@ -176,7 +197,6 @@ section {position: relative;}
 /* --------------------------------fnb end-------------------------------- */
 
 
-
 /* --------------------------------popup------------------------------ */
 #popup_all .popup {display: none; align-items: center; justify-content: center; position: fixed; left: 0; top: 0; width: 100%; height: calc(var(--var, 1vh) * 100); background: rgba(0, 0, 0, 0.5); z-index:999;}
 #popup_all .popup.active {display: flex;}
@@ -189,6 +209,7 @@ section {position: relative;}
 #popup_all .desc {margin-top: 1.6vw; font-size: 2.8vw; color: #444; line-height: 155%;}
 #popup_all .desc:first-of-type {margin-top: 3.2vw;}
 #popup_all .desc span {font-weight: 600;}
+#popup_all .desc[data-layout="info"] {}
 #popup_all .btn_wrap {margin-top: 6.4vw;}
 #popup_all .btn_wrap li:not(:last-child) {margin-bottom: 1.6vw;}
 #popup_all .btn_wrap [class^="btn_"] {display: block; width: 100%; height: 9.6vw; border-radius: 2.6vw; font-weight: 600; text-align: center; font-size: 2.8vw; line-height: 9.6vw;}

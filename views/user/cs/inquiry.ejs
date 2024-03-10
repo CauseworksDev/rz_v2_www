@@ -64,20 +64,20 @@
                             <h2 class="title">문의 내용 입력</h2>
                         </div>
                         <div class="input_wrap" data-layout="select">
-                            <button class="btn_select" type="button" role="combobox" aria-label="문의 유형 선택" aria-haspopup="listbox" aria-expanded="true">문의 유형 선택</button>
-<!--                            <ul class="option_wrap" role="listbox">-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                            </ul>-->
+                            <button class="btn_select" type="button" role="combobox"  aria-label="문의 유형 선택" aria-haspopup="listbox" aria-expanded="false">문의 유형 선택</button>
+                            <ul class="option_wrap" role="listbox">
+                                <li role="none"><button role="option" aria-selected="false" type="button">이용 문의</button></li>
+                                <li role="none"><button role="option" aria-selected="false" type="button">알리고에게 말해줘</button></li>
+                                <li role="none"><button role="option" aria-selected="false" type="button">제휴 문의</button></li>
+                            </ul>
                         </div>
                         <div class="input_wrap" data-layout="select">
-                            <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택" aria-haspopup="listbox" aria-expanded="true">세부 유형 선택</button>
-<!--                            <ul class="option_wrap" role="listbox">-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                                <li role="none"><button role="option" aria-selected="false">asdfg</button></li>-->
-<!--                            </ul>-->
+                            <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택" aria-haspopup="listbox" aria-expanded="false">세부 유형 선택</button>
+                            <ul class="option_wrap" role="listbox">
+                                <li role="none"><button role="option" aria-selected="false" type="button">asdfg</button></li>
+                                <li role="none"><button role="option" aria-selected="false" type="button">asdfg</button></li>
+                                <li role="none"><button role="option" aria-selected="false" type="button">asdfg</button></li>
+                            </ul>
                         </div>
                         <div class="input_wrap" data-layout="text">
                             <label class="blind">문의 제목</label>
@@ -87,14 +87,39 @@
                             <label class="blind">문의 내용</label>
                             <textarea name="" id="" maxlength="500" placeholder="문의 내용 입력 - 최대 500자"></textarea>
                         </div>
-
-
                     </div>
                     <div class="img_wrap">
                         <div class="title_wrap">
                             <h2 class="title">이미지 등록</h2>
                             <p class="desc">문의 내용 연관 이미지, 캡처 첨부 시 답변에 도움이 됩니다.</p>
                         </div>
+                        <ul class="input_wrap" data-layout="img">
+                            <li>
+                                <label for="img1" style="background-image: url(/public/front/images/main/main_vis_01.png)">
+                                    <span class="blind">파일선택</span>
+                                </label>
+                                <input id="img1" type="file">
+                                <button class="btn_del" type="button">
+                                    <span class="blind">삭제</span>
+                                </button>
+                            </li>
+                            <li>
+                                <label for="img2" style="background-image: url(/public/front/images/common/no_img_file.png)">
+                                    <span class="blind">파일선택</span>
+                                </label>
+                                <input id="img2" type="file">
+                            </li>
+                        </ul>
+                        <ul class="desc" data-layout="info">
+                            <li>
+                                <span></span>
+                                <p>고객센터 운영 시간 : 평일 10시 ~18시</p>
+                            </li>
+                            <li>
+                                <span></span>
+                                <p>산업안전보건법에 따라 모든 문의는 기록으로 남습니다.</p>
+                            </li>
+                        </ul>
                     </div>
                     <button type="submit" class="btn_type_01" data-color="red" data-ico="none">등록하기</button>
                 </form>
@@ -107,7 +132,9 @@
 </div>
 
 <script>
+
     $(function (){
+        //-----faq list toggle-----
         let que = $('.faq_list .que');
         que.on('click',function(){
             if( $(this).parent().hasClass('on') ) {
@@ -118,6 +145,48 @@
                 $(this).parent().addClass('on');
                 $(this).attr("aria-expanded","true");
                 $(this).siblings('.ans').stop().slideDown(300);
+            }
+        });
+
+        //-----select input-----
+        let btnSelect = $('.input_wrap .btn_select');
+        btnSelect.on('click',function(){
+            if($(this).hasClass('on') ) {
+                $(this).removeClass('on');
+                $(this).siblings('.option_wrap').hide();
+                $(this).attr("aria-expanded","false");
+            } else {
+                $(this).addClass('on');
+                $(this).siblings('.option_wrap').show();
+                $(this).parent().siblings().children('.option_wrap').hide();
+                $(this).attr("aria-expanded","true");
+            }
+            window.onkeyup = function (e) {
+                var key = e.keyCode ? e.keyCode : e.which;
+                if (key == 27) {
+                    //옵션 숨기고 버튼 원래대로 돌리기
+                    //버튼 aira 다시 체크
+                    //버튼 값? (aria-label)
+                    //inputwrap selct 포커스 아웃시 닫기..
+                    //.faq_list .ans 폰트사이즈 수정
+                }
+            }
+        });
+
+        let btnSelectOption = $('.input_wrap .option_wrap button');
+        btnSelectOption.on('click',function(){
+            let btnSelectOptionName = $(this).text();
+            if($(this).parent().hasClass('on') ) {
+                $(this).parent().removeClass('on');
+            } else {
+                $(this).attr('aria-selected', 'true');
+                $(this).parent().addClass('on');
+                $(this).parent().siblings().removeClass('on')
+                $(this).parent().siblings().children('button').attr('aria-selected', 'false');
+                $(this).parent().parent('.option_wrap').hide();
+                $(this).parent().parent().siblings('.btn_select').removeClass('on');
+                $(this).parent().parent().siblings('.btn_select').attr("aria-expanded","false");
+                $(this).parent().parent().siblings('.btn_select').text(btnSelectOptionName)
             }
         });
     });
