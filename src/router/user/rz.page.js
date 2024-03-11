@@ -186,7 +186,7 @@ router.get('/notice', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/news/notice', {userSession:userSession});
+    res.render('user/news/noticeList', {userSession:userSession});
 });
 
 router.get('/notice/detail', function(req, res, next) {
@@ -213,6 +213,14 @@ router.get('/inquiry/login', function(req, res, next) {
     res.render('user/cs/inquiryLogin', {userSession:userSession});
 });
 
+router.get('/inquiry/list', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/inquiryList', {userSession:userSession});
+});
+
 router.get('/faq', function(req, res, next) {
     let userSession = req.session
     userSession.main = 'N'
@@ -220,4 +228,21 @@ router.get('/faq', function(req, res, next) {
     // console.log(req.query)
     res.render('user/cs/faq', {userSession:userSession});
 });
+
+router.get('/notification', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mypage/notificationList', {userSession:userSession});
+})
+
+router.get('/notification/setting', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mypage/notificationSetting', {userSession:userSession});
+})
+
 module.exports = router;

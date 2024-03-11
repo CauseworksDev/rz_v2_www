@@ -161,16 +161,11 @@
                 $(this).parent().siblings().children('.option_wrap').hide();
                 $(this).attr("aria-expanded","true");
             }
-            window.onkeyup = function (e) {
-                var key = e.keyCode ? e.keyCode : e.which;
-                if (key == 27) {
-                    //옵션 숨기고 버튼 원래대로 돌리기
-                    //버튼 aira 다시 체크
-                    //버튼 값? (aria-label)
-                    //inputwrap selct 포커스 아웃시 닫기..
-                    //.faq_list .ans 폰트사이즈 수정
-                }
-            }
+        });
+        btnSelect.on('focusin',function(){
+            // $(this).parent().siblings().children('.btn_select').removeClass('on');
+            // $(this).parent().siblings().children('.btn_select').attr("aria-expanded","false");
+            // $(this).parent().siblings().children('.option_wrap').hide();
         });
 
         let btnSelectOption = $('.input_wrap .option_wrap button');
@@ -187,8 +182,37 @@
                 $(this).parent().parent().siblings('.btn_select').removeClass('on');
                 $(this).parent().parent().siblings('.btn_select').attr("aria-expanded","false");
                 $(this).parent().parent().siblings('.btn_select').text(btnSelectOptionName)
+                $(this).parent().parent().siblings('.btn_select').focus();
             }
         });
+
+
+        // window.onkeyup = function (e) {
+        //     let key = e.keyCode ? e.keyCode : e.which;
+        //     if (key == 27) {
+        //         let el = $(e.target);
+        //         el.next('.option_wrap').hide();
+        //         el.removeClass('on');
+        //         el.attr("aria-expanded","false");
+        //         // console.log(el)
+        //
+        //         //옵션 숨기고 버튼 원래대로 돌리기
+        //         //버튼 aira 다시 체크
+        //         //버튼 값? (aria-label)
+        //         //inputwrap selct 포커스 아웃시 닫기..
+        //         //.faq_list .ans 폰트사이즈 수정
+        //     }
+        // }
+
+        // let focusEle = $(".input_wrap .btn_select, .input_wrap input");
+        // focusEle.on('focusin',function(){
+        //     $(this).parent('.input_wrap').prev().children('.btn_select').removeClass('on');
+        //     $(this).parent('.input_wrap').prev().children('.btn_select').attr("aria-expanded","false");
+        //     $(this).parent('.input_wrap').prev().children('.option_wrap').hide();
+        // });
+
+
+
     });
 </script>
 </body>

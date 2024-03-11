@@ -1,0 +1,54 @@
+/* --------------------------------notification common-------------------------------- */
+[class^="notification_sec"] {padding: 14.4vw 0;}
+[class^="notification_sec"] .title {font-size: 2.4vw; color: #666; line-height: 100%;}
+[class^="notification_sec"] .title span {font-weight: 700;}
+[class^="notification_sec"] .desc {font-size: 2.4vw; color: #757575; line-height: 100%;}
+[class^="notification_sec"] .desc[data-layout="info"] li {display: flex; gap: 1.6vw; align-items: flex-start;}
+[class^="notification_sec"] .desc[data-layout="info"] li:not(:last-child) {margin-bottom: 1.2vw;}
+[class^="notification_sec"] .desc[data-layout="info"] li span {display: block; width: 0.6vw; height: 0.6vw; margin-top: 0.8vw; border-radius: 100%; background-color: #757575;}
+[class^="notification_sec"] .desc[data-layout="info"] li p {width: calc(100% - 0.6vw - 1.6vw);}
+@media only screen and (max-width:500px){
+    [class^="notification_sec"] {padding: 72px 0;}
+    [class^="notification_sec"] .title {font-size: 12px;}
+    [class^="notification_sec"] .desc {font-size: 12px;}
+    [class^="notification_sec"] .desc[data-layout="info"] li {gap: 8px;}
+    [class^="notification_sec"] .desc[data-layout="info"] li:not(:last-child) {margin-bottom: 6px;}
+    [class^="notification_sec"] .desc[data-layout="info"] li span {width: 3px; height: 3px; margin-top: 4px}
+    [class^="notification_sec"] .desc[data-layout="info"] li p {width: calc(100% - 3px - 8px);}
+}
+/* --------------------------------notification common end-------------------------------- */
+
+
+/* --------------------------------notification list-------------------------------- */
+.notification_sec_01[data-layout="list"] {padding: 14.4vw 0;}
+.notification_sec_01[data-layout="list"] .title_wrap {display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.4vw;}
+.notification_sec_01[data-layout="list"] .desc {margin-top: 4.8vw;}
+.notification_sec_01[data-layout="list"] .btn_all_read {display: inline-block; padding: 1.4vw 2.4vw; line-height: 100%; font-size: 2.4vw; font-weight: 500; color: #666; border: 0.2vw solid #666; border-radius: 1.2vw;}
+@media only screen and (max-width:500px){
+    .notification_sec_01[data-layout="list"] {padding: 72px 0;}
+    .notification_sec_01[data-layout="list"] .title_wrap {margin-bottom: 12px;}
+    .notification_sec_01[data-layout="list"] .desc {margin-top: 24px;}
+    .notification_sec_01[data-layout="list"] .btn_all_read {padding: 7px 12px; font-size: 12px; border: 1px solid #666; border-radius: 6px;}
+}
+/* --------------------------------notification list end-------------------------------- */
+
+
+/* --------------------------------notification set-------------------------------- */
+.notification_sec_01[data-layout="set"] .title_wrap {margin-bottom: 4.8vw;}
+.notification_sec_01[data-layout="set"] .list >li {padding: 4.8vw 0; border-bottom: 0.2vw solid #EBEBEB;}
+.notification_sec_01[data-layout="set"] .desc {margin-top: 0.8vw}
+.notification_sec_01[data-layout="set"] .flex_warp {display: flex; justify-content: space-between; align-items: center;}
+.notification_sec_01[data-layout="set"] .opt_title {font-weight: 500; font-size: 2.6vw; color: #222}
+.notification_sec_01[data-layout="set"] input[type="checkbox"] {position: relative; width: 10vw; height: 6vw; appearance: none; border: none; border-radius: 3vw; background-color: #E9E9E9;}
+.notification_sec_01[data-layout="set"] input[type="checkbox"]::before {content: ""; position: absolute; left: 0.6vw; top: 0.6vw; width: 4.8vw; height: 4.8vw; border-radius: 100%; background-color: #fff; box-shadow: 0 1.2vw 4vw 0 rgba(0, 0, 0, 0.06); transition: left 0.25s linear;}
+.notification_sec_01[data-layout="set"] input[type="checkbox"]:checked {background-color: #DD3636;}
+.notification_sec_01[data-layout="set"] input[type="checkbox"]:checked::before {left: 4.6vw;}
+@media only screen and (max-width:500px){
+    .notification_sec_01[data-layout="set"] .title_wrap {margin-bottom: 24px;}
+    .notification_sec_01[data-layout="set"] .list >li {padding: 24px 0; border-bottom: 1px solid #EBEBEB;}
+    .notification_sec_01[data-layout="set"] .opt_title {font-size: 18px;}
+    .notification_sec_01[data-layout="set"] input[type="checkbox"] {width: 50px; height: 30px; border-radius: 15px}
+    .notification_sec_01[data-layout="set"] input[type="checkbox"]::before {left: 3px; top: 3px; width: 24px; height: 24px; box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.06);}
+    .notification_sec_01[data-layout="set"] input[type="checkbox"]:checked::before {left: 23px;}
+}
+/* --------------------------------notification set end-------------------------------- */

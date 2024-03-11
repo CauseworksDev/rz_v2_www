@@ -1,0 +1,50 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/mypage.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/headerPrev.ejs %>
+
+    <div id="container">
+        <section class="notification_sec_01" data-layout="set">
+            <div class="inner">
+                <div class="title_wrap">
+                    <h2 class="title">PUSH 알림 및 야간 수신 여부를 설정할 수 있습니다.</h2>
+                </div>
+                <form action="">
+                    <ul class="list">
+                        <li>
+                            <div class="flex_warp">
+                                <label for="" class="opt_title">모든 알림 받기</label>
+                                <input role="switch" type="checkbox" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex_warp">
+                                <label for="" class="opt_title">야간 알림 받기</label>
+                                <input role="switch" type="checkbox" />
+                            </div>
+                            <ul class="desc" data-layout="info">
+                                <li>
+                                    <span></span>
+                                    <p>22시~07시 사이에도 알림을 받습니다.</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </section>
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+</div>
+</body>
+</html>

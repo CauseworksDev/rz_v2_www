@@ -1,0 +1,102 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/mypage.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/headerPrev.ejs %>
+
+    <div id="container">
+        <section class="notification_sec_01" data-layout="list">
+            <div class="inner">
+                <div class="title_wrap">
+                    <h2 class="title">읽지 않은 알림 <span>3건</span></h2>
+                    <button class="btn_all_read">모두 읽음</button>
+                </div>
+                <ul class="list" data-layout="notification">
+                    <!-- 새 공지사항 addClass : new -->
+                    <li>
+                        <a href="">
+                            <span class="ico" data-layout="point"></span>
+                            <h2 class="list_title">
+                                <span>나무심는알리고86님!</span>소멸 예정인 rz가 있어요.
+                            </h2>
+                            <p class="list_desc">
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                            </p>
+                            <p class="list_date">17시간전</p>
+                        </a>
+                    </li>
+                    <li class="new">
+                        <a href="">
+                            <span class="ico" data-layout="info"></span>
+                            <h2 class="list_title">
+                                <span>나무심는알리고86님!</span>소멸 예정인 rz가 있어요. 어쩌라구요????????????
+                            </h2>
+                            <p class="list_desc">
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                            </p>
+                            <p class="list_date">17시간전</p>
+                        </a>
+                    </li>
+                    <li class="new">
+                        <a href="">
+                            <span class="ico" data-layout="info"></span>
+                            <h2 class="list_title">
+                                아이들의 든든한 지원군이 되어주셔서 감사합니다.
+                            </h2>
+                            <p class="list_desc">
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                            </p>
+                            <p class="list_date">17시간전</p>
+                        </a>
+                    </li>
+                    <!-- 확인한 공지사항 addClass : done -->
+                    <li class="done">
+                        <a href="">
+                            <span class="ico" data-layout="info"></span>
+                            <h2 class="list_title">
+                                알지?에 새로운 미션 유형이 생겼어요!
+                            </h2>
+                            <p class="list_desc">
+                                [바로 확인하기]
+                            </p>
+                            <p class="list_date">17시간전</p>
+                        </a>
+                    </li>
+                    <li class="done">
+                        <a href="">
+                            <span class="ico" data-layout="point"></span>
+                            <h2 class="list_title">
+                                <span>나무심는알리고86님!</span>소멸 예정인 rz가 있어요.
+                            </h2>
+                            <p class="list_desc">
+                                포인트가 사라지기 전에 rz를 사용해보세요. rz는
+                                기부 캠페인과 rz교환소에서 사용할 수 있어요.
+                            </p>
+                            <p class="list_date">17시간전</p>
+                        </a>
+                    </li>
+                </ul>
+                <p class="desc">*2주가 초과한 알림은 자동으로 삭제됩니다.</p>
+            </div>
+        </section>
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+</div>
+</body>
+</html>

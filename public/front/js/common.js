@@ -24,9 +24,9 @@ $(function () {
     //tab 막기
     function preventTab() {
         $(".popup").each(function(){
-            var focusList = $(this).find("button, input:not([type='hidden']), select, iframe, textarea, [href], [tabindex]:not([tabindex='-1'])");
-            var firstFocus = focusList.eq(0);
-            var lastFocus = focusList.eq(focusList.length - 1);
+            let focusList = $(this).find("button, input:not([type='hidden']), select, iframe, textarea, [href], [tabindex]:not([tabindex='-1'])");
+            let firstFocus = focusList.eq(0);
+            let lastFocus = focusList.eq(focusList.length - 1);
             //첫번째 요소 focus
             firstFocus.focus();
             firstFocus.on({
