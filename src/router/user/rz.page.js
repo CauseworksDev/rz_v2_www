@@ -221,6 +221,22 @@ router.get('/inquiry/list', function(req, res, next) {
     res.render('user/cs/inquiryList', {userSession:userSession});
 });
 
+router.get('/inquiry/nonemember', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/inquiryNonmember', {userSession:userSession});
+});
+
+router.get('/inquiry/detail', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/cs/inquiryDetail', {userSession:userSession});
+});
+
 router.get('/faq', function(req, res, next) {
     let userSession = req.session
     userSession.main = 'N'

@@ -48,17 +48,18 @@
 .inquiry_sec_01[data-layout="main"] {border-bottom: 1.6vw solid #F3F3F3;}
 .inquiry_sec_01[data-layout="main"] .faq_list {margin-bottom: 4.8vw}
 .inquiry_sec_02[data-layout="main"] {padding: 8vw 0;}
-.inquiry_sec_02[data-layout="main"] .cont_wrap,
-.inquiry_sec_02[data-layout="main"] .img_wrap {margin-bottom: 8vw;}
-.inquiry_sec_02[data-layout="main"] .img_wrap .input_wrap {margin-bottom: 8vw;}
-.inquiry_sec_02[data-layout="main"] .img_wrap .desc[data-layout="info"] {margin-top: 0; padding-top: 3.2vw; border-top: 0.2vw solid #EBEBEB;}
+.inquiry_sec_02[data-layout="main"] .cont_wrap {margin-bottom: 8vw;}
+.inquiry_sec_02[data-layout="main"] .desc[data-layout="info"] {margin-top: 0; padding-top: 3.2vw; border-top: 0.2vw solid #EBEBEB;}
+.inquiry_sec_02[data-layout="main"] .cont_wrap[data-layout="ck"] {margin-top: -4.8vw; padding: 3.2vw; border-radius: 2vw; background-color: #F3F3F3;}
+.inquiry_sec_02[data-layout="main"] .cont_wrap[data-layout="ck"] .btn_popup {position: absolute; right: -2vw; top: 50%; width: 6vw; height: 6vw; background: url(/public/front/images/common/ico_prev.svg) no-repeat center/1.4vw auto; transform: translateY(-50%) rotate(180deg);}
 @media only screen and (max-width:500px){
     .inquiry_sec_01[data-layout="main"] {border-bottom: 8px solid #F3F3F3;}
     .inquiry_sec_01[data-layout="main"] .faq_list {margin-bottom: 24px;}
     .inquiry_sec_02[data-layout="main"] {padding: 40px 0;}
-    .inquiry_sec_02[data-layout="main"] .cont_wrap,
-    .inquiry_sec_02[data-layout="main"] .img_wrap {margin-bottom: 40px;}
-    .inquiry_sec_02[data-layout="main"] .img_wrap .desc[data-layout="info"] {padding-top: 16px; border-top: 1px solid #EBEBEB;}
+    .inquiry_sec_02[data-layout="main"] .cont_wrap {margin-bottom: 40px;}
+    .inquiry_sec_02[data-layout="main"] .desc[data-layout="info"] {padding-top: 16px; border-top: 1px solid #EBEBEB;}
+    .inquiry_sec_02[data-layout="main"] .cont_wrap[data-layout="ck"] {margin-top: -24px; padding: 16px; border-radius: 10px;}
+    .inquiry_sec_02[data-layout="main"] .cont_wrap[data-layout="ck"] .btn_popup {right: -10px; width: 30px; height: 30px; background: url(/public/front/images/common/ico_prev.svg) no-repeat center/7px auto;}
 }
 /* --------------------------------inquiry main end-------------------------------- */
 
