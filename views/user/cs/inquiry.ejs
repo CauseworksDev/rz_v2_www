@@ -78,60 +78,6 @@
                                     <option value="">옵션</option>
                                 </select>
                             </div>
-<!--                            <div class="input_wrap" data-layout="select">-->
-<!--                                <button class="btn_select" type="button" role="combobox"  aria-label="문의 유형 선택" aria-haspopup="listbox" aria-expanded="false">문의 유형 선택</button>-->
-<!--                                <ul class="option_wrap" role="listbox">-->
-<!--                                    <li role="none"><button role="option" aria-selected="false" type="button">이용 문의</button></li>-->
-<!--                                    <li role="none"><button role="option" aria-selected="false" type="button">알리고에게 말해줘</button></li>-->
-<!--                                    <li role="none"><button role="option" aria-selected="false" type="button">제휴 문의</button></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                            <div class="input_wrap" data-layout="select">-->
-<!--                                <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택" aria-haspopup="listbox" aria-expanded="false">세부 유형 선택</button>-->
-<!--                                <ul class="option_wrap" role="listbox">-->
-<!--                                    <li role="none"><button role="option" aria-selected="false" type="button">옵션</button></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-                            <div class="input_wrap" data-layout="text">
-                                <label class="blind">문의 제목</label>
-                                <input type="text" placeholder="문의 제목 입력" />
-                            </div>
-                            <div class="input_wrap" data-layout="textarea">
-                                <label class="blind">문의 내용</label>
-                                <textarea name="" id="" maxlength="500" placeholder="문의 내용 입력 - 최대 500자"></textarea>
-                            </div>
-                        </div><!--//cont_wrap-->
-
-                        <div class="cont_wrap">
-                            <div class="title_wrap">
-                                <h2 class="title">문의 내용 입력</h2>
-                            </div>
-                            <div class="input_wrap" data-layout="select">
-                                <button class="btn_select" type="button" role="combobox" aria-label="문의 유형 선택"
-                                        aria-haspopup="listbox" aria-expanded="false">문의 유형 선택
-                                </button>
-                                <ul class="option_wrap" role="listbox">
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">이용 문의</button>
-                                    </li>
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">알리고에게 말해줘</button>
-                                    </li>
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">제휴 문의</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="input_wrap" data-layout="select">
-                                <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택"
-                                        aria-haspopup="listbox" aria-expanded="false">세부 유형 선택
-                                </button>
-                                <ul class="option_wrap" role="listbox">
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">옵션</button>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="input_wrap" data-layout="text">
                                 <label class="blind">문의 제목</label>
                                 <input type="text" placeholder="문의 제목 입력" />
@@ -191,7 +137,6 @@
 </div>
 
 <script>
-
     $(function (){
         //-----faq list toggle-----
         let que = $('.faq_list .que');
@@ -206,43 +151,17 @@
                 $(this).siblings('.ans').stop().slideDown(300);
             }
         });
-
-        //-----select input-----
-        let btnSelect = $('.input_wrap .btn_select');
-        btnSelect.on('click',function(){
-            if($(this).hasClass('on') ) {
-                $(this).removeClass('on');
-                $(this).attr("aria-expanded","false");
-                $(this).siblings('.option_wrap').hide();
-            } else {
-                $(this).addClass('on');
-                $(this).attr("aria-expanded","true");
-                $(this).siblings('.option_wrap').show();
-                $(this).parent().siblings().children('.option_wrap').hide();
-                $(this).parent().siblings().children('.btn_select').removeClass('on');
-                $(this).parent().siblings().children('.btn_select').attr("aria-expanded","false");
-            }
-        });
-        let btnSelectOption = $('.input_wrap .option_wrap button');
-        btnSelectOption.on('click',function(){
-            let btnSelectOptionName = $(this).text();
-            $(this).attr('aria-selected', 'true');
-            $(this).parent().addClass('on');
-            $(this).parent().siblings().removeClass('on')
-            $(this).parent().siblings().children('button').attr('aria-selected', 'false');
-            $(this).parent().parent('.option_wrap').hide();
-            $(this).parent().parent().siblings('.btn_select').removeClass('on');
-            $(this).parent().parent().siblings('.btn_select').attr("aria-expanded","false");
-            $(this).parent().parent().siblings('.btn_select').text(btnSelectOptionName)
-            $(this).parent().parent().siblings('.btn_select').focus();
-        });
     });
 </script>
 
 <script>
     $(document).ready(function () {
-        $("#inquiryCate").selectmenu();
-        $("#inquiryCateDetail").selectmenu();
+        $("#inquiryCate").selectmenu({
+            position: { my : "left top", at: "left bottom+8" }
+        });
+        $("#inquiryCateDetail").selectmenu({
+            position: { my : "left top", at: "left bottom+8" }
+        });
     });
 </script>
 </body>

@@ -47,7 +47,6 @@
 /* --------------------------------inquiry main-------------------------------- */
 .inquiry_sec_01[data-layout="main"] {border-bottom: 1.6vw solid #F3F3F3;}
 .inquiry_sec_01[data-layout="main"] .faq_list {margin-bottom: 4.8vw}
-
 .inquiry_sec_02[data-layout="main"] {padding: 8vw 0;}
 .inquiry_sec_02[data-layout="main"] .cont_wrap {margin-bottom: 8vw;}
 .inquiry_sec_02[data-layout="main"] .desc[data-layout="info"] {margin-top: 0; padding-top: 3.2vw; border-top: 0.2vw solid #EBEBEB;}

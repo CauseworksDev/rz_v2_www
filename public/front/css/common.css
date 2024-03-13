@@ -3,14 +3,13 @@
 
 /* --------------------------------reset-------------------------------- */
 [lang="ko"]{word-break: break-all;}
-*{margin:0; padding:0; box-sizing:border-box; font:inherit; color:inherit; flex-shrink:0;}
+*{margin:0; padding:0; box-sizing:border-box; font:inherit; color:inherit; flex-shrink:0;outline: none;}
 html, body {font-size:16px; color: #444444;}
 html, body, button, input, select, table, textarea {font-family: 'Pretendard', 'Outfit', sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-size:inherit; line-height:inherit;}
 ul,ol,dl,menu,li {list-style:none;}
 a, a:active, a:hover {text-decoration:none;}
-button, input {-webkit-border-radius:0; border-radius:0; border:0;}
-button {background-color:transparent;}
+button {background-color:transparent; border: none;}
 blockquote, q {quotes:none;}
 :after, :before {box-sizing:inherit;}
 img, picture, video, canvas, svg {display:block; max-width:100%;}
@@ -22,13 +21,14 @@ table {border-collapse:collapse; border-spacing:0;}
 td, th {padding:0;}
 input, select, textarea {vertical-align: middle; box-sizing: border-box;border-radius: 0;appearance:none;-moz-appearance: none;-webkit-appearance: none;}
 input[type=text]::-ms-clear{display: none;}
-@media (pointer:coarse) {
-    :focus {outline: 0;}
-    :focus-visible {outline: 0.4vw dashed red;}
+:focus {outline: 0.4vw dashed #222;}
+:focus:not(:focus-visible) {outline: 0;}
+@media only screen and (max-width:500px){
+    :focus {outline: 2px dashed #222;}
 }
-/*@media screen and (max-width:500px) and (pointer:coarse) {*/
-/*    :focus-visible {outline: 2px dashed #222;}*/
-/*}*/
+@media (pointer:coarse) {
+    :focus {outline: 0}
+}
 /* --------------------------------reset end--------------------------- */
 
 
@@ -79,22 +79,13 @@ input::placeholder {color: #757575;}
 .input_wrap[data-layout="text"] input {width: 100%; height: 9.2vw; padding: 0 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4;}
 .input_wrap[data-layout="textarea"] textarea {width: 100%; height: 32vw; padding: 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; resize: none;}
 /*jquery ui select*/
-.input_wrap[data-layout="select"] .ui-selectmenu-button {position: relative; display: block; width: 100%; height: 9.6vw; margin: 0; padding: 0 3.2vw; background-color: #fff;  line-height: 9.6vw; text-align: left; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #E4E4E4;}
+.input_wrap[data-layout="select"] .ui-selectmenu-button {position: relative; display: block; width: 100%; height: 9.6vw; margin: 0; padding: 0 3.2vw; color: #222; background-color: #fff;  line-height: 9.6vw; text-align: left; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #E4E4E4;}
 .input_wrap[data-layout="select"] .ui-selectmenu-text {width: calc(100% - 6.4vw); height: 100%; margin: 0; font-family: 'Pretendard', 'Outfit', sans-serif;}
 .input_wrap[data-layout="select"] .ui-selectmenu-icon {position: absolute; right: 3.2vw; top: 50%; width: 3.2vw; height: 3.2vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_down.svg) no-repeat center/100% auto}
 .input_wrap[data-layout="select"] .ui-selectmenu-button[aria-expanded="true"] .ui-selectmenu-icon {background: url(/public/front/images/common/ico_up.svg) no-repeat center/100% auto;}
 .ui-widget.ui-widget-content {width: 100%; padding: 1.6vw 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; box-shadow: 0 2.8vw 9vw 0 rgba(0, 0, 0, 0.12);}
 .ui-menu .ui-menu-item-wrapper {width: 100%; height: 8.4vw; padding: 0 1.6vw; color: #222; border-radius: 2vw; text-align: left; line-height: 8.4vw; font-size: 2.8vw;  font-family: 'Pretendard', 'Outfit', sans-serif;}
 .ui-widget-content .ui-state-active {margin: 0; background-color: #F6F7FE; color: #222; border: none;}
-/*select*/
-.input_wrap[data-layout="select"] .btn_select {position: relative; display: block; width: 100%; height: 9.6vw; padding: 0 3.2vw; line-height: 9.6vw; text-align: left; border-radius: 2vw; font-size: 2.8vw; border: 0.2vw solid #E4E4E4;}
-.input_wrap[data-layout="select"] .btn_select::after {content: ""; position: absolute; right: 3.2vw; top: 50%; width: 3.2vw; height: 3.2vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_down_c222.svg) no-repeat center/100% auto;}
-.input_wrap[data-layout="select"] .btn_select.on::after {transform:  translateY(-50%) rotate(180deg);}
-.input_wrap[data-layout="select"] .option_wrap {display: none; position: absolute; left: 0; top: 11.2vw; width: 100%; padding: 1.6vw 0; background-color: #fff; z-index: 10; border-radius: 2vw; border: 0.2vw solid #E4E4E4; box-shadow: 0 2.8vw 9vw 0 rgba(0, 0, 0, 0.12);}
-.input_wrap[data-layout="select"] .option_wrap li {width: 100%;}
-.input_wrap[data-layout="select"] .option_wrap button {position: relative; display: block; width: 100%; height: 8.4vw; padding: 0 3.2vw; text-align: left; line-height: 8.4vw; font-size: 2.8vw;}
-.input_wrap[data-layout="select"] .option_wrap li.on button {font-weight: 600;}
-.input_wrap[data-layout="select"] .option_wrap li.on button::after {content: ""; position: absolute; right: 4vw; top: 50%; width: 2.6vw; height: 2.6vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_check.svg) no-repeat center/100% auto;}
 /*img file*/
 .input_wrap[data-layout="img"] {display: flex; gap: 1.6vw;}
 .input_wrap[data-layout="img"] li {position: relative; width: 18vw; height: 18vw;}
@@ -112,12 +103,12 @@ input::placeholder {color: #757575;}
     .input_wrap:not(:last-child) {margin-bottom: 8px;}
     .input_wrap[data-layout="text"] input {height: 46px; padding: 0 16px; border-radius: 10px; border: 1px solid #E4E4E4;}
     .input_wrap[data-layout="textarea"] textarea {height: 160px; padding: 16px; border-radius: 10px; border: 1px solid #E4E4E4;}
-    /*select*/
-    .input_wrap[data-layout="select"] .btn_select {height:48px; padding: 0 16px; line-height: 48px; border-radius: 10px; font-size: 14px; border: 1px solid #E4E4E4;}
-    .input_wrap[data-layout="select"] .btn_select::after {right: 16px; width: 16px; height: 16px;}
-    .input_wrap[data-layout="select"] .option_wrap {top: 56px; padding: 8px 0; border-radius: 10px; border: 1px solid #E4E4E4; box-shadow: 0 14px 45px 0 rgba(0, 0, 0, 0.12);}
-    .input_wrap[data-layout="select"] .option_wrap button {height: 42px; padding: 0 16px; line-height: 42px; font-size: 14px;}
-    .input_wrap[data-layout="select"] .option_wrap li.on button::after {right: 20px; width: 13px; height: 13px;}
+    /*jquery ui select*/
+    .input_wrap[data-layout="select"] .ui-selectmenu-button {height: 48px; padding: 0 16px; line-height: 48px; border-radius: 10px; font-size: 14px; border: 1px solid #E4E4E4;}
+    .input_wrap[data-layout="select"] .ui-selectmenu-text {width: calc(100% - 32px);}
+    .input_wrap[data-layout="select"] .ui-selectmenu-icon {right: 16px; width: 16px; height: 16px;}
+    .ui-widget.ui-widget-content {padding: 8px 16px; border-radius: 10px; border: 1px solid #E4E4E4; box-shadow: 0 14px 45px 0 rgba(0, 0, 0, 0.12);}
+    .ui-menu .ui-menu-item-wrapper {height: 42px; padding: 0 8px; border-radius: 10px; line-height: 42px; font-size: 14px;}
     /*img file*/
     .input_wrap[data-layout="img"] {gap: 8px;}
     .input_wrap[data-layout="img"] li {width: 90px; height: 90px;}
