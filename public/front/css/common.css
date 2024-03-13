@@ -22,10 +22,13 @@ table {border-collapse:collapse; border-spacing:0;}
 td, th {padding:0;}
 input, select, textarea {vertical-align: middle; box-sizing: border-box;border-radius: 0;appearance:none;-moz-appearance: none;-webkit-appearance: none;}
 input[type=text]::-ms-clear{display: none;}
-:focus {outline: 0.4vw dashed;}
-@media only screen and (max-width:500px){
-    :focus {outline: 2px dashed #444;}
+@media (pointer:coarse) {
+    :focus {outline: 0;}
+    :focus-visible {outline: 0.4vw dashed red;}
 }
+/*@media screen and (max-width:500px) and (pointer:coarse) {*/
+/*    :focus-visible {outline: 2px dashed #222;}*/
+/*}*/
 /* --------------------------------reset end--------------------------- */
 
 
