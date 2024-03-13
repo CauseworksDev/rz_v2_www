@@ -202,7 +202,7 @@ router.get('/inquiry', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/inquiry', {userSession:userSession});
+    res.render('user/inquiry/inquiry', {userSession:userSession});
 });
 
 router.get('/inquiry/login', function(req, res, next) {
@@ -210,7 +210,7 @@ router.get('/inquiry/login', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/inquiryLogin', {userSession:userSession});
+    res.render('user/inquiry/inquiryLogin', {userSession:userSession});
 });
 
 router.get('/inquiry/list', function(req, res, next) {
@@ -218,7 +218,7 @@ router.get('/inquiry/list', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/inquiryList', {userSession:userSession});
+    res.render('user/inquiry/inquiryList', {userSession:userSession});
 });
 
 router.get('/inquiry/nonemember', function(req, res, next) {
@@ -226,7 +226,7 @@ router.get('/inquiry/nonemember', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/inquiryNonmember', {userSession:userSession});
+    res.render('user/inquiry/inquiryNonmember', {userSession:userSession});
 });
 
 router.get('/inquiry/detail', function(req, res, next) {
@@ -234,7 +234,7 @@ router.get('/inquiry/detail', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/inquiryDetail', {userSession:userSession});
+    res.render('user/inquiry/inquiryDetail', {userSession:userSession});
 });
 
 router.get('/faq', function(req, res, next) {
@@ -242,7 +242,7 @@ router.get('/faq', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/cs/faq', {userSession:userSession});
+    res.render('user/inquiry/faq', {userSession:userSession});
 });
 
 router.get('/notification', function(req, res, next) {
