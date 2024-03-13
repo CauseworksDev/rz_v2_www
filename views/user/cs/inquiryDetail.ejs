@@ -14,11 +14,60 @@
     <div id="container">
         <section class="inquiry_sec_01" data-layout="detail">
             <div class="inner">
-
+                <ul class="que_ans_wrap">
+                    <li class="que_box">
+                        <div class="title_wrap">
+                            <h3 class="cate">기부 캠페인</h3>
+                            <h2 class="title">나의 참여이력은 어디서 확인하나요? 나의 참여이력은 어디서 확인하나요? 나의 참여이력은 어디서 확인하나요?예??????????????????????</h2>
+                            <p class="date">2024.04.01.</p>
+                        </div>
+                        <div class="cont_wrap">
+                            <img class="img" src="/public/front/images/main/main_vis_01.png" alt="">
+                            <p class="text">
+                                질문 상세 내용이 들어가는 영역입니다.
+                                질문 상세 내용이 들어가는 영역입니다.
+                                질문 상세 내용이 들어가는 영역입니다.
+                                질문 상세 내용이 들어가는 영역입니다.
+                                질문 상세 내용이 들어가는 영역입니다.
+                                질문 상세 내용이 들어가는 영역입니다.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="ans_box">
+                        <h4 class="progress">답변 완료</h4>
+                        <p class="text">
+                            안녕하세요 알친님! 아래 이미지 참고하여 진행 부탁드립니다.
+                            안녕하세요 알친님! 아래 이미지 참고하여 진행 부탁드립니다.
+                            안녕하세요 알친님! 아래 이미지 참고하여 진행 부탁드립니다.
+                            안녕하세요 알친님! 아래 이미지 참고하여 진행 부탁드립니다.
+                        </p>
+                        <img class="img" src="/public/front/images/main/title_heart.png" alt="">
+                        <p class="date">2024.04.01.</p>
+                    </li>
+<!--                    <li class="que_box">-->
+<!--                        <div class="title_wrap">-->
+<!--                            <h3 class="cate">기부 캠페인</h3>-->
+<!--                            <h2 class="title">나의 참여이력은 어디서 확인하나요? 예??????????????????????</h2>-->
+<!--                            <p class="date">2024.04.01.</p>-->
+<!--                        </div>-->
+<!--                        <div class="cont_wrap">-->
+<!--                            <img class="img" src="/public/front/images/common/no_img_file.png" alt="">-->
+<!--                            <p class="text">-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                                질문 상세 내용이 들어가는 영역입니다.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+                </ul>
             </div>
         </section>
-        <section class="inquiry_sec_02" data-layout="main">
+        <section class="inquiry_sec_02" data-layout="detail">
             <div class="inner">
+                <button type="button" class="btn_more_que">추가 질문하기</button>
                 <div class="form_wrap">
                     <form action="">
                         <div class="cont_wrap">
@@ -32,66 +81,14 @@
                                     <option value="">알리고에게 말해줘</option>
                                     <option value="">제휴 문의</option>
                                 </select>
+                                <div id="inquiryCateOption"></div>
                             </div>
                             <div class="input_wrap" data-layout="select">
                                 <select name="filter" id="inquiryCateDetail">
                                     <option value="" selected>세부 유형 선택</option>
                                     <option value="">옵션</option>
                                 </select>
-                            </div>
-                            <!--                            <div class="input_wrap" data-layout="select">-->
-                            <!--                                <button class="btn_select" type="button" role="combobox"  aria-label="문의 유형 선택" aria-haspopup="listbox" aria-expanded="false">문의 유형 선택</button>-->
-                            <!--                                <ul class="option_wrap" role="listbox">-->
-                            <!--                                    <li role="none"><button role="option" aria-selected="false" type="button">이용 문의</button></li>-->
-                            <!--                                    <li role="none"><button role="option" aria-selected="false" type="button">알리고에게 말해줘</button></li>-->
-                            <!--                                    <li role="none"><button role="option" aria-selected="false" type="button">제휴 문의</button></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </div>-->
-                            <!--                            <div class="input_wrap" data-layout="select">-->
-                            <!--                                <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택" aria-haspopup="listbox" aria-expanded="false">세부 유형 선택</button>-->
-                            <!--                                <ul class="option_wrap" role="listbox">-->
-                            <!--                                    <li role="none"><button role="option" aria-selected="false" type="button">옵션</button></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </div>-->
-                            <div class="input_wrap" data-layout="text">
-                                <label class="blind">문의 제목</label>
-                                <input type="text" placeholder="문의 제목 입력" />
-                            </div>
-                            <div class="input_wrap" data-layout="textarea">
-                                <label class="blind">문의 내용</label>
-                                <textarea name="" id="" maxlength="500" placeholder="문의 내용 입력 - 최대 500자"></textarea>
-                            </div>
-                        </div><!--//cont_wrap-->
-
-                        <div class="cont_wrap">
-                            <div class="title_wrap">
-                                <h2 class="title">문의 내용 입력</h2>
-                            </div>
-                            <div class="input_wrap" data-layout="select">
-                                <button class="btn_select" type="button" role="combobox" aria-label="문의 유형 선택"
-                                        aria-haspopup="listbox" aria-expanded="false">문의 유형 선택
-                                </button>
-                                <ul class="option_wrap" role="listbox">
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">이용 문의</button>
-                                    </li>
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">알리고에게 말해줘</button>
-                                    </li>
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">제휴 문의</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="input_wrap" data-layout="select">
-                                <button class="btn_select" type="button" role="combobox" aria-label="세부 유형 선택"
-                                        aria-haspopup="listbox" aria-expanded="false">세부 유형 선택
-                                </button>
-                                <ul class="option_wrap" role="listbox">
-                                    <li role="none">
-                                        <button role="option" aria-selected="false" type="button">옵션</button>
-                                    </li>
-                                </ul>
+                                <div id="inquiryCateDetailOption"></div>
                             </div>
                             <div class="input_wrap" data-layout="text">
                                 <label class="blind">문의 제목</label>
@@ -102,7 +99,6 @@
                                 <textarea name="" id="" maxlength="500" placeholder="문의 내용 입력 - 최대 500자"></textarea>
                             </div>
                         </div><!--//cont_wrap-->
-
                         <div class="cont_wrap">
                             <div class="title_wrap">
                                 <h2 class="title">이미지 등록</h2>
@@ -150,5 +146,114 @@
     <% include ../inc/footer.ejs %>
     <% include ../inc/footerNav.ejs %>
 </div>
+
+<div id="popup_all">
+    <!-- 문의 유형 선택 팝업 -->
+    <div class="popup" id="pop_inquiry_cate">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    문의 유형을 선택해 주세요.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button href="" class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!--제목 입력 팝업-->
+    <div class="popup" id="pop_inquiry_title">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    제목을 입력해 주세요.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button href="" class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!--문의 내용 입력 팝업-->
+    <div class="popup" id="pop_inquiry_cont">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    문의 내용을 입력해 주세요.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button href="" class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!--개인정보 수집 팝업-->
+    <div class="popup" id="pop_inquiry_agree">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    개인정보 수집 및 이용에 동의해 주세요.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button href="" class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!--문의등록 완료 팝업-->
+    <div class="popup" id="pop_inquiry_done">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    1:1 문의 등록이 완료되었습니다. <br />
+                    알지? 운영팀 확인 후 <br />
+                    빠른 시일 내 답변드리겠습니다. <br />
+                    감사합니다!
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button href="" class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+</div><!-- //popup_all -->
+
+<script>
+    $(function (){
+        //-----faq list toggle-----
+        let que = $('.btn_more_que');
+        que.on('click',function(){
+            $(this).hide();
+            $(this).siblings(".form_wrap").show();
+        });
+    });
+</script>
+<script>
+    //-----select ui-----
+    $(document).ready(function () {
+        $("#inquiryCate").selectmenu({
+            appendTo: "#inquiryCateOption",
+            position: {my : "left top", at: "left bottom+8"},
+            width: "100%",
+            select: function( event, ui ) {
+                let optionIdxNum = ui.item.index;
+                optionIdxNum =  optionIdxNum + 1
+                console.log(optionIdxNum);
+                $("#inquiryCate-menu li:nth-child(" + optionIdxNum + ")").addClass("active").siblings("li").removeClass("active");
+            }
+        });
+        $("#inquiryCateDetail").selectmenu({
+            appendTo: "#inquiryCateDetailOption",
+            position: {my : "left top", at: "left bottom+8"},
+            width: "100%",
+            select: function( event, ui ) {
+                let optionIdxNum = ui.item.index;
+                optionIdxNum =  optionIdxNum + 1
+                console.log(optionIdxNum);
+                $("#inquiryCateDetail-menu li:nth-child(" + optionIdxNum + ")").addClass("active").siblings("li").removeClass("active");
+            }
+        });
+    });
+</script>
 </body>
 </html>
