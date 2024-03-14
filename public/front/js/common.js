@@ -8,14 +8,15 @@ window.addEventListener('resize', () => {
 });
 
 $(function () {
-    //-----본문 바로가기 버튼----- 
-    $('.skip a').on('focus', function(){
+    //-----본문 바로가기 버튼-----
+    const btnSkip = $('.skip a');
+    btnSkip.on('focus', function(){
         $(this).parent().addClass("on")
     });
-    $('.skip a').on('click', function(){
+    btnSkip.on('click', function(){
         $(this).parent().removeClass("on")
     });
-    $('.skip a').on('focusout', function(){
+    btnSkip.on('focusout', function(){
         $(this).parent().removeClass("on")
     });
 
@@ -31,7 +32,7 @@ $(function () {
             firstFocus.focus();
             firstFocus.on({
                 'keydown': function (e) {
-                    if (e.shiftKey && e.keyCode == 9) {
+                    if (e.shiftKey && e.keyCode === 9) {
                         e.preventDefault();
                         $(lastFocus).focus();
                     }
@@ -39,17 +40,17 @@ $(function () {
             });
             lastFocus.on({
                 'keydown': function (e) {
-                    if (!e.shiftKey && e.keyCode == 9) {
+                    if (!e.shiftKey && e.keyCode === 9) {
                         e.preventDefault();
                         $(firstFocus).focus();
                     }
                 }
             });
-        })
-    };
+        });
+    }
     //팝업 버튼 클릭시
     $(".btn_popup").each(function () {
-        var popupName = $(this).attr("data-popup")
+        let popupName = $(this).attr("data-popup");
         $(this).click(function () {
             _focus = $(this);
             $("html").addClass("ofy_hidden")
@@ -58,7 +59,7 @@ $(function () {
             // Esc키 : 레이어 닫기
             window.onkeyup = function (e) {
                 var key = e.keyCode ? e.keyCode : e.which;
-                if (key == 27) {
+                if (key === 27) {
                     $("html").removeClass("ofy_hidden")
                     $(".popup").removeClass("active").removeAttr("tabindex");
                     jQuery(document).off("keydown", preventTab());
