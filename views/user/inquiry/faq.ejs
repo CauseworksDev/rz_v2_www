@@ -28,7 +28,7 @@
                 <div class="faq_wrap">
                     <ul>
                         <li class="on" aria-selected="true">
-                            <a href="#nohref" class="tab_menu_01" role="tab" aria-controls="tabPanel1">전체</a>
+                            <a href="#nohref" class="tab_menu_01" role="tab" aria-controls="tabPanel1" title="선택됨">전체</a>
                             <ul class="faq_list" id="tabPanel1" role="tabpanel">
                                 <li>
                                     <button id="que1" class="que" aria-expanded="false" aria-controls="ans1">
@@ -372,10 +372,12 @@
         tab.on('click',function(evt) {
             evt.stopPropagation();
             evt.preventDefault();
+            $(this).attr("title","선택됨")
             $(this).parent('li').addClass('on').attr('aria-selected','true');
-            $(this).parent('li').siblings('li').removeClass('on').attr('aria-selected','false');
+            $(this).parent('li').siblings('li').children('a').removeAttr("title");
+            $(this).parent('li').siblings('li').removeClass('on').removeAttr('aria-selected');
             $('.faq_list li').removeClass('on');
-            $('.faq_list .que').attr('aria-expanded','false');;
+            $('.faq_list .que').attr('aria-expanded','false');
             $('.faq_list .ans').hide();
         });
 

@@ -13,25 +13,27 @@
 <script>
     $(function(){
         let pathName = document.location.pathname;
-        const titleName = $(".page_title");
-        const notiSetBnt = $(".bnt_set_noti");
-        if(pathName.startsWith("/notice")) {
-            titleName.text("공지사항")
-        }else if(pathName.startsWith("/inquiry")) {
-            if (pathName.endsWith("/list") || pathName.endsWith("/detail")){
-                titleName.text("1:1 문의")
+        const titleName = $('.page_title');
+        const notiSetBnt = $('.bnt_set_noti');
+        if(pathName.startsWith('/notice')) {
+            titleName.text('공지사항')
+        }else if(pathName.startsWith('/inquiry')) {
+            if (pathName.endsWith('/list') || pathName.endsWith('/detail')){
+                titleName.text('1:1 문의')
             }else{
-                titleName.text("1:1 문의하기")
+                titleName.text('1:1 문의하기')
             }
-        }else if(pathName.startsWith("/faq")) {
-            titleName.text("자주 묻는 질문")
-        }else if(pathName.startsWith("/notification")) {
-            if (pathName.endsWith("/setting")){
-                titleName.text("알림 설정")
+        }else if(pathName.startsWith('/faq')) {
+            titleName.text('자주 묻는 질문')
+        }else if(pathName.startsWith('/notification')) {
+            if (pathName.endsWith('/setting')){
+                titleName.text('알림 설정')
             }else {
-                titleName.text("알림")
+                titleName.text('알림')
                 notiSetBnt.show();
             }
+        }else if(pathName.startsWith('/comment')) {
+            titleName.text('댓글')
         }
     });
 </script>

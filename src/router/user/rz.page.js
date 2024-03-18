@@ -261,4 +261,12 @@ router.get('/notification/setting', function(req, res, next) {
     res.render('user/mypage/notificationSetting', {userSession:userSession});
 })
 
+router.get('/comment', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/etc/comment', {userSession:userSession});
+});
+
 module.exports = router;

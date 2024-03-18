@@ -231,26 +231,24 @@
 <script>
     //-----select ui-----
     $(document).ready(function () {
-        $("#inquiryCate").selectmenu({
-            appendTo: "#inquiryCateOption",
-            position: {my : "left top", at: "left bottom+8"},
-            width: "100%",
+        $('#inquiryCate').selectmenu({
+            appendTo: '#inquiryCateOption',
+            position: {my : 'left top', at: 'left bottom+8'},
+            width: '100%',
             select: function( event, ui ) {
                 let optionIdxNum = ui.item.index;
                 optionIdxNum =  optionIdxNum + 1
-                console.log(optionIdxNum);
-                $("#inquiryCate-menu li:nth-child(" + optionIdxNum + ")").addClass("active").siblings("li").removeClass("active");
+                $('#inquiryCate-menu li:nth-child(' + optionIdxNum + ')').addClass('active').siblings('li').removeClass('active');
             }
         });
         $("#inquiryCateDetail").selectmenu({
-            appendTo: "#inquiryCateDetailOption",
-            position: {my : "left top", at: "left bottom+8"},
+            appendTo: '#inquiryCateDetailOption',
+            position: {my : 'left top', at: 'left bottom+8'},
             width: "100%",
             select: function( event, ui ) {
                 let optionIdxNum = ui.item.index;
                 optionIdxNum =  optionIdxNum + 1
-                console.log(optionIdxNum);
-                $("#inquiryCateDetail-menu li:nth-child(" + optionIdxNum + ")").addClass("active").siblings("li").removeClass("active");
+                $('#inquiryCateDetail-menu li:nth-child(' + optionIdxNum + ')').addClass('active').siblings('li').removeClass('active');
             }
         });
     });
