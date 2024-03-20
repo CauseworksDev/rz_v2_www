@@ -43,10 +43,10 @@
 .comment_sec .input_wrap .flex_wrap {display: flex; align-items: flex-end; gap: 1.6vw; width: 100%;}
 .comment_sec .input_wrap textarea {width: calc(100% - 1.6vw - 10vw); height: 22.4vw; padding: 2.4vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; line-height: 156%; background-color: #fff; resize: none;}
 .comment_sec .input_wrap .btn_cmt {width: 10vw; height: 9.2vw; border-radius: 2.4vw; background-color: #EBEBEB; font-size: 2.8vw; font-weight: 600;}
-.comment_sec .flex_wrap.on textarea {height: 22.4vw;}
-.comment_sec .flex_wrap.on .btn_cmt {background-color: #DD3636; color: #fff;}
+.comment_sec .input_wrap .btn_cmt.on {background-color: #DD3636; color: #fff;}
 .comment_sec .cmt_bot {position: fixed; left: 0; bottom: 0; width: 100%; padding: 1.6vw 1.6vw 6.4vw; border-radius: 3vw 3vw 0 0; box-shadow: 0 0.6vw 4.4vw 0 rgba(0, 0, 0, 0.10); background-color: #fff; z-index: 996;}
 .comment_sec .cmt_bot textarea {height: 9.2vw; padding: 2.4vw 3.2vw;  line-height: 146%;}
+.comment_sec .cmt_bot textarea.on {height: 22.4vw;}
 /*대댓글*/
 .comment_sec .re_cmt_list {border-top: 0.2vw solid #EBEBEB; background-color: #F8F8F8;}
 .comment_sec .re_cmt_list >li {position: relative; width: 91%; margin: 0 auto; padding-top: 3.2vw;}
@@ -95,9 +95,9 @@
     .comment_sec .input_wrap .flex_wrap {gap: 8px;}
     .comment_sec .input_wrap textarea {width: calc(100% - 8px - 50px); height: 112px; padding: 12px; border-radius: 10px; border: 1px solid #E4E4E4;}
     .comment_sec .input_wrap .btn_cmt {width: 50px; height: 46px; border-radius: 12px; font-size: 14px;}
-    .comment_sec .flex_wrap.on textarea {height: 112px;}
-    .comment_sec .cmt_bot {padding: 8px 8px 32px; border-radius: 15px 15px 0 0; box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.10); background-color: #fff; z-index: 996;}
+    .comment_sec .cmt_bot {padding: 8px 8px 32px; border-radius: 15px 15px 0 0; box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.10);}
     .comment_sec .cmt_bot textarea {height: 46px; padding: 12px 16px;}
+    .comment_sec .cmt_bot textarea.on {height: 112px;}
     /*대댓글*/
     .comment_sec .re_cmt_list {border-top: 1px solid #EBEBEB;}
     .comment_sec .re_cmt_list >li {padding-top: 16px}

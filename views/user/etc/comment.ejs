@@ -425,16 +425,34 @@
             $(this).siblings('.opt_wrap').stop().toggle();
         });
 
-        //-----textarea placeholder change-----
+        //-----cmt bottom textarea change-----
         const cmtBotTextarea = $('.cmt_bot textarea');
-        cmtBotTextarea.on('focus',function(evt) {
-            cmtBotTextarea.attr('placeholder','주제와 무관한 댓글은 삭제될 수 있습니다.')
+        cmtBotTextarea.on('focusin',function(evt) {
+            $(this).attr('placeholder','주제와 무관한 댓글은 삭제될 수 있습니다.');
+            $(this).addClass('on');
+        });
+        cmtBotTextarea.on('propertychange change keyup paste input',function(evt) {
+            if ($(this).val() === ""){
+                $(this).siblings('.btn_cmt').removeClass('on');
+            }else {
+                $(this).siblings('.btn_cmt').addClass('on');
+            }
+        });
+        cmtBotTextarea.on('focusout',function(evt) {
+            if ($(this).val() === ""){
+                $(this).removeClass('on');
+                $(this).attr('placeholder','댓글을 입력하세요.');
+            }
         });
 
         //-----cmt button on-----
-        let cmtTextarea = $('.comment_sec textarea');
-        cmtTextarea.on('keydown',function(evt) {
-            $(this).parent('.flex_wrap').addClass('on')
+        let cmtTextarea = $('.cmt_wrap textarea');
+        cmtTextarea.on('propertychange change keyup paste input',function(evt) {
+            if ($(this).val() === ""){
+                $(this).siblings('.btn_cmt').removeClass('on');
+            }else {
+                $(this).siblings('.btn_cmt').addClass('on');
+            }
         });
     });
 </script>
