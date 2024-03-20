@@ -1,7 +1,6 @@
-.comment_sec {padding: 14.4vw 0;}
-
+/* --------------------------------comment_sec------------------------------ */
+.comment_sec {padding: 14.4vw 0 6.4vw 0;}
 .comment_sec .input_wrap:not(:last-child) {margin-bottom: 0;}
-
 .comment_sec .cmt_wrap {position: relative; padding-top: 13.6vw;}
 .comment_sec .cmt_wrap::after {content: ""; position: absolute; left: 50%; top: -0.8vw; width: 43.2vw; height: 8vw; border-radius: 10vw; transform: translateX(-50%); background-color: #EBEBEB; z-index: -1;}
 .comment_sec .cmt_wrap [class^="tab_menu"] {position: absolute; left: 50%; top: 0; width: 20.8vw; height: 6.4vw; line-height: 6.4vw; border-radius: 10vw; text-align: center; background-color: #EBEBEB; color: #666; font-size: 2.8vw;}
@@ -16,11 +15,6 @@
 .comment_sec .cmt_header {position: relative; margin-bottom: 1.6vw;}
 .comment_sec .cmt_header .user_wrap {display: flex; align-items: center; gap: 1.6vw;}
 .comment_sec .user_wrap .img {width: 6.8vw; height: 6.8vw; border-radius: 100%; background-size: cover; background-repeat: no-repeat; background-position: center;}
-.comment_sec .user_wrap .img[data-level="1"] {border: 0.4vw solid #8CAA8F;}
-.comment_sec .user_wrap .img[data-level="2"] {border: 0.4vw solid #8CAA8F;}
-.comment_sec .user_wrap .img[data-level="3"] {border: 0.4vw solid #8CAA8F;}
-.comment_sec .user_wrap .img[data-level="4"] {border: 0.4vw solid #8CAA8F;}
-.comment_sec .user_wrap .img[data-level="5"] {border: 0.4vw solid #8CAA8F;}
 .comment_sec .user_wrap .name {font-size: 2.4vw; color: #555; line-height: 100%; font-weight: 500;}
 .comment_sec .user_wrap .date {margin-top: 0.8vw; font-size: 2.2vw; color: #757575; line-height: 100%;}
 /*댓글 옵션*/
@@ -58,11 +52,22 @@
 .comment_sec .re_cmt_list .input_wrap .cmt_body .inner {width: 100%;}
 /*관리자 댓글*/
 .comment_sec .cmt_list >li.admin_wrap {padding-top: 4.8vw; background-color: #FFF5F5;}
-.comment_sec .admin_wrap .user_wrap .name {font-weight: 600}
-.comment_sec .admin_wrap .user_wrap .name::after {content: ""; display: inline-block; width: 2vw; height: 2.4vw; background-color: red;}
+.comment_sec .admin_wrap .user_wrap .name {font-weight: 600; color: #222;}
+.comment_sec .admin_wrap .user_wrap .name::after {content: ""; display: inline-block; width: 2vw; height: 2.4vw; margin-left: 0.8vw; vertical-align: bottom; background: url(/public/front/images/common/title_pin.svg) no-repeat center/100% auto;}
 .comment_sec .admin_wrap .cmt_text {color: #222;}
+/*신고 팝업*/
+#pop_report .sub_title {margin-bottom: 3.2vw; font-size: 2.8vw; font-weight: 600;}
+#pop_report .top {padding-bottom: 4.8vw; border-bottom: 0.2vw solid #E4E4E4;}
+#pop_report .user_wrap {display: flex; gap: 1.6vw;}
+#pop_report .user_wrap figure {width: 4.8vw; height: 4.8vw; border-radius: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;}
+#pop_report .user_wrap >div {width: calc(100% - 4.8vw - 1.6vw);}
+#pop_report .user_wrap .name {margin-bottom: 1.2vw; font-size: 2.4vw; color: #555; font-weight: 500;}
+#pop_report .user_wrap .text {font-size: 2.8vw; line-height: 156%;}
+#pop_report .bot {padding-top: 4.8vw;}
+#pop_report .desc {font-size: 2.4vw;}
+
 @media only screen and (max-width:500px){
-    .comment_sec {padding: 72px 0;}
+    .comment_sec {padding: 72px 0 32px 0;}
     .comment_sec .cmt_wrap {padding-top: 68px;}
     .comment_sec .cmt_wrap::after {top: -4px; width: 216px; height: 40px; border-radius: 50px;}
     .comment_sec .cmt_wrap [class^="tab_menu"] {width: 104px; height: 32px; line-height: 32px; font-size: 14px; border-radius: 50px;}
@@ -71,11 +76,6 @@
     .comment_sec .cmt_header {margin-bottom: 8px;}
     .comment_sec .cmt_header .user_wrap {gap: 8px;}
     .comment_sec .user_wrap .img {width: 34px; height: 34px}
-    .comment_sec .user_wrap .img[data-level="1"] {border: 2px solid #8CAA8F;}
-    .comment_sec .user_wrap .img[data-level="2"] {border: 2px solid #8CAA8F;}
-    .comment_sec .user_wrap .img[data-level="3"] {border: 2px solid #8CAA8F;}
-    .comment_sec .user_wrap .img[data-level="4"] {border: 2px solid #8CAA8F;}
-    .comment_sec .user_wrap .img[data-level="5"] {border: 2px solid #8CAA8F;}
     .comment_sec .user_wrap .name {font-size: 12px;}
     .comment_sec .user_wrap .date {margin-top: 4px; font-size: 11px;}
     /*댓글 옵션*/
@@ -108,5 +108,6 @@
     .comment_sec .re_cmt_list .input_wrap .cmt_body {padding: 0 0 16px 0;}
     /*관리자 댓글*/
     .comment_sec .cmt_list >li.admin_wrap {padding-top: 24px;}
-    .comment_sec .admin_wrap .user_wrap .name::after {width: 10px; height: 12px;}
+    .comment_sec .admin_wrap .user_wrap .name::after {width: 10px; height: 12px; margin-left: 4px;}
 }
+/* --------------------------------comment_sec end------------------------------ */
