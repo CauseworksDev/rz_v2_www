@@ -284,13 +284,7 @@ router.get('/message', function(req, res, next) {
     // console.log(req.query)
     res.render('user/message/messageList', {userSession:userSession});
 });
-router.get('/message', function(req, res, next) {
-    let userSession = req.session
-    userSession.main = 'N'
 
-    // console.log(req.query)
-    res.render('user/message/messageList', {userSession:userSession});
-});
 
 router.get('/message/detail', function(req, res, next) {
     let userSession = req.session
