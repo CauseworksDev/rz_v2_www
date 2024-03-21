@@ -47,7 +47,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -75,7 +75,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -103,7 +103,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -198,7 +198,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -226,7 +226,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -254,7 +254,7 @@
                                                     <ul class="tag_list">
                                                         <li class="tag">태그는</li>
                                                         <li class="tag">최대</li>
-                                                        <li class="tag">다섯개까지</li>
+                                                        <li class="tag">다섯자까지</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -268,15 +268,41 @@
                         <span class="blind">검색</span>
                     </button>
                 </div><!-- // tab_menu_wrap -->
-                <div class="search_wrap">
-                    검색창
-                </div><!-- // search_wrap -->
             </div><!-- // inner -->
         </section><!-- // message_sec_01 -->
     </div><!-- //container -->
 
     <% include ../inc/footer.ejs %>
     <% include ../inc/footerNav.ejs %>
+
+
+
+    <div id="popup_all">
+        <div id="searchMsg" class="popup search_wrap">
+            <div class="inner">
+                <form id="searchForm" class="search_form">
+                    <input type="text" id="msgKeyword" placeholder="검색어 또는 태그 입력" title="검색어 또는 태그 입력">
+                    <button type="button">
+                        <span class="blind">검색하기</span>
+                    </button>
+                </form>
+                <div class="tag_wrap">
+                    <h3>추천태그</h3>
+                    <ul>
+                        <li>사람</li>
+                        <li>지구환경</li>
+                        <li>번영</li>
+                        <li>평화</li>
+                        <li>파트너쉽</li>
+                        <li>기타</li>
+                    </ul>
+                </div>
+                <button type="button" class="btn_popup_close" data-layout="icon">
+                    <span class="blind">닫기</span>
+                </button>
+            </div>
+        </div><!-- // search_wrap -->
+    </div><!-- // popup_all -->
 
 
     <script>

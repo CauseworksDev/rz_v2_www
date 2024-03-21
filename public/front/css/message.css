@@ -47,6 +47,20 @@
 .message_sec_01 #tabPanel2 .sub_desc span{font-weight:400;color:#757575}
 
 
+/* popup search */
+#popup_all .search_wrap{display:none;align-items:flex-start;justify-content:center;position:fixed;left:0;top:0;width:100%;height:calc(var(--var,1vh)* 100);background:rgba(0,0,0,0.55);z-index:998}
+#popup_all .search_wrap .inner{width:100%;height:48.8vw;background-color:#fff;border-radius:0 0 8vw 8vw;overflow:hidden;padding:8vw 3.2vw 6.4vw}
+#popup_all .search_wrap .btn_popup_close[data-layout="icon"]{width:3.2vw;height:3.2vw;top:2.4vw;right:2.4vw;background:url(/public/front/images/common/ico_close_black.svg) no-repeat center/100% auto}
+#popup_all .search_wrap .search_form{position:relative;width:100%;margin:0 auto 4.8vw}
+#popup_all .search_wrap .search_form button{position:absolute;right:2.8vw;top:50%;transform:translateY(-50%);width:3.6vw;height:3.6vw;background: url(/public/front/images/message/ico_search_black.svg) no-repeat center / 100% auto;}
+#popup_all .search_wrap .search_form input[type="text"]{width:100%;height:9.2vw;padding:3.2vw 8vw 3.2vw 3.2vw;border-radius:6vw;border:1px solid #E4E4E4;background:#FFF;color:#757575;font-size:2.8vw;font-weight:400;line-height:100%}
+#popup_all .search_wrap .search_form input[type="text"]::placeholder{font-weight:500;color:#464646}
+#popup_all .search_wrap .tag_wrap h3{color:#222;font-size:2.8vw;font-weight:600;line-height:100%;margin-bottom:3.2vw}
+#popup_all .search_wrap .tag_wrap ul{display:flex;flex-wrap:wrap;gap:1.6vw;justify-content:flex-start}
+#popup_all .search_wrap .tag_wrap li{border-radius:10vw;border:1px solid #404A6F;background:#F6F7FE;padding:1.4vw 2.4vw;color:#313647;text-align:center;font-size:2.8vw;font-weight:500;line-height:100%}
+
+
+
 @media only screen and (max-width:500px) {
     .message_sec_01 .tab_menu_wrap{padding-top:32px}
     .message_sec_01 .list figure{height:190px}
@@ -74,5 +88,14 @@
     .message_sec_01 .tag_list{gap:6px}
     .message_sec_01 .tag_list li{padding:6px 12px;border-radius:50px;font-size:12px}
     .message_sec_01 #tabPanel2 .sub_desc{padding:20px 16px;border-radius:46px 46px 46px 0;margin:0 auto 24px;font-size:14px}
+
+    #popup_all .search_wrap .inner{height:244px;border-radius:0 0 40px 40px;padding:40px 16px 32px}
+    #popup_all .search_wrap .btn_popup_close[data-layout="icon"]{width:16px;height:16px;top:12px;right:12px}
+    #popup_all .search_wrap .search_form{margin:0 auto 24px}
+    #popup_all .search_wrap .search_form button{right:14px;width:18px;height:18px;}
+    #popup_all .search_wrap .search_form input[type="text"]{height:46px;padding:16px 36px 16px 16px;border-radius:30px;font-size:14px;}
+    #popup_all .search_wrap .tag_wrap h3{font-size:14px;margin-bottom:16px}
+    #popup_all .search_wrap .tag_wrap ul{gap:8px}
+    #popup_all .search_wrap .tag_wrap li{border-radius:50px;padding:7px 12px;font-size:14px}
 }
 /* --------------------------------message list end-------------------------------- */
