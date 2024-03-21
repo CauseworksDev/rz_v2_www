@@ -285,6 +285,7 @@ router.get('/message', function(req, res, next) {
     res.render('user/message/messageList', {userSession:userSession});
 });
 
+
 router.get('/message/detail', function(req, res, next) {
     let userSession = req.session
     userSession.main = 'N'
