@@ -277,14 +277,16 @@
 
     <div id="popup_all">
         <!-- 검색창 팝업 -->
-        <div id="searchMsg" class="popup search_wrap">
+        <div id="searchMsg" class="popup popup_search">
             <div class="inner" data-layout="search">
-                <form id="searchForm" class="search_form">
-                    <input type="text" id="msgKeyword" placeholder="검색어 또는 태그 입력" title="검색어 또는 태그 입력">
-                    <button type="button">
-                        <span class="blind">검색하기</span>
-                    </button>
-                </form>
+                <div class="search_wrap">
+                    <form id="searchForm" class="search_form">
+                        <input type="text" id="msgKeyword" placeholder="검색어 또는 태그 입력" title="검색어 또는 태그 입력">
+                        <button type="button">
+                            <span class="blind">검색하기</span>
+                        </button>
+                    </form>
+                </div>
                 <div class="tag_wrap">
                     <h3>추천태그</h3>
                     <ul><!-- 추천 태그는 8개까지 -->
