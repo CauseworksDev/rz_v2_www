@@ -264,7 +264,7 @@
                             </div><!-- // tab_cont -->
                         </li>
                     </ul>
-                    <button class="btn_search" type="submit">
+                    <button class="btn_search btn_popup" type="submit" data-popup="searchMsg">
                         <span class="blind">검색</span>
                     </button>
                 </div><!-- // tab_menu_wrap -->
@@ -275,12 +275,10 @@
     <% include ../inc/footer.ejs %>
     <% include ../inc/footerNav.ejs %>
 
-
-
     <div id="popup_all">
         <!-- 검색창 팝업 -->
         <div id="searchMsg" class="popup search_wrap">
-            <div class="inner">
+            <div class="inner" data-layout="search">
                 <form id="searchForm" class="search_form">
                     <input type="text" id="msgKeyword" placeholder="검색어 또는 태그 입력" title="검색어 또는 태그 입력">
                     <button type="button">
@@ -305,11 +303,8 @@
         </div><!-- // search_wrap -->
     </div><!-- // popup_all -->
 
-
     <script>
-
         $(function(){
-
             //-----tab menu-----
             let tab = $('.tab_menu_list [class^="tab_menu"]');
             tab.on('click',function(evt) {
@@ -323,7 +318,6 @@
                 // $(".tab_cont_wrap .tab_cont").hide().removeAttr('aria-selected');
                 // $(".tab_cont_wrap .tab_cont").eq(idx).show().attr('aria-selected','true');
             });
-
         }) //jquery
     </script>
 </div>

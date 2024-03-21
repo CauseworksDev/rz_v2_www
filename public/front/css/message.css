@@ -1,11 +1,9 @@
 /* --------------------------------message common-------------------------------- */
-.message_sec_01[data-layout="list"] .sec_tit{color:#222;font-size:3.6vw;font-weight:600;line-height:100%;margin-bottom:3.2vw}
-
+.message_sec_01 .sec_tit{color:#222;font-size:3.6vw;font-weight:600;line-height:100%;margin-bottom:3.2vw}
 @media only screen and (max-width:500px) {
-    .message_sec_01[data-layout="list"] .sec_tit {font-size:18px;margin-bottom:16px}
+    .message_sec_01 .sec_tit {font-size:18px;margin-bottom:16px}
 }
 /* --------------------------------message common end-------------------------------- */
-
 
 
 /* --------------------------------message list-------------------------------- */
@@ -15,9 +13,9 @@
 .message_sec_01[data-layout="list"] .tab_menu_02{left:calc((100% - 8.4vw)/2)}
 .message_sec_01[data-layout="list"] .tab_menu_list li .tab_cont{display:none;margin-top:4.8vw}
 .message_sec_01[data-layout="list"] .tab_menu_list li.on .tab_cont{display:block}
-.message_sec_01[data-layout="list"][data-layout="list"] .list > li:not(:last-child){margin-bottom:4.8vw}
+.message_sec_01[data-layout="list"] .list > li:not(:last-child){margin-bottom:4.8vw}
 .message_sec_01[data-layout="list"] .list figure{width:100%;height:38vw;border-radius:3vw 3vw 0 0;background-size:cover;background-repeat:no-repeat;background-position:center}
-.message_sec_01[data-layout="list"][data-layout="list"] .list .text_box{display:flex;align-items:center;flex-direction:column;gap:0}
+.message_sec_01[data-layout="list"] .list .text_box{display:flex;align-items:center;flex-direction:column;gap:0}
 .message_sec_01[data-layout="list"] .btn_search{width:8.4vw;height:6.4vw;background:url(/public/front/images/message/ico_search.svg) center center / 3.6vw auto no-repeat #414658;position:absolute;top:0;right:0;border-radius:4vw}
 .message_sec_01[data-layout="list"] .flex_wrap{display:flex;justify-content:flex-start;align-items:center;gap:.8vw;margin:0 0 2vw}
 .message_sec_01[data-layout="list"] .flex_wrap .opt_title{font-weight:400;font-size:2.6vw;color:#666}
@@ -45,29 +43,23 @@
 .message_sec_01[data-layout="list"] .tag_list li{text-align:center;padding:1.2vw 2.4vw;border-radius:10vw;background:#F6F6F6;color:#666;font-size:2.4vw;font-weight:500;line-height:100%;margin-bottom:0!important}
 .message_sec_01[data-layout="list"] #tabPanel2 .sub_desc{width:100%;padding:4vw 3.2vw;border-radius:9.2vw 9.2vw 9.2vw 0;background:#FFF;margin:0 auto 4.8vw;color:#444;text-align:center;font-size:2.8vw;font-weight:600;line-height:158%}
 .message_sec_01[data-layout="list"] #tabPanel2 .sub_desc span{font-weight:400;color:#757575}
-
-
 /* popup search */
-#popup_all .search_wrap{display:none;align-items:flex-start;justify-content:center;position:fixed;left:0;top:0;width:100%;height:calc(var(--var,1vh)* 100);background:rgba(0,0,0,0.55);z-index:998}
-#popup_all .search_wrap.active {display: flex;}
+#popup_all .search_wrap{align-items:flex-start;}
 #popup_all .search_wrap .inner{width:100%;height:48.8vw;background-color:#fff;border-radius:0 0 8vw 8vw;overflow:hidden;padding:8vw 3.2vw 6.4vw}
-#popup_all .search_wrap .btn_popup_close[data-layout="icon"]{width:3.2vw;height:3.2vw;top:2.4vw;right:2.4vw;background:url(/public/front/images/common/ico_close_black.svg) no-repeat center/100% auto}
+#popup_all .search_wrap .btn_popup_close[data-layout="icon"]{top:1.6vw;right:2.4vw;background-image:url(/public/front/images/common/ico_search_close.svg);background-size: 3.2vw auto;}
 #popup_all .search_wrap .search_form{position:relative;width:100%;margin:0 auto 4.8vw}
-#popup_all .search_wrap .search_form button{position:absolute;right:2.8vw;top:50%;transform:translateY(-50%);width:3.6vw;height:3.6vw;background: url(/public/front/images/message/ico_search_black.svg) no-repeat center / 100% auto;}
-#popup_all .search_wrap .search_form input[type="text"]{width:100%;height:9.2vw;padding:3.2vw 8vw 3.2vw 3.2vw;border-radius:6vw;border:1px solid #E4E4E4;background:#FFF;color:#757575;font-size:2.8vw;font-weight:400;line-height:100%}
+#popup_all .search_wrap .search_form button{position:absolute;right:0;top:0;width:9.2vw;height:9.2vw;background: url(/public/front/images/message/ico_search_black.svg) no-repeat center/3.6vw auto}
+#popup_all .search_wrap .search_form input[type="text"]{width:100%;height:9.2vw;padding:3.2vw 9.2vw 3.2vw 3.2vw;border-radius:6vw;border:0.2vw solid #E4E4E4;background:#FFF;color:#757575;font-size:2.8vw;font-weight:400;line-height:100%}
 #popup_all .search_wrap .search_form input[type="text"]::placeholder{font-weight:500;color:#464646}
 #popup_all .search_wrap .tag_wrap h3{color:#222;font-size:2.8vw;font-weight:600;line-height:100%;margin-bottom:3.2vw}
 #popup_all .search_wrap .tag_wrap ul{display:flex;flex-wrap:wrap;gap:1.6vw;justify-content:flex-start}
-#popup_all .search_wrap .tag_wrap li{border-radius:10vw;border:1px solid #404A6F;background:#F6F7FE;padding:1.4vw 2.4vw;color:#313647;text-align:center;font-size:2.8vw;font-weight:500;line-height:100%}
-
-
-
+#popup_all .search_wrap .tag_wrap li{border-radius:10vw;border:0.2vw solid #404A6F;background:#F6F7FE;padding:1.4vw 2.4vw;color:#313647;text-align:center;font-size:2.8vw;font-weight:500;line-height:100%}
 @media only screen and (max-width:500px) {
     .message_sec_01[data-layout="list"] .tab_menu_wrap{padding-top:32px}
     .message_sec_01[data-layout="list"] .list figure{height:190px}
     .message_sec_01[data-layout="list"] .tab_menu_list{gap:8px}
     .message_sec_01[data-layout="list"] .tab_menu_list li .tab_cont{margin-top:24px}
-    .message_sec_01[data-layout="list"][data-layout="list"] .list > li:not(:last-child){margin-bottom:24px}
+    .message_sec_01[data-layout="list"] .list > li:not(:last-child){margin-bottom:24px}
     .message_sec_01[data-layout="list"] .btn_search{width:42px;height:32px;border-radius:20px;background-size:18px auto}
     .message_sec_01[data-layout="list"] .tab_menu{width:calc((100% - 42px - 16px)/2);height:32px;font-size:14px;border-radius:50px}
     .message_sec_01[data-layout="list"] .tab_menu_02{left:calc((100% - 42px)/2)}
@@ -89,19 +81,17 @@
     .message_sec_01[data-layout="list"] .tag_list{gap:6px}
     .message_sec_01[data-layout="list"] .tag_list li{padding:6px 12px;border-radius:50px;font-size:12px}
     .message_sec_01[data-layout="list"] #tabPanel2 .sub_desc{padding:20px 16px;border-radius:46px 46px 46px 0;margin:0 auto 24px;font-size:14px}
-
+    /* popup search */
     #popup_all .search_wrap .inner{height:244px;border-radius:0 0 40px 40px;padding:40px 16px 32px}
-    #popup_all .search_wrap .btn_popup_close[data-layout="icon"]{width:16px;height:16px;top:12px;right:12px}
+    #popup_all .search_wrap .btn_popup_close[data-layout="icon"]{top:8px;right:12px;background-size: 16px auto;}
     #popup_all .search_wrap .search_form{margin:0 auto 24px}
-    #popup_all .search_wrap .search_form button{right:14px;width:18px;height:18px;}
-    #popup_all .search_wrap .search_form input[type="text"]{height:46px;padding:16px 36px 16px 16px;border-radius:30px;font-size:14px;}
+    #popup_all .search_wrap .search_form button{width:46px;height:46px;background: url(/public/front/images/message/ico_search_black.svg) no-repeat center/18px auto}
+    #popup_all .search_wrap .search_form input[type="text"]{height:46px;padding:16px 46px 16px 16px;border:1px solid #E4E4E4;border-radius:30px;font-size:14px;}
     #popup_all .search_wrap .tag_wrap h3{font-size:14px;margin-bottom:16px}
     #popup_all .search_wrap .tag_wrap ul{gap:8px}
-    #popup_all .search_wrap .tag_wrap li{border-radius:50px;padding:7px 12px;font-size:14px}
+    #popup_all .search_wrap .tag_wrap li{border-radius:50px;border:1px solid #404A6F;padding:7px 12px;font-size:14px}
 }
 /* --------------------------------message list end-------------------------------- */
-
-
 
 
 /* --------------------------------message result -------------------------------- */
@@ -109,9 +99,6 @@
 /* --------------------------------message result end-------------------------------- */
 
 
-
-
-    /* --------------------------------message detail-------------------------------- */
+/* --------------------------------message detail-------------------------------- */
 .message_sec_01[data-layout="detail"] {padding: 14.4vw 0 0 0;}
-
 /* --------------------------------message detail end-------------------------------- */
