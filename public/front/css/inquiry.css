@@ -105,7 +105,7 @@
 
 
 /* --------------------------------inquiry detail-------------------------------- */
-.inquiry_sec_01[data-layout="detail"] {padding: 14.4vw 0 0 0;}
+.inquiry_sec_01[data-layout="detail"] {padding: 9.6vw 0 0 0;}
 .inquiry_sec_01[data-layout="detail"] .que_ans_wrap >li {padding: 4.8vw 0;}
 .inquiry_sec_01[data-layout="detail"] .ans_box {position: relative;}
 .inquiry_sec_01[data-layout="detail"] .ans_box::after {content: ""; position: absolute; left: 50%; top: 0; width: 111%; height: 100%; border-radius: 0 0 8vw 0; border-top: 0.2vw solid #EBEBEB; transform: translateX(-50%); background-color: #F8F8F8; z-index: -1;}
@@ -122,7 +122,7 @@
 .inquiry_sec_02[data-layout="detail"] .btn_more_que::after {content: ""; display: inline-block; width: 3.2vw; height: 3.2vw; margin-left: 0.8vw; vertical-align: text-top; background: url(/public/front/images/common/ico_plus.svg) no-repeat center/100% auto;}
 .inquiry_sec_02[data-layout="detail"] .form_wrap {display: none;}
 @media only screen and (max-width:500px){
-    .inquiry_sec_01[data-layout="detail"] {padding: 72px 0 0 0;}
+    .inquiry_sec_01[data-layout="detail"] {padding: 48px 0 0 0;}
     .inquiry_sec_01[data-layout="detail"] .que_ans_wrap >li {padding: 24px 0;}
     .inquiry_sec_01[data-layout="detail"] .ans_box::after {border-radius: 0 0 40px 0; border-top: 1px solid #EBEBEB;}
     .inquiry_sec_01[data-layout="detail"] .title_wrap {padding-bottom: 24px; border-bottom: 1px solid #EBEBEB;}

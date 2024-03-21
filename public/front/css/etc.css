@@ -56,16 +56,12 @@
 .comment_sec .admin_wrap .user_wrap .name::after {content: ""; display: inline-block; width: 2vw; height: 2.4vw; margin-left: 0.8vw; vertical-align: bottom; background: url(/public/front/images/common/title_pin.svg) no-repeat center/100% auto;}
 .comment_sec .admin_wrap .cmt_text {color: #222;}
 /*신고 팝업*/
-#pop_report .sub_title {margin-bottom: 3.2vw; font-size: 2.8vw; font-weight: 600;}
-#pop_report .top {padding-bottom: 4.8vw; border-bottom: 0.2vw solid #E4E4E4;}
 #pop_report .user_wrap {display: flex; gap: 1.6vw;}
 #pop_report .user_wrap figure {width: 4.8vw; height: 4.8vw; border-radius: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;}
 #pop_report .user_wrap >div {width: calc(100% - 4.8vw - 1.6vw);}
 #pop_report .user_wrap .name {margin-bottom: 1.2vw; font-size: 2.4vw; color: #555; font-weight: 500;}
-#pop_report .user_wrap .text {font-size: 2.8vw; line-height: 156%;}
-#pop_report .bot {padding-top: 4.8vw;}
-#pop_report .desc {font-size: 2.4vw;}
-
+#pop_report .user_wrap .text {font-size: 2.8vw; line-height: 152%;}
+#pop_report .input_wrap {margin-bottom: 3.2vw;}
 @media only screen and (max-width:500px){
     .comment_sec {padding: 72px 0 32px 0;}
     .comment_sec .cmt_wrap {padding-top: 68px;}
@@ -109,5 +105,12 @@
     /*관리자 댓글*/
     .comment_sec .cmt_list >li.admin_wrap {padding-top: 24px;}
     .comment_sec .admin_wrap .user_wrap .name::after {width: 10px; height: 12px; margin-left: 4px;}
+    /*신고 팝업*/
+    #pop_report .user_wrap {gap: 8px;}
+    #pop_report .user_wrap figure {width: 24px; height: 24px;}
+    #pop_report .user_wrap >div {width: calc(100% - 24px - 8px);}
+    #pop_report .user_wrap .name {margin-bottom: 6px; font-size: 12px;}
+    #pop_report .user_wrap .text {font-size: 14px;}
+    #pop_report .input_wrap {margin-bottom: 16px;}
 }
 /* --------------------------------comment_sec end------------------------------ */

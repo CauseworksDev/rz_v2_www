@@ -269,4 +269,20 @@ router.get('/comment', function(req, res, next) {
     res.render('user/etc/comment', {userSession:userSession});
 });
 
+router.get('/mypage', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mypage/mypage', {userSession:userSession});
+});
+
+router.get('/mission', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mission/missionList', {userSession:userSession});
+});
+
 module.exports = router;
