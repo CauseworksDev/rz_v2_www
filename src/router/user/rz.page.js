@@ -283,5 +283,12 @@ router.get('/message/detail', function(req, res, next) {
     // console.log(req.query)
     res.render('user/message/messageDetail', {userSession:userSession});
 });
+router.get('/message/search', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/message/searchResult', {userSession:userSession});
+});
 
 module.exports = router;
