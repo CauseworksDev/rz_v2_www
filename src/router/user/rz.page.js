@@ -269,4 +269,19 @@ router.get('/comment', function(req, res, next) {
     res.render('user/etc/comment', {userSession:userSession});
 });
 
+router.get('/message', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/message/messageList', {userSession:userSession});
+});
+router.get('/message/detail', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/message/messageDetail', {userSession:userSession});
+});
+
 module.exports = router;

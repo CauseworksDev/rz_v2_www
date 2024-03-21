@@ -1,0 +1,112 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/message.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/header %>
+
+    <div id="container">
+        <section class="message_sec_01" data-layout="list">
+            <div class="inner">
+                <h2 class="sec_tit">메세지</h2>
+                <div class="tab_menu_wrap">
+                    <ul class="tab_menu_list">
+                        <li class="on" aria-selected="true">
+                            <a href="#"  data-layout="nowMsg" role="tab" class="tab_menu" title="선택됨">진행 중</a>
+                        </li>
+                        <li>
+                            <a href="#"  data-layout="lastMsg" role="tab" class="tab_menu">지난 메세지</a>
+                        </li>
+                    </ul>
+                    <button class="btn_search" type="submit">
+                        <span class="blind">검색</span>
+                    </button>
+                </div><!-- // tab_menu_wrap -->
+                <div class="flex_warp">
+                    <input role="switch" type="checkbox" />
+                    <label for="" class="opt_title">참여한 메시지 제외</label>
+                </div>
+                <div class="tab_cont_wrap">
+                    <div id="nowMsg" class="tab_cont" data-layout="nowMsg">
+                        <ul class="list" data-layout="message">
+                            <!-- 새 문의 addClass : new -->
+                            <li class="">
+                                <a class="list" href="">
+                                    <figure style="background-image: url(/public/front/images/main/main_sec_04_img_01.png);"></figure>
+                                    <div class="text_box">
+                                        <div class="title_wrap">
+                                            <h3 calss="list_title">[어마알] vol.99 - 알지? 전문가에게 직접 듣는 알지? 사용 설명서</h3>
+                                            <p>108,999명이 참여했어요!</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul><!-- // list -->
+                    </div><!-- // tab_cont -->
+
+                    <div id="lastMsg" class="tab_cont"  data-layout="lastMsg">
+                        <ul class="list" data-layout="message">
+                            <!-- 새 문의 addClass : new -->
+                            <li class="">
+                                <a class="list" href="">
+                                    <figure style="background-image: url(/public/front/images/main/main_sec_04_img_01.png);"></figure>
+                                    <div class="text_box">
+                                        <div class="title_wrap">
+                                            <h3 calss="list_title">어린 가장이 된 아이들의 신학기를 응원해애애애애애애애애애애애애애애애애</h3>
+                                            <p>임팩트비즈니스재단</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul><!-- // list -->
+                    </div><!-- // tab_cont -->
+                </div><!-- // tab_cont_wrap -->
+            </div><!-- // inner -->
+        </section><!-- // message_sec_01 -->
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+
+
+    <script>
+
+        $(function(){
+
+            //-----tab menu-----
+            let tab = $('.tab_menu_wrap [class^="tab_menu"]');
+            tab.on('click',function(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                let idx = $(this).parent('li').index();
+                $(this).attr("title","선택됨")
+                $(this).parent('li').addClass('on').attr('aria-selected','true');
+                $(this).parent('li').siblings('li').children('a').removeAttr("title");
+                $(this).parent('li').siblings('li').removeClass('on').removeAttr('aria-selected')
+                $(".tab_cont_wrap .tab_cont").hide().removeAttr('aria-selected');
+                $(".tab_cont_wrap .tab_cont").eq(idx).show().attr('aria-selected','true');
+            });
+            // $('.tab_menu_wrap .tab_menu').each(function(){
+            //     $(this).click(function(e){
+            //         e.stopPropagation();
+            //         e.preventDefault();
+            //         let idxName = $(this).attr("data-layout")
+            //         console.log(idxName)
+            //         var tab_cont = $('.tab_cont_wrap .tab_cont')
+            //         $(this).addClass("on").siblings().removeClass("on");
+            //         tab_cont.hide();
+            //         $(".tab_cont_wrap .tab_cont[data-layout="+idxName+"]").show()
+            //     })
+            // })
+
+        }) //jquery
+    </script>
+</div>
+</body>
+</html>
