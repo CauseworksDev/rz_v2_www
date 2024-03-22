@@ -2,19 +2,19 @@
     <ul>
         <!-- 해당 페이지 addClass : on -->
         <li class="home">
-            <a href="">
+            <a href="/newMain">
                 <figure></figure>
                 <span>홈</span>
             </a>
         </li>
         <li class="message">
-            <a href="">
+            <a href="/message">
                 <figure></figure>
                 <span>메시지</span>
             </a>
         </li>
         <li class="mission">
-            <a href="">
+            <a href="/mission">
                 <figure></figure>
                 <span>미션</span>
             </a>
@@ -37,9 +37,15 @@
 <script>
     $(function(){
         let pathName = document.location.pathname;
-        if( pathName.startsWith('/newMain')) {
+        if(pathName.startsWith('/newMain')) {
             $('#fnb .home').addClass('on').siblings('li').removeClass('on');
             $('#fnb .home a').attr("title","선택됨");
+        }else if (pathName.startsWith('/message')) {
+            $('#fnb .message').addClass('on').siblings('li').removeClass('on');
+            $('#fnb .message a').attr("title","선택됨");
+        }else if (pathName.startsWith('/mission')) {
+            $('#fnb .mission').addClass('on').siblings('li').removeClass('on');
+            $('#fnb .mission a').attr("title","선택됨");
         }
     });
 </script>
