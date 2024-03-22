@@ -1,1 +1,247 @@
-미션 리스트
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/mission.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/header %>
+
+    <div id="container">
+        <section class="mission_sec_01" data-layout="list">
+            <div class="inner">
+                <h2 class="sec_tit">미션</h2>
+                <div class="tab_menu_wrap">
+                    <ul class="tab_menu_list">
+                        <li class="on" aria-selected="true">
+                            <a href="#" role="tab" class="tab_menu tab_menu_01" title="선택됨">진행 중</a>
+                            <div class="tab_cont" id="tabPanel1" role="tabpanel">
+                                <div class="flex_wrap">
+                                    <input role="switch" type="checkbox" />
+                                    <label for="" class="opt_title">참여한 미션 제외</label>
+                                </div>
+                                <ul class="list " data-layout="mission">
+                                    <li class="">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_01.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">[어마알] vol.99 - 알지? 전문가에게 직접 듣는 알지? 사용 설명서</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>123,465</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>1,234</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>324</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_02.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">벌써 스물 여덟번째! 기후회의에서는 무슨 일이?</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>86,342</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>3,059</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>1,678</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="complete">  <!-- 미션 종료되면 li 태그에 complete 를 추가해주세요-->
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_03.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">콘텐츠 제목이 들어가는 영역</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>93,004</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>51,370</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>6,399</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_04.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">함께 나누면 배가 되는 행복을! 지금 바로 함께 해요!</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>10,113</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>6,854</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>5,002</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div><!-- // tab_cont -->
+                        </li><!-- // tab_menu -->
+                        <li>
+                            <a href="#" role="tab" class="tab_menu tab_menu_02">지난 미션</a>
+                            <div class="tab_cont" id="tabPanel2" role="tabpanel">
+                                <p class="sub_desc">
+                                    더 많은 알지? 미션을 확인해 보세요!<br />
+                                    <span>지난 미션은 rz 적립 및 기부가 되지 않습니다.</span>
+                                </p>
+                                <ul class="list " data-layout="mission">
+                                    <li class="complete">  <!-- 미션 종료되면 li 태그에 complete 를 추가해주세요-->
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_01.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">[어마알] vol.99 - 알지? 전문가에게 직접 듣는 알지? 사용 설명서</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>123,465</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>1,234</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>324</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="complete">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_02.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">벌써 스물 여덟번째! 기후회의에서는 무슨 일이?</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>86,342</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>3,059</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>1,678</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="complete">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_03.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">콘텐츠 제목이 들어가는 영역</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>93,004</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>51,370</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>6,399</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="complete">
+                                        <a class="" href="/mission/detail">
+                                            <figure style="background-image: url(/public/front/images/mission/mis_sec_01_img_04.png);"></figure>
+                                            <div class="text_box">
+                                                <div class="title_wrap">
+                                                    <h3 class="list_tit">함께 나누면 배가 되는 행복을! 지금 바로 함께 해요!</h3>
+                                                    <ul class="data_box">
+                                                        <li class="parti">
+                                                            <i><span class="blind">참여 수</span></i>
+                                                            <strong>10,113</strong>명이 참여했어요!
+                                                        </li>
+                                                        <li class="like"><i><span class="blind">좋아요 수</span></i>6,854</li>
+                                                        <li class="cmt"><i><span class="blind">댓글 수</span></i>5,002</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div><!-- // tab_cont -->
+                        </li>
+                    </ul>
+                    <button class="btn_search btn_popup" type="submit" data-popup="searchMsg">
+                        <span class="blind">검색</span>
+                    </button>
+                </div><!-- // tab_menu_wrap -->
+            </div><!-- // inner -->
+        </section><!-- // message_sec_01 -->
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+    <% include ../inc/footerNav.ejs %>
+
+    <div id="popup_all">
+        <!-- 검색창 팝업 -->
+        <div id="searchMsg" class="popup popup_search">
+            <div class="inner" data-layout="search">
+                <div class="search_wrap">
+                    <form id="searchForm" class="search_form">
+                        <input type="text" id="msgKeyword" placeholder="검색어 또는 태그 입력" title="검색어 또는 태그 입력">
+                        <button type="button">
+                            <span class="blind">검색하기</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="tag_wrap">
+                    <h3>추천태그</h3>
+                    <ul><!-- 추천 태그는 8개까지 -->
+                        <li><button type="button">사람</button></li>
+                        <li><button type="button">지구환경</button></li>
+                        <li><button type="button">번영</button></li>
+                        <li><button type="button">평화</button></li>
+                        <li><button type="button">파트너쉽</button></li>
+                        <li><button type="button">기타</button></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn_popup_close" data-layout="icon">
+                    <span class="blind">닫기</span>
+                </button>
+            </div>
+        </div><!-- // search_wrap -->
+    </div><!-- // popup_all -->
+
+    <script>
+        $(function(){
+            //-----tab menu-----
+            let tab = $('.tab_menu_list [class^="tab_menu"]');
+            tab.on('click',function(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                let idx = $(this).parent('li').index();
+                $(this).attr("title","선택됨")
+                $(this).parent('li').addClass('on').attr('aria-selected','true');
+                $(this).parent('li').siblings('li').children('a').removeAttr("title");
+                $(this).parent('li').siblings('li').removeClass('on').removeAttr('aria-selected')
+                // $(".tab_cont_wrap .tab_cont").hide().removeAttr('aria-selected');
+                // $(".tab_cont_wrap .tab_cont").eq(idx).show().attr('aria-selected','true');
+            });
+        }) //jquery
+    </script>
+</div>
+</body>
+</html>
