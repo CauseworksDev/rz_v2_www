@@ -298,7 +298,7 @@ router.get('/message/search', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/message/searchResult', {userSession:userSession});
+    res.render('user/message/messageSearch', {userSession:userSession});
 });
 
 router.get('/mission', function(req, res, next) {
@@ -307,6 +307,21 @@ router.get('/mission', function(req, res, next) {
 
     // console.log(req.query)
     res.render('user/mission/missionList', {userSession:userSession});
+});
+router.get('/mission/detail', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mission/missionDetail', {userSession:userSession});
+});
+
+router.get('/mission/search', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mission/missionSearch', {userSession:userSession});
 });
 
 
