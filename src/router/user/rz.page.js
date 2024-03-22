@@ -298,7 +298,7 @@ router.get('/message/search', function(req, res, next) {
     userSession.main = 'N'
 
     // console.log(req.query)
-    res.render('user/message/messageSearch', {userSession:userSession});
+    res.render('user/message/searchResult', {userSession:userSession});
 });
 
 router.get('/mission', function(req, res, next) {
