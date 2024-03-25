@@ -1,3 +1,17 @@
+/* --------------------------------notice list------------------------------ */
+.notice_sec_01[data-layout="list"] .new::after {right: 1.6vw; top: 2vw;}
+.notice_sec_01[data-layout="list"] a {padding: 3.2vw;}
+.notice_sec_01[data-layout="list"] .list_title {display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: ellipsis; overflow: hidden; font-size: 2.8vw; font-weight: 500; line-height: 142%; color: #222;}
+.notice_sec_01[data-layout="list"] .list_date {margin-top: 1.2vw;}
+@media only screen and (max-width:500px){
+    .notice_sec_01[data-layout="list"] .new::after {right: 8px; top: 10px;}
+    .notice_sec_01[data-layout="list"] a {padding: 16px;}
+    .notice_sec_01[data-layout="list"] .list_title {font-size: 14px;}
+    .notice_sec_01[data-layout="list"] .list_date {margin-top: 6px;}
+}
+/* --------------------------------notice list end------------------------------ */
+
+
 /* --------------------------------notice deatil------------------------------ */
 .notice_sec_01[data-layout="detail"] {padding: 14.4vw 0;}
 .notice_sec_01[data-layout="detail"] .title_wrap {padding-bottom: 4.8vw; border-bottom: 0.2vw solid #EBEBEB;}
