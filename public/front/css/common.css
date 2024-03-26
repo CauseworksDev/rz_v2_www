@@ -56,13 +56,16 @@ section {position: relative;}
 [class*="btn_type_"][data-color="red"] {background-color: #DD3636 }
 [class*="btn_type_"][data-color="darkblue"] {background-color: #414658;}
 [class*="btn_type_"][data-color="grey"] {background-color: #EBEBEB; color: #444;}
+[class*="btn_type_"][data-color="white"] {background-color: #fff; color: #444; border: 0.2vw solid #444;}
 [class*="btn_type_"][data-ico="none"]::after {display: none;}
+[class*="btn_type_"][data-ico="more"]::after {background-image: url(/public/front/images/common/ico_plus_black.svg);}
 .btn_type_01 {height: 11.2vw; line-height: 11.2vw; border-radius: 2.8vw; font-size: 3.2vw;}
 .btn_type_01::after {width: 3.6vw; height: 3.6vw;}
 .btn_type_02 {height: 9.6vw; line-height: 9.6vw; border-radius: 2.4vw; font-size: 2.8vw;}
 .btn_type_02::after {width: 3.2vw; height: 3.2vw;}
 @media only screen and (max-width:500px){
     [class*="btn_type_"]::after {margin-left: 4px;}
+    [class*="btn_type_"][data-color="white"] {border: 1px solid #444;}
     .btn_type_01 {height: 56px; line-height: 56px; border-radius: 14px; font-size: 16px;}
     .btn_type_01::after {width: 18px; height: 18px;}
     .btn_type_02 {height: 48px; line-height: 48px; border-radius: 12px; font-size: 14px;}

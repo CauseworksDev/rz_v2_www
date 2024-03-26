@@ -7,6 +7,7 @@ window.addEventListener('resize', () => {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
+
 $(function () {
     //-----본문 바로가기 버튼-----
     const btnSkip = $('.skip a');

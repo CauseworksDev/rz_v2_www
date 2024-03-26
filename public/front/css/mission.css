@@ -82,14 +82,14 @@ section[data-layout="list"] li.complete .parti i::before{content:'종료';font-s
 #popup_all .popup_search .tag_wrap h3{color:#222;font-size:2.8vw;font-weight:600;line-height:100%;margin-bottom:3.2vw}
 #popup_all .popup_search .tag_wrap ul{display:flex;flex-wrap:wrap;gap:1.6vw;justify-content:flex-start}
 #popup_all .popup_search .tag_wrap li{border-radius:10vw;border:0.2vw solid #404A6F;background:#F6F7FE;color:#313647;text-align:center;font-size:2.8vw;font-weight:500;line-height:100%}
-#popup_all .popup_search .tag_wrap li button{padding:1.4vw 2.4vw;}
+#popup_all .popup_search .tag_wrap li a{display: block; padding:1.4vw 2.4vw;}
 @media only screen and (max-width:500px) {
     #popup_all .popup_search .inner{height:244px;border-radius:0 0 40px 40px;padding:40px 16px 32px}
     #popup_all .popup_search .btn_popup_close[data-layout="icon"]{top:8px;right:12px;background-size: 16px auto;}
     #popup_all .popup_search .tag_wrap h3{font-size:14px;margin-bottom:16px}
     #popup_all .popup_search .tag_wrap ul{gap:8px}
     #popup_all .popup_search .tag_wrap li{border-radius:50px;border:1px solid #404A6F;font-size:14px}
-    #popup_all .popup_search .tag_wrap li button{padding:7px 12px;}
+    #popup_all .popup_search .tag_wrap li a{padding:7px 12px;}
 }
 /* --------------------------------popup search end-------------------------------- */
 
