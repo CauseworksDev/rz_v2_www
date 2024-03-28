@@ -1,6 +1,7 @@
 <html lang="ko">
 <head>
     <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/layout.css" />
     <link rel="stylesheet" href="/public/front/css/message.css" />
 </head>
 
@@ -62,7 +63,7 @@
                     </ul>
                     <div class="parti_btn_wrap">
                         <!--button 비활성화시 addClass:off / title:선택됨-->
-                        <button class="btn_parti off">
+                        <button class="btn_parti">
                             <i></i>메시지 참여하기!
                             <span>50rz 적립 + 10원 기부하기</span>
                         </button>
@@ -84,6 +85,7 @@
                     </div>
                 </div>
                 <ul>
+                    <!--관리자 댓글 li addClass : admin_wrap-->
                     <li class="admin_wrap">
                         <div class="cmt_header">
                             <div class="inner">
