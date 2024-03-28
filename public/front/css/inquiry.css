@@ -160,7 +160,6 @@
 .faq_sec_01 .tab_menu_07 {left: calc(50% + 0.8vw); top: 11.2vw;}
 .faq_sec_01 .tab_menu_08 {left: calc(75% + 1.2vw); top: 11.2vw;}
 .faq_sec_01 .faq_wrap .faq_list {display: none;}
-.faq_sec_01 .faq_wrap .faq_list.test {display: block;}
 .faq_sec_01 .faq_wrap >ul >li.on [class^="tab_menu"] {background-color: #DD3636; color: #fff; font-weight: 600;}
 .faq_sec_01 .faq_wrap >ul >li.on .faq_list {display: block;}
 @media only screen and (max-width:500px){

@@ -567,7 +567,7 @@
         </div>
     </div>
     <!-- 신고 팝업 -->
-    <div class="popup" id="popReport">
+    <div class="popup active" id="popReport">
         <div class="popup_inner" data-layout="type_03">
             <button type="button" class="btn_popup_close" data-layout="icon">
                 <span class="blind">닫기</span>
@@ -577,7 +577,7 @@
             </h2>
             <div class="cont_wrap">
                 <form action="">
-                    <div class="box" data-layout="first">
+                    <div class="box pd_bot bd_solid">
                         <h3 class="sub_title">신고 대상</h3>
                         <div class="user_wrap">
                             <figure class="img"
@@ -588,18 +588,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box" data-layout="last">
+                    <div class="box pd_top">
                         <h3 class="sub_title">신고 내용</h3>
                         <div class="input_wrap" data-layout="select">
                             <select name="filter" id="reportCate">
                                 <option value="" selected>- 선택하기 -</option>
-                                <option value="">신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄</option>
-                                <option value="">신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 2</option>
-                                <option value="">신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 3</option>
-                                <option value="">신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 4</option>
-                                <option value="">신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 신고하기 내용 옵션 두줄 5</option>
+                                <option value="">안내된 참여 방법과 다르거나 주제와 무관한 내용으로 참여했습니다.</option>
+                                <option value="">도용 및 저작권에 문제가 있는 내용을 포함하고 있습니다.</option>
+                                <option value="">스팸, 도배, 홍보, 영리적 목적을 포함하고 있습니다.</option>
+                                <option value="">욕설, 비방, 혐오, 차별적인 내용을 포함하고 있습니다.</option>
+                                <option value="">음란, 청소년 유해적인 내용을 포함하고 있습니다.</option>
+                                <option value="">초상권을 침해하거나 불법 정보 및 불법 촬영물을 포함하고 있습니다.</option>
+                                <option value="">개인정보 노출, 유포, 거래의 내용을 포함하고 있습니다.</option>
+                                <option value="">부적절한 문구가 포함된 닉네임입니다.</option>
+                                <option value="">기타(입력)</option>
                             </select>
                             <div id="reportCateOption"></div>
+                        </div>
+                        <div class="input_wrap" data-layout="textarea">
+                            <label for=""></label>
+                            <textarea name="" id="" placeholder="신고 사유를 상세히 입력해 주세요."></textarea>
                         </div>
                         <ul class="desc" data-layout="info">
                             <li>
@@ -646,24 +654,28 @@
 
         //-----comment option btn-----
         let btnCmtOpt = $('.btn_opt');
-        btnCmtOpt.on('click',function(evt) {
+        btnCmtOpt.on('click',function() {
             $(this).siblings('.opt_wrap').stop().toggle();
+        });
+        let btnCmtOptDetail = $('.opt_wrap [class^="btn_"]');
+        btnCmtOptDetail.on('click',function() {
+            $(this).hide();
         });
 
         //-----cmt bottom textarea change-----
         const cmtBotTextarea = $('.cmt_bot textarea');
-        cmtBotTextarea.on('focusin',function(evt) {
+        cmtBotTextarea.on('focusin',function() {
             $(this).attr('placeholder','주제와 무관한 댓글은 삭제될 수 있습니다.');
             $(this).addClass('on');
         });
-        cmtBotTextarea.on('propertychange change keyup paste input',function(evt) {
+        cmtBotTextarea.on('propertychange change keyup paste input',function() {
             if ($(this).val() === ""){
                 $(this).siblings('.btn_cmt').removeClass('on');
             }else {
                 $(this).siblings('.btn_cmt').addClass('on');
             }
         });
-        cmtBotTextarea.on('focusout',function(evt) {
+        cmtBotTextarea.on('focusout',function() {
             if ($(this).val() === ""){
                 $(this).removeClass('on');
                 $(this).attr('placeholder','댓글을 입력하세요.');
@@ -672,7 +684,7 @@
 
         //-----cmt button on-----
         let cmtTextarea = $('.cmt_wrap textarea');
-        cmtTextarea.on('propertychange change keyup paste input',function(evt) {
+        cmtTextarea.on('propertychange change keyup paste input',function() {
             if ($(this).val() === ""){
                 $(this).siblings('.btn_cmt').removeClass('on');
             }else {
@@ -686,9 +698,13 @@
             position: {my: 'left top', at: 'left bottom+8'},
             width: '100%',
             select: function (event, ui) {
-                let optionIdxNum = ui.item.index;
-                optionIdxNum = optionIdxNum + 1
-                $('#reportCate-menu li:nth-child(' + optionIdxNum + ')').addClass('active').siblings('li').removeClass('active');
+                let optionLabel = ui.item.label;
+                const reportTextarea = $('#popReport .input_wrap[data-layout="textarea"]');
+                if (optionLabel === "기타(입력)"){
+                    reportTextarea.show();
+                }else {
+                    reportTextarea.hide();
+                }
             }
         });
     });

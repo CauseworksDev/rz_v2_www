@@ -285,6 +285,13 @@ router.get('/message', function(req, res, next) {
     res.render('user/message/messageList', {userSession:userSession});
 });
 
+router.get('/message/search', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/message/messageSearch', {userSession:userSession});
+});
 
 router.get('/message/detail', function(req, res, next) {
     let userSession = req.session
@@ -302,14 +309,6 @@ router.get('/message/detail/end', function(req, res, next) {
     res.render('user/message/messageDetailEnd', {userSession:userSession});
 });
 
-router.get('/message/search', function(req, res, next) {
-    let userSession = req.session
-    userSession.main = 'N'
-
-    // console.log(req.query)
-    res.render('user/message/messageSearch', {userSession:userSession});
-});
-
 router.get('/mission', function(req, res, next) {
     let userSession = req.session
     userSession.main = 'N'
@@ -317,14 +316,6 @@ router.get('/mission', function(req, res, next) {
     // console.log(req.query)
     res.render('user/mission/missionList', {userSession:userSession});
 });
-router.get('/mission/detail', function(req, res, next) {
-    let userSession = req.session
-    userSession.main = 'N'
-
-    // console.log(req.query)
-    res.render('user/mission/missionDetail', {userSession:userSession});
-});
-
 
 router.get('/mission/search', function(req, res, next) {
     let userSession = req.session
@@ -334,5 +325,20 @@ router.get('/mission/search', function(req, res, next) {
     res.render('user/mission/missionSearch', {userSession:userSession});
 });
 
+router.get('/mission/detail/write', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mission/missionDetailWrite', {userSession:userSession});
+});
+
+router.get('/mission/detail/longTerm', function(req, res, next) {
+    let userSession = req.session
+    userSession.main = 'N'
+
+    // console.log(req.query)
+    res.render('user/mission/missionDetailLongTerm', {userSession:userSession});
+});
 
 module.exports = router;

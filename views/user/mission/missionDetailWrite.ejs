@@ -1,0 +1,602 @@
+<html lang="ko">
+<head>
+    <% include ../inc/head_script.ejs %>
+    <link rel="stylesheet" href="/public/front/css/layout.css" />
+    <link rel="stylesheet" href="/public/front/css/mission.css" />
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="skip">
+        <a href="#container">본문 바로가기</a>
+    </div>
+    <% include ../inc/headerPrev.ejs %>
+
+    <div id="container">
+        <section class="mission_sec_01" data-layout="detail">
+            <figure class="banner" style="background-image: url(/public/front/images/main/main_vis_01.png)"></figure>
+        </section>
+        <section class="mission_sec_02" data-layout="detail" data-content="write">
+            <div class="cont_box pd_top_md bd_bold">
+                <div class="inner">
+                    <div class="title_wrap pd_bot_md bd_solid">
+                        <div class="label_wrap">
+                            <p class="cate_label"><i class="ico" data-tag="people"></i>사람</p>
+                            <p class="cate_label"><i class="ico" data-tag="prosperity"></i>번영</p>
+                            <p class="cate_label"><i class="ico" data-tag="peace"></i>평화</p>
+                            <p class="cate_label"><i class="ico" data-tag="partner"></i>파트너십</p>
+                            <p class="cate_label"><i class="ico" data-tag="etc"></i>기타</p>
+                            <p class="cate_label"><i class="ico" data-tag="earth"></i>지구환경</p>
+                        </div>
+                        <h2 class="title">
+                            [어마알] vol.99 - 알지? 전문가에게 직접 듣는 알지? 사용 설명서 어마알] vol.99 - 알지? 전문가에게 직접 듣는 알지? 사용 설명서
+                        </h2>
+                        <p class="date">2024년 00월 00일</p>
+                    </div>
+                    <div class="cont_wrap pd_top_md pd_bot_lg">
+                        글자에유
+                        <img src="/public/front/images/main/main_sec_02_img_01.png" alt="">
+                    </div>
+                    <!--단문-->
+                    <div class="input_wrap" data-layout="text">
+                        <lable class="blind" for="">내용</lable>
+                        <input type="text" placeholder="내용을 입력해주세요.">
+                    </div>
+                    <!--장문-->
+                    <div class="input_wrap" data-layout="textarea">
+                        <lable class="blind" for="">내용</lable>
+                        <textarea name="" id="" placeholder="미션 참여 방법을 확인 후 작성해 주세요!"></textarea>
+                    </div>
+                    <div class="parti_btn_wrap pd_bot_lg">
+                        <!--button 비활성화시 addClass:off / title:선택됨-->
+                        <button class="btn_parti">
+                            <i></i>미션 참여하기!
+                            <span>50rz 적립 + 10원 기부하기</span>
+                        </button>
+                    </div>
+                    <ul class="tag_wrap">
+                        <li><a href="/message/search">카테고리카</a></li>
+                        <li><a href="/message/search">카테</a></li>
+                        <li><a href="/message/search">카테고</a></li>
+                        <li><a href="/message/search">카테</a></li>
+                        <li><a href="/message/search">카테고리</a></li>
+                    </ul>
+                    <ul class="lik_save_btn_wrap pd_bot_lg bd_dashed">
+                        <li>
+                            <!--button 활성화시 addClass:on / title:선택됨-->
+                            <button class="btn_like">
+                                <i></i>
+                                <span>9,999</span>명이 이 미션을 좋아해요!
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab_wrap pd_bot_lg bd_dashed">
+                        <ul class="tab">
+                            <li class="on" aria-selected="true">
+                                <a href="#" role="tab" class="tab_menu tab_menu_01" title="선택됨">나의 참여 내역</a>
+                                <div class="tab_cont" id="tabPanel1" role="tabpanel">
+                                    <ul class="history_my">
+                                        <!--내역 없을 시 li addClass : no_history-->
+                                        <li class="no_history">
+                                            참여 내역이 없습니다.
+                                        </li>
+                                        <li>
+                                            <div class="cmt_header">
+                                                <div class="user_wrap">
+                                                    <figure class="img"
+                                                            style="background-image: url(/public/front/images/etc/level_admin.svg)"></figure>
+                                                    <div>
+                                                        <h2 class="name">닉네임</h2>
+                                                        <p class="date">24.03.21.</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn_opt">
+                                                    <span class="blind">옵션</span>
+                                                </button>
+                                                <ul class="opt_wrap">
+                                                    <li>
+                                                        <a class="btn_modi" href="#">수정하기</a>
+                                                    </li>
+                                                </ul>
+                                            </div><!--//cmt_header-->
+                                            <div class="cmt_body">
+                                                <div class="cmt_text">
+                                                    의견이야 의견이야의견이야 의견이야의견이야의견이야의견이야의견이야
+                                                    의견이야의견이야의견이야의견이야의견이야의견이야의견이야의견이야
+                                                    의견이야
+                                                </div>
+                                            </div><!--//cmt_body-->
+                                        </li>
+                                        <!--내역 없을 시 li addClass : modi_history-->
+                                        <li class="modi_history">
+                                            <div class="cmt_header">
+                                                <div class="user_wrap">
+                                                    <figure class="img"
+                                                            style="background-image: url(/public/front/images/etc/level_admin.svg)"></figure>
+                                                    <div>
+                                                        <h2 class="name">닉네임</h2>
+                                                        <p class="date">24.03.21.</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn_opt">
+                                                    <span class="blind">옵션</span>
+                                                </button>
+                                                <ul class="opt_wrap">
+                                                    <li>
+                                                        <a class="btn_modi" href="#">수정하기</a>
+                                                    </li>
+                                                </ul>
+                                            </div><!--//cmt_header-->
+                                            <div class="cmt_body">
+                                                <div class="flex_wrap">
+                                                    <lable for="" class="blind">내용</lable>
+                                                    <textarea name="" id="" placeholder="주제와 무관한 내용은 삭제될 수 있습니다.">우잉?</textarea>
+                                                    <button class="btn_cmt on">수정</button>
+                                                </div>
+                                            </div><!--//cmt_body-->
+                                        </li>
+                                    </ul>
+                                </div><!-- // tab_cont -->
+                            </li><!-- // tab_menu -->
+                            <li>
+                                <a href="#" role="tab" class="tab_menu tab_menu_02">전체 참여 내역</a>
+                                <div class="tab_cont" id="tabPanel2" role="tabpanel">
+                                    <div class="parti_num_wrap">
+                                        <p><span>9,999</span>명의 알친이 참여했어요!</p>
+                                    </div>
+                                    <ul class="history_all">
+                                        <!--내역 없을 시 no_history-->
+                                        <li class="no_history">
+                                            참여 내역이 없습니다.
+                                        </li>
+                                        <li>
+                                            <div class="cmt_header">
+                                                <div class="user_wrap">
+                                                    <figure class="img"
+                                                            style="background-image: url(/public/front/images/etc/level_02.svg)"></figure>
+                                                    <div>
+                                                        <h2 class="name">닉네임</h2>
+                                                        <p class="date">24.03.21.</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn_opt">
+                                                    <span class="blind">옵션</span>
+                                                </button>
+                                                <ul class="opt_wrap">
+                                                    <li>
+                                                        <button class="btn_popup" data-popup="popReport">신고하기</button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--//cmt_header-->
+                                            <div class="cmt_body">
+                                                <div class="cmt_text">
+                                                    의견이야 의견이야의견이야 의견이야의견이야의견이야의견이야의견이야
+                                                    의견이야의견이야의견이야의견이야의견이야의견이야의견이야의견이야
+                                                    의견이야
+                                                </div>
+                                            </div><!--//cmt_body-->
+                                        </li>
+                                        <li>
+                                            <div class="cmt_header">
+                                                <div class="user_wrap">
+                                                    <figure class="img"
+                                                            style="background-image: url(/public/front/images/etc/level_03.svg)"></figure>
+                                                    <div>
+                                                        <h2 class="name">닉네임</h2>
+                                                        <p class="date">24.03.21.</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn_opt">
+                                                    <span class="blind">옵션</span>
+                                                </button>
+                                                <ul class="opt_wrap">
+                                                    <li>
+                                                        <button class="btn_popup" data-popup="popReport">신고하기</button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--//cmt_header-->
+                                            <div class="cmt_body">
+                                                <div class="cmt_text">
+                                                    의견이야
+                                                </div>
+                                            </div><!--//cmt_body-->
+                                        </li>
+                                        <li>
+                                            <div class="cmt_header">
+                                                <div class="user_wrap">
+                                                    <figure class="img"
+                                                            style="background-image: url(/public/front/images/etc/level_04.svg)"></figure>
+                                                    <div>
+                                                        <h2 class="name">닉네임</h2>
+                                                        <p class="date">24.03.21.</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn_opt">
+                                                    <span class="blind">옵션</span>
+                                                </button>
+                                                <ul class="opt_wrap">
+                                                    <li>
+                                                        <button class="btn_popup" data-popup="popReport">신고하기</button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--//cmt_header-->
+                                            <div class="cmt_body">
+                                                <div class="cmt_text">
+                                                    의견이야 의견이야의견이야의견이야의견이야의견이야
+                                                </div>
+                                            </div><!--//cmt_body-->
+                                        </li>
+                                    </ul>
+                                </div><!-- // tab_cont -->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="idea_wrap pd_lg">
+                        <div class="inner_wrap">
+                            <h6><i></i>알리고에게 말해줘!</h6>
+                            <p>
+                                알지?에서 메시지로 보고 싶은 찰떡 아이디어가 생각나셨나요? 알리고에게 살짝 말해 주세요!
+                            </p>
+                            <a href="/inquiry">메시지 제안 바로가기</a>
+                        </div>
+                    </div>
+                </div><!--//inner-->
+            </div><!--//cont_box-->
+            <div id="cmtSec" class="cmt_box pd_top_lg">
+                <div class="link_wrap">
+                    <div class="inner">
+                        <h5>댓글 <span>4,567</span>개</h5>
+                        <a href="/comment"><span class="blind">댓글 페이지</span></a>
+                    </div>
+                </div>
+                <ul>
+                    <!--관리자 댓글 li addClass : admin_wrap-->
+                    <li class="admin_wrap">
+                        <div class="cmt_header">
+                            <div class="inner">
+                                <div class="user_wrap">
+                                    <figure class="img" style="background-image: url(/public/front/images/etc/level_admin.svg)"></figure>
+                                    <div>
+                                        <h2 class="name">관리자알리고</h2>
+                                        <p class="date">24.03.21.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--//cmt_header-->
+                        <div class="cmt_body">
+                            <div class="inner">
+                                <div class="cmt_text">
+                                    알친 여러분! 이 콘텐츠에 댓글을 달면 추가 매칭 기부돼요 :) 많이 많이 참여해 주세요~!
+                                </div>
+                            </div>
+                        </div><!--//cmt_body-->
+                    </li>
+                    <li>
+                        <div class="cmt_header">
+                            <div class="inner">
+                                <div class="user_wrap">
+                                    <figure class="img" style="background-image: url(/public/front/images/etc/level_05.svg)"></figure>
+                                    <div>
+                                        <h2 class="name">걷기좋은알리고77</h2>
+                                        <p class="date">24.03.21.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--//cmt_header-->
+                        <div class="cmt_body">
+                            <div class="inner">
+                                <div class="cmt_text">
+                                    <p class="tag">
+                                        <span class="blind">NEW</span>
+                                    </p>
+                                    댓글 창에 입력 가능한 글자 수는 공백 포함 200by te 입니다. 본문 내용이 들어가는 영역입니다. 본문 내용이 들어가는 영역입니다. 본문 내용이 들어가는 영역입니다. 본문 내용이 들어가는 영역입니다.
+                                </div>
+                            </div>
+                        </div><!--//cmt_body-->
+                    </li>
+                </ul>
+            </div><!--//cmt_box-->
+        </section>
+        <section class="mission_sec_03" data-layout="detail">
+            <div class="cont_box">
+                <div class="camp_wrap pd_lg bd_bold">
+                    <div class="inner">
+                        <h2 class="title">여러분의 참여로 기부되고 있어요!</h2>
+                        <a href="">
+                            <figure style="background-image: url(/public/front/images/main/main_vis_02.png)"></figure>
+                            <div class="text_box">
+                                <h3>저소득 취약계층 의료비 지원 캠페인 저소득 취약계층 의료비 지원 캠페인 저소득 취약계층 의료비 지원 캠페인</h3>
+                                <p>임팩트비즈니스재단</p>
+                            </div>
+                            <div class="prg_box">
+                                <div class="bar">
+                                    <span style="width: 62%;" title="62%"></span>
+                                </div>
+                                <ul class="num">
+                                    <li class="amount">
+                                        <span>6,123,000</span>원
+                                    </li>
+                                    <li class="percentage">
+                                        <span>61</span>%
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- //camp_wrap -->
+                <div class="rec_wrap pd_top_lg pd_bot_sm">
+                    <div class="inner">
+                        <h2 class="title">연관 메시지 바로가기</h2>
+                        <ul class="list">
+                            <li>
+                                <a href="">
+                                    <figure style="background-image: url(/public/front/images/main/main_vis_03.png)"></figure>
+                                    <div class="text_box">
+                                        <div class="label_wrap">
+                                            <p class="cate_label"><i class="ico" data-tag="people"></i>사람</p>
+                                        </div>
+                                        <h6>
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <figure style="background-image: url(/public/front/images/main/main_vis_03.png)"></figure>
+                                    <div class="text_box">
+                                        <div class="label_wrap">
+                                            <p class="cate_label"><i class="ico" data-tag="earth"></i>지구환경</p>
+                                        </div>
+                                        <h6>
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- //rec_wrap -->
+        </section>
+        <div class="menu_bot">
+            <div class="flex_wrap">
+                <div class="left">
+                    <!--button 활성화시 addClass:on / title:선택됨-->
+                    <button class="btn_like on">
+                        <span class="blind">좋아요</span>9,999
+                    </button>
+                    <button class="btn_cmt">
+                        <span class="blind">댓글</span>4,567
+                    </button>
+                </div>
+                <div class="right">
+                    <button class="btn_share">공유</button>
+                </div>
+            </div>
+        </div><!-- //menu_bot -->
+    </div><!-- //container -->
+
+    <% include ../inc/footer.ejs %>
+</div>
+
+<div id="popup_all">
+    <!-- 최소 글자 -->
+    <div class="popup" id="popTextMin">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    n글자 이상 입력해 주세요. <br />
+                    주제와 관련 없는 내용 입력 시 경고 없이 가리기 및 회수 처리될 수 있습니다.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!-- 금지 단어 -->
+    <div class="popup" id="popTextNotAllowed">
+        <div class="popup_inner" data-layout="alert">
+            <div class="cont_wrap">
+                <h3 class="title">
+                    사용할 수 없는 단어가 포함되어 있습니다. <br />
+                    다시 입력해 주세요.
+                </h3>
+            </div>
+            <div class="btn_wrap">
+                <button class="btn_popup_close">확인</button>
+            </div>
+        </div>
+    </div>
+    <!-- 신고 팝업 -->
+    <div class="popup" id="popReport">
+        <div class="popup_inner" data-layout="type_03">
+            <button type="button" class="btn_popup_close" data-layout="icon">
+                <span class="blind">닫기</span>
+            </button>
+            <h2 class="title">
+                신고하기
+            </h2>
+            <div class="cont_wrap">
+                <form action="">
+                    <div class="box pd_bot bd_solid">
+                        <h3 class="sub_title">신고 대상</h3>
+                        <div class="user_wrap">
+                            <figure class="img"
+                                    style="background-image: url(/public/front/images/etc/level_05.svg)"></figure>
+                            <div>
+                                <h2 class="name">걷기좋은알리고77</h2>
+                                <p class="text">댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box pd_top">
+                        <h3 class="sub_title">신고 내용</h3>
+                        <div class="input_wrap" data-layout="select">
+                            <select name="filter" id="reportCate">
+                                <option value="" selected>- 선택하기 -</option>
+                                <option value="">안내된 참여 방법과 다르거나 주제와 무관한 내용으로 참여했습니다.</option>
+                                <option value="">도용 및 저작권에 문제가 있는 내용을 포함하고 있습니다.</option>
+                                <option value="">스팸, 도배, 홍보, 영리적 목적을 포함하고 있습니다.</option>
+                                <option value="">욕설, 비방, 혐오, 차별적인 내용을 포함하고 있습니다.</option>
+                                <option value="">음란, 청소년 유해적인 내용을 포함하고 있습니다.</option>
+                                <option value="">초상권을 침해하거나 불법 정보 및 불법 촬영물을 포함하고 있습니다.</option>
+                                <option value="">개인정보 노출, 유포, 거래의 내용을 포함하고 있습니다.</option>
+                                <option value="">부적절한 문구가 포함된 닉네임입니다.</option>
+                                <option value="">기타(입력)</option>
+                            </select>
+                            <div id="reportCateOption"></div>
+                        </div>
+                        <div class="input_wrap" data-layout="textarea">
+                            <label for=""></label>
+                            <textarea name="" id="" placeholder="신고 사유를 상세히 입력해 주세요."></textarea>
+                        </div>
+                        <ul class="desc" data-layout="info">
+                            <li>
+                                <span></span>
+                                <p>
+                                    신고하시는 콘텐츠에 대한 신고 사유를 선택하거나 기타(입력)를 선택하여 상세히 입력해 주세요.
+                                </p>
+                            </li>
+                            <li>
+                                <span></span>
+                                <p>
+                                    신고된 게시물은 일시적으로 가리기 처리될 수 있으며, 알지? 운영팀 확인 및 클린 정책 절차가 진행됩니다.
+                                </p>
+                            </li>
+                            <li>
+                                <span></span>
+                                <p>
+                                    신고가 누적된 회원의 경우 서비스 내 활동 정지 처리될 수 있습니다.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="btn_wrap">
+                        <li><a href="" class="btn_pop_type_01" data-color="darkblue">신고하기</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 가리기/회수 팝업 -->
+    <div class="popup active" id="popShowHide">
+        <div class="popup_inner" data-layout="type_03">
+            <button type="button" class="btn_popup_close" data-layout="icon">
+                <span class="blind">닫기</span>
+            </button>
+            <h2 class="title">
+                가리기/회수 처리
+            </h2>
+            <div class="cont_wrap">
+                <form action="">
+                    <div class="box">
+                        <h3 class="sub_title">처리 대상</h3>
+                        <div class="user_wrap">
+                            <figure class="img"
+                                    style="background-image: url(/public/front/images/etc/level_05.svg)"></figure>
+                            <div>
+                                <h2 class="name">걷기좋은알리고77</h2>
+                                <p class="text">댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</p>
+                            </div>
+                        </div>
+                        <ul class="btn_wrap">
+                            <li><a href="" class="btn_pop_type_01" data-color="darkblue">가리기</a></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3 class="sub_title">해당 참여 내역을 회수 처리 합니다.</h3>
+                        <div class="input_wrap" data-layout="select">
+                            <select name="filter" id="showHideCate">
+                                <option value="" selected>- 선택하기 -</option>
+                                <option value="">안내된 참여 방법과 다르거나 주제와 무관한 내용으로 참여했습니다.</option>
+                                <option value="">도용 및 저작권에 문제가 있는 내용을 포함하고 있습니다.</option>
+                                <option value="">스팸, 도배, 홍보, 영리적 목적을 포함하고 있습니다.</option>
+                                <option value="">욕설, 비방, 혐오, 차별적인 내용을 포함하고 있습니다.</option>
+                                <option value="">음란, 청소년 유해적인 내용을 포함하고 있습니다.</option>
+                                <option value="">초상권을 침해하거나 불법 정보 및 불법 촬영물을 포함하고 있습니다.</option>
+                                <option value="">개인정보 노출, 유포, 거래의 내용을 포함하고 있습니다.</option>
+                                <option value="">부적절한 문구가 포함된 닉네임입니다.</option>
+                                <option value="">기타(입력)</option>
+                            </select>
+                            <div id="showHideCateOption"></div>
+                        </div>
+                        <div class="input_wrap" data-layout="textarea">
+                            <label for=""></label>
+                            <textarea name="" id="" placeholder="신고 사유를 상세히 입력해 주세요."></textarea>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3 class="sub_title">회원에게 알림이 발송됩니다.</h3>
+                        <ul class="btn_wrap">
+                            <li><a href="" class="btn_pop_type_01" data-color="darkblue">회수 및 알림 발송</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div><!-- //popup_all -->
+
+<script>
+    $(function (){
+        //-----tab menu-----
+        let tab = $('[class^="tab_menu"]');
+        tab.on('click',function(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            $(this).attr("title","선택됨")
+            $(this).parent('li').addClass('on').attr('aria-selected','true');
+            $(this).parent('li').siblings('li').children('a').removeAttr("title");
+            $(this).parent('li').siblings('li').removeClass('on').removeAttr('aria-selected');
+        });
+
+        //-----history option btn-----
+        let btnCmtOpt = $('.btn_opt');
+        btnCmtOpt.on('click',function() {
+            $(this).siblings('.opt_wrap').stop().toggle();
+        });
+        let btnCmtOptDetail = $('.opt_wrap [class^="btn_"]');
+        btnCmtOptDetail.on('click',function() {
+            $(this).hide();
+        });
+
+        //-----select ui-----
+        $('#reportCate').selectmenu({
+            appendTo: '#reportCateOption',
+            position: {my: 'left top', at: 'left bottom+8'},
+            width: '100%',
+            select: function (event, ui) {
+                let optionLabel = ui.item.label;
+                const reportTextarea = $('#popReport .input_wrap[data-layout="textarea"]');
+                if (optionLabel === "기타(입력)"){
+                    reportTextarea.show();
+                }else {
+                    reportTextarea.hide();
+                }
+            }
+        });
+        $('#showHideCate').selectmenu({
+            appendTo: '#showHideCateOption',
+            position: {my: 'left top', at: 'left bottom+8'},
+            width: '100%',
+            select: function (event, ui) {
+                let optionLabel = ui.item.label;
+                const reportTextarea = $('#popShowHide .input_wrap[data-layout="textarea"]');
+                if (optionLabel === "기타(입력)"){
+                    reportTextarea.show();
+                }else {
+                    reportTextarea.hide();
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

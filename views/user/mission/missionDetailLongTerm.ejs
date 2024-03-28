@@ -16,10 +16,10 @@
         <section class="mission_sec_01" data-layout="detail">
             <figure class="banner" style="background-image: url(/public/front/images/main/main_vis_01.png)"></figure>
         </section>
-        <section class="mission_sec_02" data-layout="detail">
-            <div class="cont_box">
+        <section class="mission_sec_02" data-layout="detail" data-content="longTerm">
+            <div class="cont_box pd_top_md bd_bold">
                 <div class="inner">
-                    <div class="title_wrap">
+                    <div class="title_wrap pd_bot_md bd_solid">
                         <div class="label_wrap">
                             <p class="cate_label"><i class="ico" data-tag="people"></i>사람</p>
                             <p class="cate_label"><i class="ico" data-tag="prosperity"></i>번영</p>
@@ -33,12 +33,20 @@
                         </h2>
                         <p class="date">2024년 00월 00일</p>
                     </div>
-                    <div class="cont_wrap">
+                    <div class="cont_wrap pd_top_md pd_bot_lg">
                         글자에유
                         <img src="/public/front/images/main/main_sec_02_img_01.png" alt="">
-                        <div class="cont_btn_wrap">
-                            <a class="btn_type_01" data-color="darkblue" href="">바로가기</a>
-                        </div>
+                    </div>
+                    <div class="input_wrap" data-layout="text">
+                        <lable class="blind" for="">내용</lable>
+                        <input type="text" placeholder="내용을 입력해주세요.">
+                    </div>
+                    <div class="parti_btn_wrap pd_bot_lg">
+                        <!--button 비활성화시 addClass:off / title:선택됨-->
+                        <button class="btn_parti">
+                            <i></i>미션 참여하기!
+                            <span>50rz 적립 + 10원 기부하기</span>
+                        </button>
                     </div>
                     <ul class="tag_wrap">
                         <li><a href="/message/search">카테고리카</a></li>
@@ -47,38 +55,56 @@
                         <li><a href="/message/search">카테</a></li>
                         <li><a href="/message/search">카테고리</a></li>
                     </ul>
-                    <ul class="lik_save_btn_wrap">
-                        <li>
-                            <button class="btn_like on" title="선택됨">
-                                <i></i>
-                                <span>9,999</span>명이 이 메시지를 좋아해요!
-                            </button>
-                        </li>
+                    <ul class="lik_save_btn_wrap pd_bot_lg bd_dashed">
                         <li>
                             <!--button 활성화시 addClass:on / title:선택됨-->
-                            <button class="btn_bookmark">
+                            <button class="btn_like">
                                 <i></i>
-                                <span>북마크</span> 목록에 저장하기
+                                <span>9,999</span>명이 이 미션을 좋아해요!
                             </button>
                         </li>
                     </ul>
-                    <div class="parti_btn_wrap">
-                        <!--button 비활성화시 addClass:off / title:선택됨-->
-                        <button class="btn_parti off">
-                            <i></i>메시지 참여하기!
-                            <span>50rz 적립 + 10원 기부하기</span>
-                        </button>
+                    <div class="tab_wrap pd_bot_lg bd_dashed">
+                        <ul class="tab">
+                            <li class="on" aria-selected="true">
+                                <a href="#" role="tab" class="tab_menu tab_menu_01" title="선택됨">나의 참여 내역</a>
+                                <div class="tab_cont" id="tabPanel1" role="tabpanel">
+                                    <div class="calendar">
+                                        달력
+                                    </div>
+                                    <ul class="history_my">
+                                        <!--내역 없을 시 no_history-->
+                                        <li>
+                                            리스트
+                                        </li>
+                                    </ul>
+                                </div><!-- // tab_cont -->
+                            </li><!-- // tab_menu -->
+                            <li>
+                                <a href="#" role="tab" class="tab_menu tab_menu_02">전체 참여 내역</a>
+                                <div class="tab_cont" id="tabPanel2" role="tabpanel">
+                                    <ul class="history_all">
+                                        <!--내역 없을 시 no_history-->
+                                        <li>
+                                            리스트
+                                        </li>
+                                    </ul>
+                                </div><!-- // tab_cont -->
+                            </li>
+                        </ul>
                     </div>
-                    <div class="idea_wrap">
-                        <h6><i></i>알리고에게 말해줘!</h6>
-                        <p>
-                            알지?에서 메시지로 보고 싶은 찰떡 아이디어가 생각나셨나요? 알리고에게 살짝 말해 주세요!
-                        </p>
-                        <a href="/inquiry">메시지 제안 바로가기</a>
+                    <div class="idea_wrap pd_lg">
+                        <div class="inner_wrap">
+                            <h6><i></i>알리고에게 말해줘!</h6>
+                            <p>
+                                알지?에서 메시지로 보고 싶은 찰떡 아이디어가 생각나셨나요? 알리고에게 살짝 말해 주세요!
+                            </p>
+                            <a href="/inquiry">메시지 제안 바로가기</a>
+                        </div>
                     </div>
                 </div><!--//inner-->
             </div><!--//cont_box-->
-            <div id="cmtSec" class="cmt_box">
+            <div id="cmtSec" class="cmt_box pd_top_lg">
                 <div class="link_wrap">
                     <div class="inner">
                         <h5>댓글 <span>4,567</span>개</h5>
@@ -135,7 +161,7 @@
         </section>
         <section class="mission_sec_03" data-layout="detail">
             <div class="cont_box">
-                <div class="camp_wrap">
+                <div class="camp_wrap pd_lg bd_bold">
                     <div class="inner">
                         <h2 class="title">여러분의 참여로 기부되고 있어요!</h2>
                         <a href="">
@@ -160,14 +186,17 @@
                         </a>
                     </div>
                 </div><!-- //camp_wrap -->
-                <div class="rec_wrap">
+                <div class="rec_wrap pd_top_lg pd_bot_sm">
                     <div class="inner">
-                        <h2 class="title">추천 미션 바로가기</h2>
+                        <h2 class="title">연관 메시지 바로가기</h2>
                         <ul class="list">
                             <li>
                                 <a href="">
                                     <figure style="background-image: url(/public/front/images/main/main_vis_03.png)"></figure>
                                     <div class="text_box">
+                                        <div class="label_wrap">
+                                            <p class="cate_label"><i class="ico" data-tag="people"></i>사람</p>
+                                        </div>
                                         <h6>
                                             알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
                                             알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
@@ -180,22 +209,21 @@
                                 <a href="">
                                     <figure style="background-image: url(/public/front/images/main/main_vis_03.png)"></figure>
                                     <div class="text_box">
+                                        <div class="label_wrap">
+                                            <p class="cate_label"><i class="ico" data-tag="earth"></i>지구환경</p>
+                                        </div>
                                         <h6>
-                                            옛날에는 없었던 ‘이것’을 맞혀주세요!
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
+                                            알지연구소로 도파민 치료한 후기 지금 바로 알려드립니다.
                                         </h6>
                                     </div>
                                 </a>
                             </li>
                         </ul>
-                        <div class="more_btn_wrap">
-                            <button class="btn_type_02" data-color="white" data-ico="more">추천 미션 더보기</button>
-                        </div>
                     </div>
                 </div>
             </div><!-- //rec_wrap -->
-            <div class="go_btn_wrap">
-                <a class="btn_type_01" data-color="red" href="/mission">진행 중인 미션 모두 보기</a>
-            </div>
         </section>
         <div class="menu_bot">
             <div class="flex_wrap">
@@ -217,5 +245,19 @@
 
     <% include ../inc/footer.ejs %>
 </div>
+<script>
+    $(function (){
+        //-----tab menu-----
+        let tab = $('[class^="tab_menu"]');
+        tab.on('click',function(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            $(this).attr("title","선택됨")
+            $(this).parent('li').addClass('on').attr('aria-selected','true');
+            $(this).parent('li').siblings('li').children('a').removeAttr("title");
+            $(this).parent('li').siblings('li').removeClass('on').removeAttr('aria-selected');
+        });
+    });
+</script>
 </body>
 </html>

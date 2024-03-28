@@ -87,14 +87,10 @@ input::placeholder {color: #757575;}
 .input_wrap[data-layout="select"] .ui-selectmenu-icon {position: absolute; right: 3.2vw; top: 50%; width: 3.2vw; height: 3.2vw; transform: translateY(-50%); background: url(/public/front/images/common/ico_down.svg) no-repeat center/100% auto}
 .input_wrap[data-layout="select"] .ui-selectmenu-button[aria-expanded="true"] {border: 0.2vw solid #414658;}
 .input_wrap[data-layout="select"] .ui-selectmenu-button[aria-expanded="true"] .ui-selectmenu-icon {background: url(/public/front/images/common/ico_up.svg) no-repeat center/100% auto;}
-.ui-selectmenu-menu .ui-menu {width: 100%; padding: 1.6vw 2.4vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; box-shadow: 0 2.8vw 9vw 0 rgba(0, 0, 0, 0.12);}
+.ui-selectmenu-menu .ui-menu {width: 100%; max-height: 37.2vw; padding: 1.6vw 2.4vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; box-shadow: 0 2.8vw 9vw 0 rgba(0, 0, 0, 0.12);}
 .ui-selectmenu-menu .ui-menu-item .ui-menu-item-wrapper {position: relative; width: 100%; padding: 2vw 5.2vw 2vw 1.6vw; line-height: 156%;  color: #222; border-radius: 2vw; text-align: left; font-size: 2.8vw; font-family: 'Pretendard', 'Outfit', sans-serif;}
-.ui-selectmenu-menu .ui-menu-item .ui-state-active {margin: 0; border: none; background-color: #F6F7FE;}
-.ui-selectmenu-menu .ui-menu-item.active .ui-menu-item-wrapper {font-weight: 600;}
-.ui-selectmenu-menu .ui-menu-item.active .ui-menu-item-wrapper::after {content: ""; position: absolute; right: 1.6vw; top: 2.8vw; width: 2.6vw; height: 2.6vw; background: url(/public/front/images/common/ico_check.svg) no-repeat center/100% auto;}
-@media (pointer:coarse) {
-    .ui-selectmenu-menu .ui-menu-item .ui-state-active {background-color: transparent;}
-}
+.ui-selectmenu-menu .ui-menu-item .ui-state-active {margin: 0; font-weight: 600; border: none; background: transparent;}
+.ui-selectmenu-menu .ui-menu-item .ui-state-active::after {content: ""; position: absolute; right: 1.6vw; top: 2.8vw; width: 2.6vw; height: 2.6vw; background: url(/public/front/images/common/ico_check.svg) no-repeat center/100% auto;}
 /*img file*/
 .input_wrap[data-layout="img"] {display: flex; gap: 1.6vw;}
 .input_wrap[data-layout="img"] li {position: relative; width: 18vw; height: 18vw;}
@@ -117,9 +113,9 @@ input::placeholder {color: #757575;}
     .input_wrap[data-layout="select"] .ui-selectmenu-text {width: calc(100% - 32px);}
     .input_wrap[data-layout="select"] .ui-selectmenu-icon {right: 16px; width: 16px; height: 16px;}
     .input_wrap[data-layout="select"] .ui-selectmenu-button[aria-expanded="true"] {border: 1px solid #414658;}
-    .ui-selectmenu-menu .ui-menu {padding: 8px 12px; border-radius: 10px; border: 1px solid #E4E4E4; box-shadow: 0 14px 45px 0 rgba(0, 0, 0, 0.12);}
+    .ui-selectmenu-menu .ui-menu {max-height: 186px; padding: 8px 12px; border-radius: 10px; border: 1px solid #E4E4E4; box-shadow: 0 14px 45px 0 rgba(0, 0, 0, 0.12);}
     .ui-selectmenu-menu .ui-menu-item .ui-menu-item-wrapper {padding: 10px 26px 10px 8px; border-radius: 10px; font-size: 14px;}
-    .ui-selectmenu-menu .ui-menu-item.active .ui-menu-item-wrapper::after {right: 8px; top: 14px; width: 13px; height: 13px;}
+    .ui-selectmenu-menu .ui-menu-item .ui-state-active::after {right: 8px; top: 14px; width: 13px; height: 13px;}
     /*img file*/
     .input_wrap[data-layout="img"] {gap: 8px;}
     .input_wrap[data-layout="img"] li {width: 90px; height: 90px;}
@@ -319,7 +315,7 @@ input::placeholder {color: #757575;}
 #fnb ul {display: flex; justify-content: center; width: 100%;}
 #fnb li {flex: 1;}
 #fnb a {display: block; padding: 2vw 0 4.8vw 0; text-align: center;}
-#fnb figure {width: 2.8vw; height: 2.8vw; margin: 0 auto 4px; background-size: cover; background-repeat: no-repeat; background-position: center;}
+#fnb figure {width: 4.8vw; height: 4.8vw; margin: 0 auto 4px; background-size: cover; background-repeat: no-repeat; background-position: center;}
 #fnb .home figure {background-image: url(/public/front/images/common/ico_home.svg);}
 #fnb .message figure {background-image: url(/public/front/images/common/ico_message.svg);}
 #fnb .mission figure {background-image: url(/public/front/images/common/ico_mission.svg);}
@@ -347,9 +343,11 @@ input::placeholder {color: #757575;}
 #popup_all .popup_inner {position: relative; width: 91%; height: auto; padding: 8vw 3.2vw; border-radius: 3vw; background: #fff; text-align: center;}
 #popup_all .btn_popup_close[data-layout="icon"] {position: absolute; right: 0; top: -5.6vw; width: 4.8vw; height: 4.8vw; background-image: url(/public/front/images/common/ico_close.svg); background-repeat: no-repeat; background-position: center; background-size: 4vw auto;}
 #popup_all .cont_wrap {max-height: 74vh; overflow: auto;}
-#popup_all .box {padding: 4.8vw 0; border-bottom: 0.2vw solid #E4E4E4;}
-#popup_all .box[data-layout="first"] {padding-top: 0;}
-#popup_all .box[data-layout="last"] {padding-bottom: 0; border-bottom: none;}
+#popup_all .box.pd {padding: 4.8vw 0;}
+#popup_all .box.pd_top {padding-top: 4.8vw;}
+#popup_all .box.pd_bot {padding-bottom: 4.8vw;}
+#popup_all .box.bd_solid {border-bottom: 0.2vw solid #E4E4E4;}
+#popup_all .box.bd_dashed {border-bottom: 0.2vw dashed #E4E4E4;}
 #popup_all .title {font-size: 3.6vw; font-weight: 600; line-height: 144%; color: #222;}
 #popup_all .title img {display: inline-block; width: auto; height: 3.2vw; margin: 0 0.4vw; vertical-align: -0.2vw;} 
 #popup_all .sub_title {font-size: 3.2vw; font-weight: 500; line-height: 144%; color: #222;}
@@ -388,12 +386,30 @@ input::placeholder {color: #757575;}
 #popup_all .popup_inner[data-layout="type_03"] .sub_title {margin-bottom: 3.2vw; font-size: 2.8vw; font-weight: 600;}
 #popup_all .popup_inner[data-layout="type_03"] .cont_wrap {max-height: calc(74vh + 4.2vw); padding: 4.8vw 3.2vw 3.2vw; text-align: left;}
 #popup_all .popup_inner[data-layout="type_03"] .btn_wrap {margin-top: 4.8vw;}
+/*신고 팝업*/
+#popReport .box {padding-left: 1.6vw; padding-right: 1.6vw;}
+#popReport .user_wrap {display: flex; gap: 1.6vw;}
+#popReport .user_wrap figure {width: 4.8vw; height: 4.8vw; border-radius: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;}
+#popReport .user_wrap >div {width: calc(100% - 4.8vw - 1.6vw);}
+#popReport .user_wrap .name {margin-bottom: 1.2vw; font-size: 2.4vw; color: #555; font-weight: 500;}
+#popReport .user_wrap .text {font-size: 2.8vw; line-height: 152%;}
+#popReport .input_wrap {margin-bottom: 3.2vw;}
+#popReport .input_wrap[data-layout="textarea"] {display: none;}
+/*가리기,회수팝업*/
+#popShowHide .box {padding-left: 1.6vw; padding-right: 1.6vw;}
+#popShowHide .user_wrap {display: flex; gap: 1.6vw;}
+#popShowHide .user_wrap figure {width: 4.8vw; height: 4.8vw; border-radius: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;}
+#popShowHide .user_wrap >div {width: calc(100% - 4.8vw - 1.6vw);}
+#popShowHide .user_wrap .name {margin-bottom: 1.2vw; font-size: 2.4vw; color: #555; font-weight: 500;}
+#popShowHide .user_wrap .text {font-size: 2.8vw; line-height: 152%;}
 @media only screen and (max-width:500px){
     #popup_all .popup_inner {padding: 40px 16px; border-radius: 15px;}
     #popup_all .btn_popup_close[data-layout="icon"] {top: -28px; width: 24px; height: 24px; background-size: 20px auto;}
-    #popup_all .box {padding: 24px 0; border-bottom: 1px solid #E4E4E4;}
-    #popup_all .box[data-layout="first"] {padding-top: 0;}
-    #popup_all .box[data-layout="last"] {padding-bottom: 0; border-bottom: none;}
+    #popup_all .box.pd {padding: 24px 0;}
+    #popup_all .box.pd_top {padding-top: 24px;}
+    #popup_all .box.pd_bot {padding-bottom: 24px;}
+    #popup_all .box.bd_solid {border-bottom: 1px solid #E4E4E4;}
+    #popup_all .box.bd_dashed {border-bottom: 1px dashed #E4E4E4;}
     #popup_all .title {font-size: 18px;}
     #popup_all .title img {height: 16px; vertical-align: -1px;}
     #popup_all .sub_title {font-size: 16px;}
@@ -423,6 +439,16 @@ input::placeholder {color: #757575;}
     #popup_all .popup_inner[data-layout="type_03"] .sub_title {margin-bottom: 16px; font-size: 14px;}
     #popup_all .popup_inner[data-layout="type_03"] .cont_wrap {max-height: calc(74vh + 21px); padding: 24px 16px 16px;}
     #popup_all .popup_inner[data-layout="type_03"] .btn_wrap {margin-top: 24px}
+    /*신고 팝업*/
+    #popReport .box {padding-left: 8px; padding-right: 8px;}
+    #popReport .user_wrap {gap: 8px;}
+    #popReport .user_wrap figure {width: 24px; height: 24px;}
+    #popReport .user_wrap >div {width: calc(100% - 24px - 8px);}
+    #popReport .user_wrap .name {margin-bottom: 6px; font-size: 12px;}
+    #popReport .user_wrap .text {font-size: 14px;}
+    #popReport .input_wrap {margin-bottom: 16px;}
+    /*가리기,회수팝업*/
+    #popShowHide .box {padding-left: 8px; padding-right: 8px;}
 }
 /* --------------------------------popup end------------------------------ */
 
@@ -431,14 +457,14 @@ input::placeholder {color: #757575;}
 section[data-layout="list"] {padding: 16vw 0; background-color: #F8F8F8;}
 section[data-layout="list"] .list >li {position: relative;}
 section[data-layout="list"] .list >li:not(:last-child) {margin-bottom: 3.2vw;}
+section[data-layout="list"] .list >li >a {display: block; width: 100%; background-color: #fff; border-radius: 3vw; box-shadow: 0 1vw 3.6vw 0 rgba(0, 0, 0, 0.03);}
 section[data-layout="list"] .list .new::after {content: ""; position: absolute; width: 1.6vw; height: 1.6vw; background-color: #DD3636; border-radius: 100%;}
-section[data-layout="list"] .list a {display: block; width: 100%; background-color: #fff; border-radius: 3vw; box-shadow: 0 1vw 3.6vw 0 rgba(0, 0, 0, 0.03);}
 section[data-layout="list"] .list .list_date {font-size: 2.4vw; color: #757575; line-height: 100%;}
 @media only screen and (max-width:500px){
     section[data-layout="list"] {padding: 80px 0;}
     section[data-layout="list"] .list >li:not(:last-child) {margin-bottom: 16px;}
+    section[data-layout="list"] .list >li >a {border-radius: 15px; box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.03);}
     section[data-layout="list"] .list .new::after {width: 8px; height: 8px;}
-    section[data-layout="list"] .list a {border-radius: 15px; box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.03);}
     section[data-layout="list"] .list .list_date {font-size: 12px;}
 }
 /* --------------------------------list common end------------------------------ */

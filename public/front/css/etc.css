@@ -43,25 +43,18 @@
 .comment_sec .cmt_bot textarea.on {height: 22.4vw;}
 /*대댓글*/
 .comment_sec .re_cmt_list {border-top: 0.2vw solid #EBEBEB; background-color: #F8F8F8;}
-.comment_sec .re_cmt_list >li {position: relative; width: 91%; margin: 0 auto; padding-top: 3.2vw;}
+.comment_sec .re_cmt_list >li {padding-top: 3.2vw;}
 .comment_sec .re_cmt_list >li:not(:last-child) {border-bottom: 0.2vw solid #E4E4E4;}
-.comment_sec .re_cmt_list .cmt_header::after {content: ""; position: absolute; left: 0; top: 0; width: 2vw; height: 2vw; border-bottom: 0.4vw solid #CCCCCC; border-left: 0.4vw solid #CCCCCC;}
+.comment_sec .re_cmt_list .cmt_header {position: relative; padding-left: 4.5%;}
+.comment_sec .re_cmt_list .cmt_header::after {content: ""; position: absolute; left: 4.5%; top: 0; width: 2vw; height: 2vw; border-bottom: 0.4vw solid #CCCCCC; border-left: 0.4vw solid #CCCCCC;}
 .comment_sec .re_cmt_list .cmt_body {padding: 0 0 3.2vw calc(6.8vw + 1.6vw);}
 /*대댓글 입력*/
 .comment_sec .re_cmt_list .input_wrap .cmt_body {padding: 0 0 3.2vw 0;}
-.comment_sec .re_cmt_list .input_wrap .cmt_body .inner {width: 100%;}
 /*관리자 댓글*/
 .comment_sec .cmt_list >li.admin_wrap {padding-top: 4.8vw; background-color: #FFF5F5;}
 .comment_sec .admin_wrap .user_wrap .name {font-weight: 600; color: #222;}
 .comment_sec .admin_wrap .user_wrap .name::after {content: ""; display: inline-block; width: 2vw; height: 2.4vw; margin-left: 0.8vw; vertical-align: bottom; background: url(/public/front/images/common/title_pin.svg) no-repeat center/100% auto;}
 .comment_sec .admin_wrap .cmt_text {color: #222;}
-/*신고 팝업*/
-#popReport .user_wrap {display: flex; gap: 1.6vw;}
-#popReport .user_wrap figure {width: 4.8vw; height: 4.8vw; border-radius: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;}
-#popReport .user_wrap >div {width: calc(100% - 4.8vw - 1.6vw);}
-#popReport .user_wrap .name {margin-bottom: 1.2vw; font-size: 2.4vw; color: #555; font-weight: 500;}
-#popReport .user_wrap .text {font-size: 2.8vw; line-height: 152%;}
-#popReport .input_wrap {margin-bottom: 3.2vw;}
 @media only screen and (max-width:500px){
     .comment_sec {padding: 72px 0 32px 0;}
     .comment_sec .cmt_wrap {padding-top: 68px;}
@@ -105,12 +98,5 @@
     /*관리자 댓글*/
     .comment_sec .cmt_list >li.admin_wrap {padding-top: 24px;}
     .comment_sec .admin_wrap .user_wrap .name::after {width: 10px; height: 12px; margin-left: 4px;}
-    /*신고 팝업*/
-    #popReport .user_wrap {gap: 8px;}
-    #popReport .user_wrap figure {width: 24px; height: 24px;}
-    #popReport .user_wrap >div {width: calc(100% - 24px - 8px);}
-    #popReport .user_wrap .name {margin-bottom: 6px; font-size: 12px;}
-    #popReport .user_wrap .text {font-size: 14px;}
-    #popReport .input_wrap {margin-bottom: 16px;}
 }
 /* --------------------------------comment_sec end------------------------------ */

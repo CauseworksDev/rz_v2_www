@@ -286,8 +286,8 @@
 
 
 /* --------------------------------mission list-------------------------------- */
-section[data-layout="list"] .list a{display:flex;flex-direction:row;align-content:center;border-radius:15px;overflow: hidden;}
-section[data-layout="list"] .list > li:not(:last-child){margin-bottom:4.8vw}
+section[data-layout="list"] .list >li >a{display:flex;flex-direction:row;align-content:center;border-radius:15px;overflow: hidden;}
+section[data-layout="list"] .list >li:not(:last-child){margin-bottom:4.8vw}
 section[data-layout="list"] .list figure{width:21.2vw;height:25.6vw;background-size:cover;background-repeat:no-repeat;background-position:center}
 section[data-layout="list"] .list .text_box{display:flex;align-items:center;gap:0;flex:1 0 0}
 section[data-layout="list"] .title_wrap{width:100%;padding:3.2vw 2.4vw;max-height:25.6vw}
@@ -298,8 +298,8 @@ section[data-layout="list"] .data_box .like::after{content:"";position:absolute;
 section[data-layout="list"] .data_box .like i{background-image:url(/public/front/images/main/ico_like.svg)}
 section[data-layout="list"] .data_box .cmt i{background-image:url(/public/front/images/main/ico_cmt.svg)}
 @media only screen and (max-width:500px) {
-    section[data-layout="list"] .list a{border-radius:15px;}
-    section[data-layout="list"] .list > li:not(:last-child){margin-bottom:24px}
+    section[data-layout="list"] .list >li >a{border-radius:15px;}
+    section[data-layout="list"] .list >li:not(:last-child){margin-bottom:24px}
     section[data-layout="list"] .list figure{width:106px;height:128px}
     section[data-layout="list"] .title_wrap{padding:16px 12px;max-height:128px}
     section[data-layout="list"] .title_wrap .list_tit{font-size:15px}
@@ -309,3 +309,64 @@ section[data-layout="list"] .data_box .cmt i{background-image:url(/public/front/
 /* --------------------------------mission list end-------------------------------- */
 
 
+/* --------------------------------detail-------------------------------- */
+/*텍스트입력*/
+section[data-layout="detail"] .input_wrap {margin-bottom: 0; padding-bottom: 4.8vw;}
+/*참여내역 탭*/
+section[data-layout="detail"] .tab_wrap {position: relative; padding-top: 20.8vw;}
+section[data-layout="detail"] .tab_wrap::after {content: ""; position: absolute; left: 0; top: 8vw; width: 100%; height: 8vw; background-color: #EBEBEB; border-radius: 10vw; z-index: 0;}
+section[data-layout="detail"] .tab .tab_cont {display: none;}
+section[data-layout="detail"] .tab >li.on .tab_cont {display: block}
+section[data-layout="detail"] [class^="tab_menu"] {position: absolute; top: 8.8vw; width: calc((100% - 1.6vw)/2); height: 6.4vw; line-height: 6.4vw; font-size: 2.8vw; color: #666; font-weight: 500; border-radius: 10vw; background-color: #EBEBEB; text-align: center; z-index: 1;}
+section[data-layout="detail"] .tab_menu_01 {left: 0.8vw;}
+section[data-layout="detail"] .tab_menu_02 {right: 0.8vw;}
+section[data-layout="detail"] .tab >li.on [class^="tab_menu"] {font-weight: 600; color: #222; background-color: #fff;}
+section[data-layout="detail"] .parti_num_wrap {display: flex; align-items: center; gap: 1.6vw; margin-bottom: 3.2vw;}
+section[data-layout="detail"] .parti_num_wrap::before{content: ""; display: block; width: 10vw; height: 6.8vw; background: url(/public/front/images/etc/level_multiple.svg) no-repeat center/100% auto;}
+section[data-layout="detail"] .parti_num_wrap p {font-size: 2.8vw; line-height: 100%;}
+section[data-layout="detail"] .parti_num_wrap span {font-weight: 700}
+/*참여내역 리스트*/
+section[data-layout="detail"] [class^="history_"] >li:not(:last-child) {margin-bottom: 3.2vw;}
+section[data-layout="detail"] [class^="history_"] >li {padding: 3.2vw; background-color: #F8F8F8; border-radius: 3vw;}
+section[data-layout="detail"] [class^="history_"] .btn_opt {position: absolute; right: -2vw; top: 1vw; width: 4.8vw; height: 4.8vw; background: url(/public/front/images/etc/ico_option.svg) no-repeat center/0.6vw auto;}
+section[data-layout="detail"] [class^="history_"] .opt_wrap {display: none; position: absolute; right: 0; top: 6vw; border: 0.2vw solid #E4E4E4; background-color: #fff; border-radius: 2vw; z-index: 10; box-shadow: 0 0.4vw 1.6vw 0 rgba(0, 0, 0, 0.11);}
+section[data-layout="detail"] [class^="history_"] .opt_wrap li:not(:last-child) {border-bottom: 0.2vw solid #EBEBEB;}
+section[data-layout="detail"] [class^="history_"] .opt_wrap [class^="btn_"] {display: block; width: 20.8vw; height: 8.4vw; line-height: 8.4vw; text-align: center; font-size: 2.8vw;}
+/*참여내역 없음*/
+section[data-layout="detail"] [class^="history_"] .no_history {padding: 4.8vw 3.2vw; text-align: center; font-size: 2.8vw; color: #757575; line-height: 100%;}
+/*참여내역 수정*/
+section[data-layout="detail"] .modi_history .cmt_body {padding-left: 0;}
+section[data-layout="detail"] .modi_history .flex_wrap {display: flex; align-items: flex-end; gap: 1.6vw; width: 100%;}
+section[data-layout="detail"] .modi_history textarea {width: calc(100% - 1.6vw - 10vw); height: 26.8vw; padding: 2.4vw 3.2vw; border-radius: 2vw; border: 0.2vw solid #E4E4E4; line-height: 156%; background-color: #fff; resize: none;}
+section[data-layout="detail"] .modi_history .btn_cmt {width: 10vw; height: 9.2vw; border-radius: 2.4vw; font-size: 2.8vw; font-weight: 600; background-color: #DD3636; color: #fff;}
+/*연관컨텐츠*/
+section[data-layout="detail"] .rec_wrap .label_wrap {margin-bottom: 0.8vw;}
+@media only screen and (max-width:500px) {
+    /*텍스트입력*/
+    section[data-layout="detail"] .input_wrap {padding-bottom: 24px;}
+    /*참여내역 탭*/
+    section[data-layout="detail"] .tab_wrap {padding-top: 104px;}
+    section[data-layout="detail"] .tab_wrap::after {top: 40px; height: 40px; border-radius: 50px;}
+    section[data-layout="detail"] [class^="tab_menu"] {top: 44px; width: calc((100% - 8px)/2); height: 32px; line-height: 32px; font-size: 14px; border-radius: 50px;}
+    section[data-layout="detail"] .tab_menu_01 {left: 4px;}
+    section[data-layout="detail"] .tab_menu_02 {right: 4px;}
+    section[data-layout="detail"] .parti_num_wrap {gap: 8px; margin-bottom: 16px;}
+    section[data-layout="detail"] .parti_num_wrap::before{width: 50px; height: 34px;}
+    section[data-layout="detail"] .parti_num_wrap p {font-size: 14px;}
+    /*참여내역 리스트*/
+    section[data-layout="detail"] [class^="history_"] >li:not(:last-child) {margin-bottom: 16px;}
+    section[data-layout="detail"] [class^="history_"] >li {padding: 16px;border-radius: 15px;}
+    section[data-layout="detail"] [class^="history_"] .btn_opt {right: -10px; top: 5px; width: 24px; height: 24px; background: url(/public/front/images/etc/ico_option.svg) no-repeat center/3px auto;}
+    section[data-layout="detail"] [class^="history_"] .opt_wrap {top: 30px; border: 1px solid #E4E4E4; border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.11);}
+    section[data-layout="detail"] [class^="history_"] .opt_wrap li:not(:last-child) {border-bottom: 1px solid #EBEBEB;}
+    section[data-layout="detail"] [class^="history_"] .opt_wrap [class^="btn_"] {width: 104px; height: 42px; line-height: 42px; font-size: 14px;}
+    /*참여내역 없음*/
+    section[data-layout="detail"] [class^="history_"] .no_history {padding: 24px 16px; font-size: 14px;}
+    /*참여내역 수정*/
+    section[data-layout="detail"] .modi_history .flex_wrap {gap: 8px;}
+    section[data-layout="detail"] .modi_history textarea {width: calc(100% - 8px - 50px); height: 134px; padding: 12px 16px; border-radius: 10px; border: 1px solid #E4E4E4;}
+    section[data-layout="detail"] .modi_history .btn_cmt {width: 50px; height: 46px; border-radius: 12px; font-size: 14px;}
+    /*연관컨텐츠*/
+    section[data-layout="detail"] .rec_wrap .label_wrap {margin-bottom: 4px;}
+}
+/* --------------------------------detail emd-------------------------------- */
